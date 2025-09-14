@@ -10,5 +10,9 @@ func CalculateTotalAfterDiscount(price float64, discount float64) float64 {
 		return price
 	}
 
+	if discount > 1.0 {
+		discount = 1.0
+	}
+
 	return price * (1.0 - discount)
 }

@@ -15,6 +15,7 @@ func TestCalculateTotalAfterDiscount(t *testing.T) {
 		{"no initial price", 0.0, 0.3, 0.0},
 		{"negative price", -5.0, 0.2, 0.0},
 		{"negative discount", 22.0, -0.4, 22.0},
+		{">100% discount", 40, 1.2, 0.0},
 	}
 
 	for _, tt := range tests {
