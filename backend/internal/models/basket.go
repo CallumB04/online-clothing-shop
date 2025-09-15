@@ -6,6 +6,8 @@ type Basket struct {
 }
 
 type BasketItem struct {
-	ItemID   int `json:"itemID"`
-	Quantity int `json:"quantity"`
+	ItemID      int    `json:"itemID"`
+	VariationID int    `json:"variationID"`
+	Size        string `json:"size"`
+	Quantity    int    `json:"quantity"`
 }
