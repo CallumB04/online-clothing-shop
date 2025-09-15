@@ -3,15 +3,19 @@ package models
 type Item struct {
 	ID         int             `json:"id"`
 	Name       string          `json:"name"`
-	Price      float64         `json:"price"`
+	PriceGBP   float64         `json:"priceGBP"`
 	Variations []ItemVariation `json:"variations"`
 }
 
 type ItemVariation struct {
-	ID           int      `json:"id"`
-	Name         string   `json:"name"`
-	PreviewColor string   `json:"previewColor"`
-	Stock        int      `json:"stock"`
-	ImageURL     string   `json:"imageURL"`
-	Sizes        []string `json:"sizes"` // ["XS", "S", "M", "L", "XL", "2XL"]
+	ID           int                  `json:"id"`
+	Name         string               `json:"name"`
+	PreviewColor string               `json:"previewColor"`
+	ImageURL     string               `json:"imageURL"`
+	Sizes        []ItemVariationSizes `json:"sizes"`
+}
+
+type ItemVariationSizes struct {
+	Size  string `json:"size"` // "XS", "S", "M", "L", "XL", "2XL"
+	Stock int    `json:"stock"`
 }
