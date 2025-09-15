@@ -1,14 +1,14 @@
 package models
 
 type Item struct {
-	ID         int             `json:"id"`
+	ID         string          `json:"id"`
 	Name       string          `json:"name"`
 	PriceGBP   float64         `json:"priceGBP"`
 	Variations []ItemVariation `json:"variations"`
 }
 
 type ItemVariation struct {
-	ID           int                  `json:"id"`
+	ID           string               `json:"id"`
 	Name         string               `json:"name"`
 	PreviewColor string               `json:"previewColor"`
 	ImageURL     string               `json:"imageURL"`
