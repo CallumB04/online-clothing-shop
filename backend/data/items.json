@@ -1,0 +1,116 @@
+[
+    {
+        "id": 0,
+        "name": "Icon Crew T-Shirt",
+        "price": "12.95",
+        "variations": [
+            {
+                "id": 0,
+                "name": "Black",
+                "previewColor": "#0e0e0e",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_324-5378-00275-900_prod1.jpg",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "stock": 3
+                    },
+                    {
+                        "size": "S",
+                        "stock": 5
+                    },
+                    {
+                        "size": "M",
+                        "stock": 2
+                    },
+                    {
+                        "size": "L",
+                        "stock": 0
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "name": "Dark Tan",
+                "previewColor": "#a89a8c",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_324-5379-00372-410_prod1.jpg",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 0
+                    },
+                    {
+                        "size": "M",
+                        "stock": 6
+                    },
+                    {
+                        "size": "L",
+                        "stock": 3
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 4
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Baggy Jeans",
+        "price": "39.95",
+        "variations": [
+            {
+                "id": 0,
+                "name": "Light Wash",
+                "previewColor": "#b6c4cf",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-4145-00098-280_prod1.jpg",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "stock": 2
+                    },
+                    {
+                        "size": "S",
+                        "stock": 0
+                    },
+                    {
+                        "size": "M",
+                        "stock": 1
+                    },
+                    {
+                        "size": "L",
+                        "stock": 3
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "name": "Dark Wash",
+                "previewColor": "#3c4d65",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-4123-00110-276_prod1.jpg",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 1
+                    },
+                    {
+                        "size": "M",
+                        "stock": 0
+                    },
+                    {
+                        "size": "L",
+                        "stock": 1
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 4
+                    }
+                ]
+            }
+        ]
+    }
+]
