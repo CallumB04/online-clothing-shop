@@ -7,7 +7,7 @@ import (
 	"github.com/callumb04/online-clothing-shop/backend/internal/util"
 )
 
-func handlerGetItems() http.HandlerFunc {
+func handleGetItems() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		items, err := data.LoadItems()
 

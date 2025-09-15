@@ -7,5 +7,5 @@ func RegisterHandlers(mux *http.ServeMux) {
 	// Root
 	mux.Handle("GET /", handleRoot())
 	// Items
-	mux.Handle("GET /items", handlerGetItems())
+	mux.Handle("GET /items", handleGetItems())
 }
