@@ -8,4 +8,5 @@ func RegisterHandlers(mux *http.ServeMux) {
 	mux.Handle("GET /", handleRoot())
 	// Items
 	mux.Handle("GET /items", handleGetItems())
+	mux.Handle("GET /items/{id}", handleGetItemByID())
 }
