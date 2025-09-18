@@ -23,3 +23,13 @@ interface ItemVariationSize {
     size: string; // "XS", "S", "M", "L", "XL", "2XL"
     stock: number;
 }
+
+export const fetchItems = async (): Promise<Item[]> => {
+    try {
+        const resp = await axios.get<Item[]>("/items");
+        return resp.data;
+    } catch (err) {
+        console.error("Error fetching items: ", err);
+        return [];
+    }
+};
