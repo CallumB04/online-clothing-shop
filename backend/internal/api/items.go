@@ -14,7 +14,7 @@ func handleGetItems() http.HandlerFunc {
 		items, err := data.LoadItems()
 
 		if err != nil {
-			util.ErrorResponse(w, http.StatusInternalServerError, "failed to loads items")
+			util.ErrorResponse(w, http.StatusInternalServerError, "failed to load items")
 			return
 		}
 
@@ -38,11 +38,11 @@ func handleGetItemByID() http.HandlerFunc {
 		items, err := data.LoadItems()
 
 		if err != nil {
-			util.ErrorResponse(w, http.StatusInternalServerError, "failed to loads items")
+			util.ErrorResponse(w, http.StatusInternalServerError, "failed to load items")
 			return
 		}
 
-		// Find item with matching ID and send to client
+		// Find item with matching ID and send to client.
 		for _, item := range items {
 			if item.ID == id {
 				util.JSONResponse(w, http.StatusOK, item)
@@ -50,7 +50,7 @@ func handleGetItemByID() http.HandlerFunc {
 			}
 		}
 
-		// Return error if item with request ID was not found
+		// Return error if item with request ID was not found.
 		util.ErrorResponse(w, http.StatusNotFound, fmt.Sprintf("item (ID: %s) does not exist", id))
 	}
 }
