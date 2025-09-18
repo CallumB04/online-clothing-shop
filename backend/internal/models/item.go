@@ -8,14 +8,14 @@ type Item struct {
 }
 
 type ItemVariation struct {
-	ID           string               `json:"id"`
-	Name         string               `json:"name"`
-	PreviewColor string               `json:"previewColor"`
-	ImageURL     string               `json:"imageURL"`
-	Sizes        []ItemVariationSizes `json:"sizes"`
+	ID           string              `json:"id"`
+	Name         string              `json:"name"`
+	PreviewColor string              `json:"previewColor"`
+	ImageURL     string              `json:"imageURL"`
+	Sizes        []ItemVariationSize `json:"sizes"`
 }
 
-type ItemVariationSizes struct {
+type ItemVariationSize struct {
 	Size  string `json:"size"` // "XS", "S", "M", "L", "XL", "2XL"
 	Stock int    `json:"stock"`
 }
