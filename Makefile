@@ -5,4 +5,8 @@ dev:
 	cd backend && go run ./cmd/server
 
 test:
-	cd backend && gotest ./...
+	cd backend && go test ./...
+
+setup:
+	cd frontend && npm.cmd install
+	cd backend && go mod download
