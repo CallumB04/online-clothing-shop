@@ -7,7 +7,6 @@ This is an e-commerce website I am building using React (frontend) and Go (backe
 ### Prerequisites
 
 -   [Node.js](https://nodejs.org/) installed on your machine. To access `npm` commands
-
 -   [Go](https://go.dev/) installed on your machine. To run the backend server
 
 ### Setup
