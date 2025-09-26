@@ -24,6 +24,7 @@ interface ItemVariationSize {
     stock: number;
 }
 
+// API Calls
 export const fetchItems = async (): Promise<Item[]> => {
     try {
         const resp = await axios.get<Item[]>("/items");
@@ -31,5 +32,15 @@ export const fetchItems = async (): Promise<Item[]> => {
     } catch (err) {
         console.error("Error fetching items: ", err);
         return [];
+    }
+};
+
+export const fetchItemById = async (id: number): Promise<Item | null> => {
+    try {
+        const resp = await axios.get<Item>(`/items/${id}`);
+        return resp.data;
+    } catch (err) {
+        console.error(`Error fetching item with id ${id}: `, err);
+        return null;
     }
 };
