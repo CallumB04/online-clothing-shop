@@ -8,4 +8,8 @@
 @theme {
     /* Colors */
     --color-charcoal: #0e0e0e;
+    --color-button-primary: #2c2c2c;
+
+    /* Fonts */
+    --font-primary: "Alan Sans", sans-serif;
 }
