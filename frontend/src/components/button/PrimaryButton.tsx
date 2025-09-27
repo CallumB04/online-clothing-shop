@@ -18,7 +18,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
             onClick={onClick}
             disabled={disabled}
             className={
-                "bg-button-primary gap-2 rounded-full px-6 py-2 text-white font-semibold font-primary" +
+                "bg-button-primary gap-2 rounded-full px-8 py-3 text-white font-semibold font-primary hover:bg-button-primary-hover" +
                 " " +
                 (className ? className : "")
             }
