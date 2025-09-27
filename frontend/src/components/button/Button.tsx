@@ -13,7 +13,11 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
     return (
         <button
-            className={`${!disabled && "cursor-pointer"}` + " " + className}
+            className={
+                `${!disabled && "cursor-pointer"}` +
+                " " +
+                (className ? className : "")
+            }
             onClick={onClick}
             disabled={disabled}
         >
