@@ -1,16 +1,33 @@
 @import "tailwindcss";
 
-* {
+:root {
+    /* Global Styles */
     box-sizing: border-box;
     scroll-behavior: smooth;
+
+    /* Variables */
+    --navbar-height: 4rem;
+}
+
+body {
+    @apply bg-background;
+}
+
+main {
+    @apply mt-navbar-height px-2 sm:px-4;
 }
 
 @theme {
     /* Colors */
     --color-charcoal: #0e0e0e;
+    --color-background: #fafafa;
     --color-button-primary: #2c2c2c;
     --color-button-primary-hover: #3d3d3d;
 
     /* Fonts */
     --font-primary: "Alan Sans", sans-serif;
+
+    /* Heights */
+    --height-navbar-height: var(--navbar-height);
+    --margin-navbar-height: var(--navbar-height);
 }
