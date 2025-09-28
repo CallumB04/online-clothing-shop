@@ -6,7 +6,7 @@ interface IconProps {
 const Icon: React.FC<IconProps> = ({ icon, onClick }) => {
     return (
         <i
-            className={`material-symbols-outlined ${onClick && "cursor-pointer"}`}
+            className={`material-symbols-outlined ${onClick && "cursor-pointer"} text-charcoal`}
             onClick={onClick}
         >
             {icon}
