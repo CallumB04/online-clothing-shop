@@ -43,7 +43,6 @@ const Navbar = () => {
                 {/* Search bar hidden on Small screen */}
                 <SearchBar
                     onSearch={() => alert("Searching...")}
-                    onQueryChange={(query) => console.log(query)}
                     className="hidden lg:flex"
                 />
                 <span className="clickable-icon-hovered flex items-center gap-1 px-2 py-1">
