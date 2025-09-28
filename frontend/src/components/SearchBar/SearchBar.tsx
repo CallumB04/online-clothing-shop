@@ -3,6 +3,7 @@ import { useState } from "react";
 interface SearchBarProps {
     fullWidth?: boolean;
     placeholder?: string;
+    className?: string;
     onSearch?: (query: string) => void;
     onQueryChange?: (query: string) => void;
 }
@@ -10,6 +11,7 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({
     fullWidth = false,
     placeholder = "Search",
+    className,
     onSearch,
     onQueryChange,
 }) => {
@@ -31,7 +33,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
     return (
         <span
-            className={`border-input-border text-charcoal flex h-10 items-center gap-2 rounded-full border-1 px-4 ${fullWidth && "w-full"}`}
+            className={`border-input-border text-charcoal flex h-10 items-center gap-2 rounded-full border-1 px-4 ${fullWidth && "w-full"} ${className}`}
         >
             <i
                 className={`material-symbols-outlined ${onSearch && "cursor-pointer"}`}
