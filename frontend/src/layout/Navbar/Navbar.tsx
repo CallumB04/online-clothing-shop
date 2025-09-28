@@ -34,7 +34,7 @@ const Navbar = () => {
                     onSearch={() => alert("Searching...")}
                     onQueryChange={(query) => console.log(query)}
                 />
-                <span className="flex items-center gap-1">
+                <span className="clickable-icon-hovered flex items-center gap-1 px-2 py-1">
                     <Icon icon="shopping_bag" />
                     <p className="text-charcoal font-primary">
                         {basket.length}
