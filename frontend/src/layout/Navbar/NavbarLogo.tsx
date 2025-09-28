@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NavbarLogo = () => {
     return (
         <Link to="/">
-            <p className="text-charcoal cursor-pointer text-lg font-semibold tracking-tight uppercase">
+            <p className="text-charcoal font-primary cursor-pointer text-lg tracking-tight uppercase">
                 ClothingShop
             </p>
         </Link>

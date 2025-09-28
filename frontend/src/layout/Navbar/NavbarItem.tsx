@@ -8,7 +8,7 @@ interface NavbarItemProps {
 const NavbarItem: React.FC<NavbarItemProps> = ({ label, toLocation }) => {
     return (
         <Link to={toLocation}>
-            <p className="text-charcoal font-bold">{label}</p>
+            <p className="text-charcoal font-primary font-bold">{label}</p>
         </Link>
     );
 };
