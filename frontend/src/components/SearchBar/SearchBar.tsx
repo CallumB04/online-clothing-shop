@@ -22,6 +22,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
         }
     };
 
+    // allow for enter key to also trigger search
+    const handleEnterPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (onSearch && e.key === "Enter") {
+            onSearch(query);
+        }
+    };
+
     return (
         <span
             className={`border-input-border text-charcoal flex h-10 items-center gap-2 rounded-full border-1 px-4 ${fullWidth && "w-full"}`}
@@ -37,6 +44,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
                 placeholder={placeholder}
                 className="font-primary text-sm outline-none"
                 onChange={(e) => handleQueryChange(e.target.value)}
+                onKeyDown={handleEnterPress}
             />
         </span>
     );
