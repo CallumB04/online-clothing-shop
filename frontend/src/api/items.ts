@@ -11,7 +11,7 @@ export interface Item {
     variations: ItemVariation[];
 }
 
-interface ItemVariation {
+export interface ItemVariation {
     id: number;
     name: string;
     previewColor: string;
@@ -19,7 +19,7 @@ interface ItemVariation {
     sizes: ItemVariationSize[];
 }
 
-interface ItemVariationSize {
+export interface ItemVariationSize {
     size: string; // "XS", "S", "M", "L", "XL", "2XL"
     stock: number;
 }
