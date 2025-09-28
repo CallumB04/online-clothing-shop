@@ -18,7 +18,7 @@ const UIButton: React.FC<UIButtonProps> = ({
             onClick={onClick}
             disabled={disabled}
             className={
-                "border-[1px] border-charcoal gap-2 rounded-sm px-2 py-1 font-primary font-light" +
+                "border-charcoal font-primary gap-2 rounded-sm border-[1px] px-2 py-1 font-light" +
                 " " +
                 (className ? className : "")
             }
