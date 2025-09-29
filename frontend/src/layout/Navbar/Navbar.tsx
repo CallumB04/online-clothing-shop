@@ -4,6 +4,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { useBasket } from "../../context/BasketContext";
 import NavbarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
+import Clickable from "../../components/Clickable/Clickable";
 
 const Navbar = () => {
     const { basket, addBasketItem } = useBasket();
@@ -29,12 +30,15 @@ const Navbar = () => {
             </span>
 
             {/* Left Side (Small screen) */}
-            <span className="clickable-icon-hovered inline-flex p-1 lg:hidden">
+            <Clickable
+                onClick={() => alert("Opening Phone Menu...")}
+                className="lg:hidden"
+            >
                 <Icon icon="menu" />
-            </span>
+            </Clickable>
 
             {/* Center (Small screen) */}
-            <span className="lg:hidden">
+            <span className="ml-2 lg:hidden">
                 <NavbarLogo />
             </span>
 
@@ -45,12 +49,15 @@ const Navbar = () => {
                     onSearch={() => alert("Searching...")}
                     className="hidden lg:flex"
                 />
-                <span className="clickable-icon-hovered flex items-center gap-1 px-2 py-1">
+                <Clickable
+                    onClick={() => alert("Opening basket...")}
+                    className="px-2"
+                >
                     <Icon icon="shopping_bag" />
                     <p className="text-charcoal font-primary">
                         {basket.length}
                     </p>
-                </span>
+                </Clickable>
             </span>
         </nav>
     );
