@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 import UIButton from "../../components/Button/UIButton";
 import PrimaryButton from "../../components/Button/PrimaryButton";
+import Clickable from "../../components/Clickable/Clickable";
 
 const HomePage = () => {
     return (
-        <main>
+        <main className="flex flex-col gap-4">
             <h1 className="text-red-500">Home Page</h1>
             <Link to="/shop">
                 <PrimaryButton>Go to Shop</PrimaryButton>
             </Link>
             <UIButton onClick={() => alert("Hello")}>Buy Now</UIButton>
+            <Clickable onClick={() => alert("Click")}>
+                This is a clickable
+            </Clickable>
         </main>
     );
 };
