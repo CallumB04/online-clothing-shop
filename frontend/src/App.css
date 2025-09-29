@@ -17,7 +17,7 @@ main {
     @apply mt-navbar-height px-2 sm:px-4;
 }
 
-.clickable-icon-hovered {
+.clickable-hovered {
     @apply hover:bg-icon-hover cursor-pointer rounded-md transition-colors duration-150;
 }
 
