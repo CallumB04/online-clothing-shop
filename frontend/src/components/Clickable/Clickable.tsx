@@ -11,7 +11,7 @@ const Clickable: React.FC<ClickableProps> = ({
 }) => {
     return (
         <span
-            className={`inline-flex items-center gap-1 p-1 ${className} clickable-hovered cursor-pointer`}
+            className={`inline-flex items-center gap-1 p-1 ${className} clickable-hovered w-max cursor-pointer`}
             onClick={onClick}
         >
             {children}
