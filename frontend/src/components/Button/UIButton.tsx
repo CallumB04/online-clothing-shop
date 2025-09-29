@@ -5,6 +5,7 @@ interface UIButtonProps {
     onClick?: () => void;
     disabled?: boolean;
     className?: string;
+    fullWidth?: boolean;
 }
 
 const UIButton: React.FC<UIButtonProps> = ({
@@ -12,16 +13,13 @@ const UIButton: React.FC<UIButtonProps> = ({
     onClick,
     disabled,
     className,
+    fullWidth,
 }) => {
     return (
         <Button
             onClick={onClick}
             disabled={disabled}
-            className={
-                "border-charcoal font-primary gap-2 rounded-sm border-[1px] px-2 py-1 font-light" +
-                " " +
-                (className ? className : "")
-            }
+            className={`border-charcoal font-primary gap-2 rounded-sm border-[1px] px-2 py-1 font-light ${fullWidth ? "w-full" : "w-max"} ${className}`}
         >
             {children}
         </Button>
