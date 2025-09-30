@@ -44,7 +44,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             <input
                 type="search"
                 placeholder={placeholder}
-                className={`font-primary text-sm outline-none ${fullWidth ? "w-full" : "w-64"}`}
+                className={`font-primary text-sm outline-none ${fullWidth ? "w-full" : "w-56"}`}
                 onChange={(e) => handleQueryChange(e.target.value)}
                 onKeyDown={handleEnterPress}
             />
