@@ -7,6 +7,7 @@
 
     /* Variables */
     --navbar-height: 4.5rem;
+    --sidebar-width: 18rem;
 }
 
 body {
@@ -14,7 +15,7 @@ body {
 }
 
 main {
-    @apply mt-navbar-height px-2 sm:px-4;
+    @apply mt-navbar-height px-2 py-4 sm:px-4 sm:py-6;
 }
 
 .clickable-hovered {
@@ -33,7 +34,9 @@ main {
     /* Fonts */
     --font-primary: "Alan Sans", sans-serif;
 
-    /* Heights */
+    /* Sizes */
     --height-navbar-height: var(--navbar-height);
     --margin-navbar-height: var(--navbar-height);
+    --width-sidebar-width: var(--sidebar-width);
+    --margin-sidebar-width: var(--sidebar-width);
 }
