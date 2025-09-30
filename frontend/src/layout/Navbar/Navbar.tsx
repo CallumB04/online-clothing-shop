@@ -19,7 +19,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="h-navbar-height bg-background fixed top-0 left-0 flex w-screen items-center justify-between border-b-1 border-b-[#eaeaea] px-4 xl:px-16">
+        <nav className="h-navbar-height bg-background fixed top-0 left-0 z-20 flex w-screen items-center justify-between border-b-1 border-b-[#eaeaea] px-4 xl:px-16">
             {/* Left side (Big screen): Logo and Navigation */}
             <span className="hidden items-center gap-12 lg:flex">
                 <NavbarLogo />
