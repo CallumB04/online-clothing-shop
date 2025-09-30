@@ -33,7 +33,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
     return (
         <span
-            className={`border-input-border text-charcoal flex h-10 items-center gap-2 rounded-full border-1 px-4 ${fullWidth ? "w-full" : "w-80"} ${className}`}
+            className={`border-input-border text-charcoal flex h-10 items-center gap-2 rounded-full border-1 px-4 ${fullWidth && "w-full"} ${className}`}
         >
             <i
                 className={`material-symbols-outlined ${onSearch && "cursor-pointer"}`}
@@ -44,7 +44,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             <input
                 type="search"
                 placeholder={placeholder}
-                className="font-primary text-sm outline-none"
+                className={`font-primary text-sm outline-none ${fullWidth ? "w-full" : "w-64"}`}
                 onChange={(e) => handleQueryChange(e.target.value)}
                 onKeyDown={handleEnterPress}
             />
