@@ -3,6 +3,7 @@ package models
 type Item struct {
 	ID         string          `json:"id"`
 	Name       string          `json:"name"`
+	Gender     string          `json:"gender"` // "M" / "F"
 	PriceGBP   float64         `json:"priceGBP"`
 	Variations []ItemVariation `json:"variations"`
 }

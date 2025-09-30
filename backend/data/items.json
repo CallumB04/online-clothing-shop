@@ -2,6 +2,7 @@
     {
         "id": "0",
         "name": "Icon Crew T-Shirt",
+        "gender": "M",
         "priceGBP": 12.95,
         "variations": [
             {
@@ -61,6 +62,7 @@
     {
         "id": "1",
         "name": "Baggy Jeans",
+        "gender": "M",
         "priceGBP": 39.95,
         "variations": [
             {
@@ -116,6 +118,7 @@
     {
         "id": "2",
         "name": "Baggy Icon Sweatpants",
+        "gender": "M",
         "priceGBP": 29.95,
         "variations": [
             {
@@ -203,6 +206,7 @@
     {
         "id": "3",
         "name": "Boxy Washed Hoodie",
+        "gender": "F",
         "priceGBP": 18.99,
         "variations": [
             {

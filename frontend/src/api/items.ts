@@ -7,6 +7,7 @@ axios.defaults.baseURL = API_URL;
 export interface Item {
     id: number;
     name: string;
+    gender: string; // "M" / "F"
     priceGBP: number;
     variations: ItemVariation[];
 }
