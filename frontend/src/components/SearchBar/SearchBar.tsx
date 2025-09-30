@@ -33,7 +33,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
     return (
         <span
-            className={`border-input-border text-charcoal flex h-10 items-center gap-2 rounded-full border-1 px-4 ${fullWidth && "w-full"} ${className}`}
+            className={`border-input-border text-charcoal flex h-10 items-center gap-2 rounded-full border-1 px-4 ${fullWidth ? "w-full" : "w-80"} ${className}`}
         >
             <i
                 className={`material-symbols-outlined ${onSearch && "cursor-pointer"}`}
