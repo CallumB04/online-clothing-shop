@@ -23,10 +23,13 @@ const Navbar = () => {
             {/* Left side (Big screen): Logo and Navigation */}
             <span className="hidden items-center gap-12 lg:flex">
                 <NavbarLogo />
-                <NavbarItem label="Men's" toLocation="/shop" />
-                <NavbarItem label="Women's" toLocation="/shop" />
-                <NavbarItem label="New Arrivals" toLocation="/shop" />
-                <NavbarItem label="Offers" toLocation="/shop" />
+                <NavbarItem label="Men's" toLocation="/shop/mens" />
+                <NavbarItem label="Women's" toLocation="/shop/womens" />
+                <NavbarItem
+                    label="New Arrivals"
+                    toLocation="/shop?category=new"
+                />
+                <NavbarItem label="Offers" toLocation="/shop?category=offers" />
             </span>
 
             {/* Left Side (Small screen) */}
