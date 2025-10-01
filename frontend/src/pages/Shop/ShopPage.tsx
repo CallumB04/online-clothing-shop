@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { fetchItems, type Item } from "../../api";
 import Sidebar from "../../layout/Sidebar/Sidebar";
+import { useParams } from "react-router-dom";
 
 const ShopPage = () => {
     const [items, setItems] = useState<Item[]>([]);
+
+    const { gender } = useParams();
 
     // Fetch all items from API
     useEffect(() => {
@@ -17,7 +20,7 @@ const ShopPage = () => {
 
     return (
         <>
-            <Sidebar />
+            <Sidebar gender={gender} />
             <main className="lg:ml-sidebar-width">
                 <h1 className="text-blue-500">Shop Page</h1>
                 <div className="flex gap-4">
