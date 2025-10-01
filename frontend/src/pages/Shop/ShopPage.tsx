@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchItems, type Item } from "../../api";
 import Sidebar from "../../layout/Sidebar/Sidebar";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 const ShopPage = () => {
     const [items, setItems] = useState<Item[]>([]);
@@ -17,6 +17,11 @@ const ShopPage = () => {
 
         fetchData();
     }, []);
+
+    // if user attempts to manually alter url, redirected back to root shop page
+    if (gender && !["mens", "womens"].includes(gender)) {
+        return <Navigate to="/shop" replace />;
+    }
 
     return (
         <>
