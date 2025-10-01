@@ -37,6 +37,7 @@ main {
     /* Sizes */
     --height-navbar-height: var(--navbar-height);
     --margin-navbar-height: var(--navbar-height);
+    --padding-navbar-height: var(--navbar-height);
     --width-sidebar-width: var(--sidebar-width);
     --margin-sidebar-width: var(--sidebar-width);
 }
