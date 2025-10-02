@@ -1,15 +1,15 @@
-import { useSearchParams } from "react-router-dom";
 import SidebarBreadcrumbItem from "./SidebarBreadcrumbItem";
 import { capitalize } from "../../util/capitalize";
 
 interface SidebarBreadcrumbsProps {
     gender: string | undefined;
+    category: string;
 }
 
-const SidebarBreadcrumbs: React.FC<SidebarBreadcrumbsProps> = ({ gender }) => {
-    const [searchParams] = useSearchParams();
-    const category = searchParams.get("category");
-
+const SidebarBreadcrumbs: React.FC<SidebarBreadcrumbsProps> = ({
+    gender,
+    category,
+}) => {
     return (
         <span className="flex items-center gap-1 px-3">
             <SidebarBreadcrumbItem

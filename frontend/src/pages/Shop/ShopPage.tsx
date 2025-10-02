@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import { fetchItems, type Item } from "../../api";
 import Sidebar from "../../layout/Sidebar/Sidebar";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams, useSearchParams } from "react-router-dom";
 
 const ShopPage = () => {
     const [items, setItems] = useState<Item[]>([]);
 
+    // Get gender from URL: /shop/<"mens"/"womens">
     const { gender } = useParams();
+
+    // Get category from URL params: ?category=<category>
+    const [searchParams] = useSearchParams();
+    const category = searchParams.get("category") || ""; // default to empty string if no category
 
     // Fetch all items from API
     useEffect(() => {
@@ -25,7 +30,7 @@ const ShopPage = () => {
 
     return (
         <>
-            <Sidebar gender={gender} />
+            <Sidebar gender={gender} category={category} />
             <main className="lg:ml-sidebar-width">
                 <h1 className="text-blue-500">Shop Page</h1>
                 <div className="flex gap-4">
