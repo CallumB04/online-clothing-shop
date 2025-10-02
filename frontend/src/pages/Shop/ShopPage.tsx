@@ -3,6 +3,9 @@ import { fetchItems, type Item } from "../../api";
 import Sidebar from "../../layout/Sidebar/Sidebar";
 import { Navigate, useParams, useSearchParams } from "react-router-dom";
 
+const eligibleGenders: string[] = ["mens", "womens"];
+const eligibleCategories: string[] = ["new", "tops", "bottoms", "hoodies"];
+
 const ShopPage = () => {
     const [items, setItems] = useState<Item[]>([]);
 
@@ -23,9 +26,14 @@ const ShopPage = () => {
         fetchData();
     }, []);
 
-    // if user attempts to manually alter url, redirected back to root shop page
-    if (gender && !["mens", "womens"].includes(gender)) {
-        return <Navigate to="/shop" replace />;
+    // If user attempts to manually alter url, redirected back to root shop page
+    if (gender && !eligibleGenders.includes(gender)) {
+        return <Navigate to="/shop" replace />; // replace - removes from history in browser
+    }
+
+    // If user has incorrect category in url, remove param entirely
+    if (category && !eligibleCategories.includes(category)) {
+        return <Navigate to={`/shop${gender ? "/" + gender : ""}`} replace />;
     }
 
     return (
