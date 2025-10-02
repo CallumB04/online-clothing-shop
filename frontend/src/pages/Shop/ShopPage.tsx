@@ -4,7 +4,13 @@ import Sidebar from "../../layout/Sidebar/Sidebar";
 import { Navigate, useParams, useSearchParams } from "react-router-dom";
 
 const eligibleGenders: string[] = ["mens", "womens"];
-const eligibleCategories: string[] = ["new", "tops", "bottoms", "hoodies"];
+const eligibleCategories: string[] = [
+    "new",
+    "offers",
+    "tops",
+    "bottoms",
+    "hoodies",
+];
 
 const ShopPage = () => {
     const [items, setItems] = useState<Item[]>([]);
@@ -38,7 +44,11 @@ const ShopPage = () => {
 
     return (
         <>
-            <Sidebar gender={gender} category={category} />
+            <Sidebar
+                gender={gender}
+                category={category}
+                eligibleCategories={eligibleCategories}
+            />
             <main className="lg:ml-sidebar-width">
                 <h1 className="text-blue-500">Shop Page</h1>
                 <div className="flex gap-4">
