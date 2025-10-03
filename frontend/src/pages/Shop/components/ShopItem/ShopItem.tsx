@@ -9,10 +9,15 @@ interface ShopItemProps {
 
 const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
     return (
-        <div key={item.id} className="flex flex-col gap-2">
+        <div
+            key={item.id}
+            className="group flex cursor-pointer flex-col gap-2 rounded-md transition-all duration-200 hover:scale-105 hover:shadow-lg"
+        >
             <ShopItemImage imageURL={item.variations[0].imageURL} />
-            <ShopItemName name={item.name} />
-            <ShopItemPrice price={item.priceGBP} />
+            <div className="flex flex-col gap-1 p-4 pt-0">
+                <ShopItemName name={item.name} />
+                <ShopItemPrice price={item.priceGBP} />
+            </div>
         </div>
     );
 };
