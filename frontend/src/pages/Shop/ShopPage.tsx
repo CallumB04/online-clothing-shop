@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchItems, type Item } from "../../api";
 import Sidebar from "../../layout/Sidebar/Sidebar";
 import { Navigate, useParams, useSearchParams } from "react-router-dom";
+import ShopItem from "./components/ShopItem/ShopItem";
 
 const eligibleGenders: string[] = ["mens", "womens"];
 const eligibleCategories: string[] = [
@@ -51,12 +52,9 @@ const ShopPage = () => {
             />
             <main className="lg:ml-sidebar-width">
                 <h1 className="text-blue-500">Shop Page</h1>
-                <div className="flex gap-4">
+                <div className="grid w-full grid-cols-2 gap-6 p-4 md:grid-cols-3">
                     {items.map((item) => (
-                        <div key={item.id}>
-                            <h2>{item.name}</h2>
-                            <p>{item.priceGBP}</p>
-                        </div>
+                        <ShopItem item={item} />
                     ))}
                 </div>
             </main>
