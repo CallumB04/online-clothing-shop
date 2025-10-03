@@ -52,7 +52,7 @@ const ShopPage = () => {
             />
             <main className="lg:ml-sidebar-width">
                 <h1 className="text-blue-500">Shop Page</h1>
-                <div className="grid w-full grid-cols-2 gap-6 p-4 md:grid-cols-3">
+                <div className="grid w-full grid-cols-2 gap-6 p-4 md:grid-cols-3 2xl:grid-cols-4">
                     {items.map((item) => (
                         <ShopItem item={item} />
                     ))}
