@@ -15,7 +15,7 @@ body {
 }
 
 main {
-    @apply mt-navbar-height px-2 py-4 sm:px-4 sm:py-6;
+    @apply mt-navbar-height;
 }
 
 .clickable-hovered {

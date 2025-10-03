@@ -5,7 +5,7 @@ import Clickable from "../../components/Clickable/Clickable";
 
 const HomePage = () => {
     return (
-        <main className="flex flex-col gap-4">
+        <main className="flex flex-col gap-4 px-2 py-4 sm:px-4 sm:py-6">
             <h1 className="text-red-500">Home Page</h1>
             <Link to="/shop">
                 <PrimaryButton>Go to Shop</PrimaryButton>
