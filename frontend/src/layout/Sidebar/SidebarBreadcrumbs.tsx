@@ -1,5 +1,6 @@
 import SidebarBreadcrumbItem from "./SidebarBreadcrumbItem";
 import { capitalize } from "../../util/capitalize";
+import { addApostropheToGender } from "../../util/gender";
 
 interface SidebarBreadcrumbsProps {
     gender: string | undefined;
@@ -19,7 +20,7 @@ const SidebarBreadcrumbs: React.FC<SidebarBreadcrumbsProps> = ({
             />
             {gender && (
                 <SidebarBreadcrumbItem
-                    label={capitalize(gender)}
+                    label={addApostropheToGender(gender)}
                     toLocation={`/shop/${gender}`}
                 />
             )}
