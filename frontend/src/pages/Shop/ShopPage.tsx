@@ -3,6 +3,9 @@ import { fetchItems, type Item } from "../../api";
 import Sidebar from "../../layout/Sidebar/Sidebar";
 import { Navigate, useParams, useSearchParams } from "react-router-dom";
 import ShopItem from "./components/ShopItem/ShopItem";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import { addApostropheToGender } from "../../util/gender";
+import { capitalize } from "../../util/capitalize";
 
 const eligibleGenders: string[] = ["mens", "womens"];
 const eligibleCategories: string[] = [
@@ -50,9 +53,15 @@ const ShopPage = () => {
                 category={category}
                 eligibleCategories={eligibleCategories}
             />
-            <main className="lg:ml-sidebar-width">
-                <h1 className="text-blue-500">Shop Page</h1>
-                <div className="grid w-full grid-cols-2 gap-6 p-4 md:grid-cols-3 2xl:grid-cols-4">
+            <main className="lg:ml-sidebar-width flex flex-col gap-8 px-2 py-6 sm:px-8 sm:py-10">
+                <PageHeader
+                    text={
+                        (gender ? addApostropheToGender(gender) : "All") +
+                        " " +
+                        (category ? capitalize(category) : "Clothing")
+                    }
+                />
+                <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 2xl:grid-cols-4">
                     {items.map((item) => (
                         <ShopItem item={item} />
                     ))}
