@@ -3,13 +3,13 @@ import ShopSidebarBreadcrumbs from "./ShopSidebarBreadcrumbs";
 import ShopSidebarItem from "./ShopSidebarItem";
 import ShopSidebarItems from "./ShopSidebarItems";
 
-interface SidebarProps {
+interface ShopSidebarProps {
     gender: string | undefined;
     category: string;
     eligibleCategories: string[];
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
+const ShopSidebar: React.FC<ShopSidebarProps> = ({
     gender,
     category,
     eligibleCategories,
@@ -35,4 +35,4 @@ const Sidebar: React.FC<SidebarProps> = ({
     );
 };
 
-export default Sidebar;
+export default ShopSidebar;
