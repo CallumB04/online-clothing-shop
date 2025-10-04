@@ -1,13 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import Icon from "../../components/Icon/Icon";
 
-interface SidebarItemProps {
+interface ShopSidebarItemProps {
     label: string;
     category: string;
     gender: string | undefined;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({
+const ShopSidebarItem: React.FC<ShopSidebarItemProps> = ({
     label,
     category,
     gender,
@@ -33,4 +33,4 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     );
 };
 
-export default SidebarItem;
+export default ShopSidebarItem;

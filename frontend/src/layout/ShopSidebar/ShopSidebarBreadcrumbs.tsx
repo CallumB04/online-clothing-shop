@@ -1,31 +1,31 @@
-import SidebarBreadcrumbItem from "./SidebarBreadcrumbItem";
+import ShopSidebarBreadcrumbItem from "./ShopSidebarBreadcrumbItem";
 import { capitalize } from "../../util/capitalize";
 import { addApostropheToGender } from "../../util/gender";
 
-interface SidebarBreadcrumbsProps {
+interface ShopSidebarBreadcrumbsProps {
     gender: string | undefined;
     category: string;
 }
 
-const SidebarBreadcrumbs: React.FC<SidebarBreadcrumbsProps> = ({
+const ShopSidebarBreadcrumbs: React.FC<ShopSidebarBreadcrumbsProps> = ({
     gender,
     category,
 }) => {
     return (
         <span className="flex items-center gap-1 px-3">
-            <SidebarBreadcrumbItem
+            <ShopSidebarBreadcrumbItem
                 label="Shop"
                 toLocation="/shop"
                 firstBreadcrumb
             />
             {gender && (
-                <SidebarBreadcrumbItem
+                <ShopSidebarBreadcrumbItem
                     label={addApostropheToGender(gender)}
                     toLocation={`/shop/${gender}`}
                 />
             )}
             {category && (
-                <SidebarBreadcrumbItem
+                <ShopSidebarBreadcrumbItem
                     label={capitalize(category)}
                     toLocation={`/shop?category=${category}`}
                 />
@@ -34,4 +34,4 @@ const SidebarBreadcrumbs: React.FC<SidebarBreadcrumbsProps> = ({
     );
 };
 
-export default SidebarBreadcrumbs;
+export default ShopSidebarBreadcrumbs;

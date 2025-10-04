@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchItems, type Item } from "../../api";
-import Sidebar from "../../layout/Sidebar/Sidebar";
+import ShopSidebar from "../../layout/ShopSidebar/ShopSidebar";
 import { Navigate, useParams, useSearchParams } from "react-router-dom";
 import ShopItem from "./components/ShopItem/ShopItem";
 import PageHeader from "../../components/PageHeader/PageHeader";
@@ -48,7 +48,7 @@ const ShopPage = () => {
 
     return (
         <>
-            <Sidebar
+            <ShopSidebar
                 gender={gender}
                 category={category}
                 eligibleCategories={eligibleCategories}
@@ -63,7 +63,7 @@ const ShopPage = () => {
                 />
                 <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 2xl:grid-cols-4">
                     {items.map((item) => (
-                        <ShopItem item={item} />
+                        <ShopItem item={item} key={item.id} />
                     ))}
                 </div>
             </main>
