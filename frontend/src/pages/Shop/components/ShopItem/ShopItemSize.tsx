@@ -11,7 +11,7 @@ const ShopItemSize: React.FC<ShopItemSizeProps> = ({
 }) => {
     return (
         <p
-            className={`bg-background border-charcoal rounded-full px-1.5 py-0.5 ${selected ? "border-2 p-[1px]" : "border-1 p-0.5"} cursor-pointer text-center text-xs font-semibold`}
+            className={`bg-background border-charcoal rounded-full ${selected ? "border-2 px-[5px] py-[1px]" : "border-1 px-1.5 py-0.5"} cursor-pointer text-center text-xs font-semibold`}
             onClick={() => setSelected(size)}
         >
             {size}

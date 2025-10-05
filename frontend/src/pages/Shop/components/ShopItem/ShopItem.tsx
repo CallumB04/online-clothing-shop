@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { eligibleSizes, type Item } from "../../../../api";
 import ShopItemImage from "./ShopItemImage";
 import ShopItemName from "./ShopItemName";
@@ -14,11 +14,23 @@ interface ShopItemProps {
 }
 
 const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
-    // state to manage current selected color variation of clothing item, using variation ID
+    // state to manage current selected color variation of item, using variation ID
     const [selectedVariation, setSelectedVariation] = useState<string>("0");
-    const [selectedSize, setSelectedSize] = useState<string>("XS");
+    // state to manage current select size of item - "XS", "M", etc
+    const [selectedSize, setSelectedSize] = useState<string>(
+        item.variations[0].sizes.find((v) => v.stock > 0)?.size || ""
+    );
 
     const { basket, addBasketItem } = useBasket();
+
+    // update selectedSize when variation changes, incase new variation doesnt have current selected variation
+    useEffect(() => {
+        setSelectedSize(
+            item.variations
+                .find((v) => v.id === selectedVariation)
+                ?.sizes.find((v) => v.stock > 0)?.size || ""
+        );
+    }, [selectedVariation]);
 
     return (
         <div className="group flex flex-col gap-2 rounded-md transition-all duration-200 hover:scale-105 hover:shadow-lg">
