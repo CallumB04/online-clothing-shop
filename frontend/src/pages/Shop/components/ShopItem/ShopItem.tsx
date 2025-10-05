@@ -23,6 +23,7 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                         <ShopItemVariation
                             variation={variation}
                             selected={selectedVariation === variation.id}
+                            setSelected={setSelectedVariation}
                         />
                     ))}
                 </div>
