@@ -15,7 +15,12 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
 
     return (
         <div className="group flex cursor-pointer flex-col gap-2 rounded-md transition-all duration-200 hover:scale-105 hover:shadow-lg">
-            <ShopItemImage imageURL={item.variations[0].imageURL} />
+            <ShopItemImage
+                imageURL={
+                    item.variations.find((v) => v.id === selectedVariation)
+                        ?.imageURL || item.variations[0].imageURL
+                }
+            />
             <div className="flex flex-col gap-1 px-3 py-4 pt-0">
                 {/* Item Variation Preview Colors */}
                 <div className="flex items-center gap-2">
