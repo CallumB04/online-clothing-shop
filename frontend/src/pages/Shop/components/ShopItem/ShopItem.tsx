@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { eligibleSizes, type Item } from "../../../../api";
+import { eligibleSizes, type Item, type ItemVariation } from "../../../../api";
 import ShopItemImage from "./ShopItemImage";
 import ShopItemName from "./ShopItemName";
 import ShopItemPrice from "./ShopItemPrice";
@@ -63,6 +63,12 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                         {eligibleSizes.map((size) => (
                             <ShopItemSize
                                 size={size}
+                                hasStock={
+                                    (item.variations
+                                        .find((v) => v.id === selectedVariation)
+                                        ?.sizes.find((s) => s.size === size)
+                                        ?.stock ?? 0) > 0 || false
+                                }
                                 selected={selectedSize === size}
                                 setSelected={setSelectedSize}
                             />
