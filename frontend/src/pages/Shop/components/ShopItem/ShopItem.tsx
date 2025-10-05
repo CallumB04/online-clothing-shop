@@ -79,8 +79,13 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                         <ShopItemPrice price={item.priceGBP} />
                     </div>
                 </div>
-                {/* Add to basket button */}
-                {!basket.find((i) => i.itemID === item.id) && (
+                {/* Add to basket button OR quantity label with + and - buttons*/}
+                {!basket.find(
+                    (i) =>
+                        i.itemID === item.id &&
+                        i.variationID === selectedVariation &&
+                        i.size === selectedSize
+                ) ? (
                     <UIButton
                         className="text-sm"
                         onClick={() =>
@@ -94,6 +99,21 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                     >
                         Add to Basket
                     </UIButton>
+                ) : (
+                    // Quantity text with + and -
+                    <span className="text-charcoal text-sm">
+                        <p className="font-primary">
+                            Quantity:{" "}
+                            {
+                                basket.find(
+                                    (i) =>
+                                        i.itemID === item.id &&
+                                        i.variationID === selectedVariation &&
+                                        i.size === selectedSize
+                                )?.quantity
+                            }
+                        </p>
+                    </span>
                 )}
             </span>
         </div>
