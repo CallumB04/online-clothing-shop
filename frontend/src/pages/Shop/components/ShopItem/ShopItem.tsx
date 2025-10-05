@@ -143,7 +143,7 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                         <ShopItemPrice price={item.priceGBP} />
                     </div>
                 </div>
-                {/* Add to basket button OR quantity label with + and - buttons*/}
+                {/* Add to basket button*/}
                 {!basket.find(
                     (i) =>
                         i.itemID === item.id &&
