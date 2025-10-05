@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({
             className={
                 `${
                     !disabled &&
-                    "flex cursor-pointer justify-center transition-colors duration-300"
+                    "flex h-max cursor-pointer justify-center transition-colors duration-300"
                 }` +
                 " " +
                 (className ? className : "")
