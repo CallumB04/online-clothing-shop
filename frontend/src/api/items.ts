@@ -25,6 +25,8 @@ export interface ItemVariationSize {
     stock: number;
 }
 
+export const eligibleSizes = ["XS", "S", "M", "L", "XL", "2XL"];
+
 // API Calls
 export const fetchItems = async (): Promise<Item[]> => {
     try {
