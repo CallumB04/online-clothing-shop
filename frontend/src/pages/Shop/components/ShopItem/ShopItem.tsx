@@ -5,6 +5,7 @@ import ShopItemName from "./ShopItemName";
 import ShopItemPrice from "./ShopItemPrice";
 import ShopItemVariation from "./ShopItemVariation";
 import LightClickableText from "../../../../components/Text/LightClickableText";
+import UIButton from "../../../../components/Button/UIButton";
 
 interface ShopItemProps {
     item: Item;
@@ -22,26 +23,29 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                         ?.imageURL || item.variations[0].imageURL
                 }
             />
-            <div className="flex flex-col gap-1 px-3 py-4 pt-0">
-                {/* Item Variation Preview Colors */}
-                <div className="flex items-center gap-2">
-                    {item.variations.slice(0, 4).map((variation) => (
-                        <ShopItemVariation
-                            variation={variation}
-                            selected={selectedVariation === variation.id}
-                            setSelected={setSelectedVariation}
-                        />
-                    ))}
-                    {/* Label for additional variations -> "+2" */}
-                    {item.variations.length > 4 && (
-                        <LightClickableText
-                            text={`+ ${item.variations.length - 4}`}
-                        />
-                    )}
+            <span className="flex justify-between px-3 py-4 pt-0">
+                <div className="flex flex-col gap-1">
+                    {/* Item Variation Preview Colors */}
+                    <div className="flex items-center gap-2">
+                        {item.variations.slice(0, 4).map((variation) => (
+                            <ShopItemVariation
+                                variation={variation}
+                                selected={selectedVariation === variation.id}
+                                setSelected={setSelectedVariation}
+                            />
+                        ))}
+                        {/* Label for additional variations -> "+2" */}
+                        {item.variations.length > 4 && (
+                            <LightClickableText
+                                text={`+ ${item.variations.length - 4}`}
+                            />
+                        )}
+                    </div>
+                    <ShopItemName name={item.name} />
+                    <ShopItemPrice price={item.priceGBP} />
                 </div>
-                <ShopItemName name={item.name} />
-                <ShopItemPrice price={item.priceGBP} />
-            </div>
+                <UIButton className="text-sm">Add to Basket</UIButton>
+            </span>
         </div>
     );
 };
