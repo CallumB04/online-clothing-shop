@@ -143,27 +143,28 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                         <ShopItemPrice price={item.priceGBP} />
                     </div>
                 </div>
-                {/* Add to basket button*/}
+                {/* Add to basket button */}
                 {!basket.find(
                     (i) =>
                         i.itemID === item.id &&
                         i.variationID === selectedVariation &&
                         i.size === selectedSize
-                ) && (
-                    <UIButton
-                        className="text-sm sm:hidden xl:flex"
-                        onClick={() =>
-                            addBasketItem({
-                                itemID: item.id,
-                                variationID: selectedVariation,
-                                size: selectedSize,
-                                quantity: 1,
-                            })
-                        }
-                    >
-                        Add to Basket
-                    </UIButton>
-                )}
+                ) &&
+                    selectedSize && (
+                        <UIButton
+                            className="text-sm sm:hidden xl:flex"
+                            onClick={() =>
+                                addBasketItem({
+                                    itemID: item.id,
+                                    variationID: selectedVariation,
+                                    size: selectedSize,
+                                    quantity: 1,
+                                })
+                            }
+                        >
+                            Add to Basket
+                        </UIButton>
+                    )}
             </span>
         </div>
     );
