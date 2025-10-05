@@ -6,6 +6,7 @@ import ShopItemPrice from "./ShopItemPrice";
 import ShopItemVariation from "./ShopItemVariation";
 import LightClickableText from "../../../../components/Text/LightClickableText";
 import UIButton from "../../../../components/Button/UIButton";
+import { useBasket } from "../../../../context/BasketContext";
 
 interface ShopItemProps {
     item: Item;
@@ -15,8 +16,10 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
     // state to manage current selected color variation of clothing item, using variation ID
     const [selectedVariation, setSelectedVariation] = useState<string>("0");
 
+    const { basket, addBasketItem } = useBasket();
+
     return (
-        <div className="group flex cursor-pointer flex-col gap-2 rounded-md transition-all duration-200 hover:scale-105 hover:shadow-lg">
+        <div className="group flex flex-col gap-2 rounded-md transition-all duration-200 hover:scale-105 hover:shadow-lg">
             <ShopItemImage
                 imageURL={
                     item.variations.find((v) => v.id === selectedVariation)
@@ -44,7 +47,10 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                     <ShopItemName name={item.name} />
                     <ShopItemPrice price={item.priceGBP} />
                 </div>
-                <UIButton className="text-sm">Add to Basket</UIButton>
+                {/* Add to basket button */}
+                {!basket.find((i) => i.itemID === item.id) && (
+                    <UIButton className="text-sm">Add to Basket</UIButton>
+                )}
             </span>
         </div>
     );
