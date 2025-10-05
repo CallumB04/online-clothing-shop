@@ -53,7 +53,7 @@ const ShopPage = () => {
                 category={category}
                 eligibleCategories={eligibleCategories}
             />
-            <main className="lg:ml-sidebar-width flex flex-col gap-8 px-2 py-6 sm:px-8 sm:py-10">
+            <main className="lg:ml-sidebar-width gap flex flex-col gap-8 px-4 py-6 sm:py-10 lg:px-8">
                 <PageHeader
                     text={
                         (gender ? addApostropheToGender(gender) : "All") +
@@ -61,7 +61,7 @@ const ShopPage = () => {
                         (category ? capitalize(category) : "Clothing")
                     }
                 />
-                <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 2xl:grid-cols-4">
+                <div className="grid w-full grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 2xl:grid-cols-3">
                     {items.map((item) => (
                         <ShopItem item={item} key={item.id} />
                     ))}

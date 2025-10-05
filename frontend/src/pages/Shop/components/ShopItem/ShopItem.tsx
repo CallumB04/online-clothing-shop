@@ -33,8 +33,20 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
         );
     }, [selectedVariation]);
 
+    // function to check if current item, variation and size exists in basket
+    const checkItemInBasket = () => {
+        return basket.find(
+            (i) =>
+                i.itemID === item.id &&
+                i.variationID === selectedVariation &&
+                i.size === selectedSize
+        )
+            ? true
+            : false;
+    };
+
     return (
-        <div className="group flex flex-col gap-2 rounded-md transition-all duration-200 hover:scale-105 hover:shadow-lg">
+        <div className="group flex flex-col gap-2 rounded-md transition-all duration-200 sm:hover:scale-105 sm:hover:shadow-lg">
             <ShopItemImage
                 imageURL={
                     item.variations.find((v) => v.id === selectedVariation)
@@ -42,23 +54,74 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                 }
             />
             <span className="flex justify-between px-3 py-4 pt-0">
-                <div className="flex flex-col gap-2">
-                    {/* Item Variation Preview Colors */}
-                    <div className="flex items-center gap-2">
-                        {item.variations.slice(0, 4).map((variation) => (
-                            <ShopItemVariation
-                                variation={variation}
-                                selected={selectedVariation === variation.id}
-                                setSelected={setSelectedVariation}
-                            />
-                        ))}
-                        {/* Label for additional variations -> "+2" */}
-                        {item.variations.length > 4 && (
-                            <LightClickableText
-                                text={`+ ${item.variations.length - 4}`}
-                            />
+                <div
+                    className={`flex flex-col gap-2 ${
+                        checkItemInBasket() && "w-full"
+                    }`}
+                >
+                    <span className="flex h-max w-full justify-between">
+                        {/* Item Variation Preview Colors */}
+                        <div className="flex items-center gap-2">
+                            {item.variations.slice(0, 4).map((variation) => (
+                                <ShopItemVariation
+                                    variation={variation}
+                                    selected={
+                                        selectedVariation === variation.id
+                                    }
+                                    setSelected={setSelectedVariation}
+                                />
+                            ))}
+                            {/* Label for additional variations -> "+2" */}
+                            {item.variations.length > 4 && (
+                                <LightClickableText
+                                    text={`+ ${item.variations.length - 4}`}
+                                />
+                            )}
+                        </div>
+                        {/* Quantity text with + and - */}
+                        {checkItemInBasket() && (
+                            <span className="text-charcoal flex h-max w-max items-center gap-1 text-sm">
+                                <p className="font-primary w-max">
+                                    Quantity:{" "}
+                                    {
+                                        basket.find(
+                                            (i) =>
+                                                i.itemID === item.id &&
+                                                i.variationID ===
+                                                    selectedVariation &&
+                                                i.size === selectedSize
+                                        )?.quantity
+                                    }
+                                </p>
+                                <span className="flex items-center">
+                                    <Icon
+                                        icon="add"
+                                        className="scale-75"
+                                        onClick={() =>
+                                            addBasketItem({
+                                                itemID: item.id,
+                                                variationID: selectedVariation,
+                                                size: selectedSize,
+                                                quantity: 1,
+                                            })
+                                        }
+                                    />
+                                    <Icon
+                                        icon="remove"
+                                        className="scale-75"
+                                        onClick={() =>
+                                            removeBasketItem({
+                                                itemID: item.id,
+                                                variationID: selectedVariation,
+                                                size: selectedSize,
+                                                quantity: 1,
+                                            })
+                                        }
+                                    />
+                                </span>
+                            </span>
                         )}
-                    </div>
+                    </span>
                     {/* Item Sizes */}
                     <div className="flex items-center gap-2">
                         {eligibleSizes.map((size) => (
@@ -86,9 +149,9 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                         i.itemID === item.id &&
                         i.variationID === selectedVariation &&
                         i.size === selectedSize
-                ) ? (
+                ) && (
                     <UIButton
-                        className="text-sm"
+                        className="text-sm sm:hidden xl:flex"
                         onClick={() =>
                             addBasketItem({
                                 itemID: item.id,
@@ -100,47 +163,6 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                     >
                         Add to Basket
                     </UIButton>
-                ) : (
-                    // Quantity text with + and -
-                    <span className="text-charcoal flex h-max items-center gap-1 text-sm">
-                        <p className="font-primary">
-                            Quantity:{" "}
-                            {
-                                basket.find(
-                                    (i) =>
-                                        i.itemID === item.id &&
-                                        i.variationID === selectedVariation &&
-                                        i.size === selectedSize
-                                )?.quantity
-                            }
-                        </p>
-                        <span className="flex items-center">
-                            <Icon
-                                icon="add"
-                                className="scale-75"
-                                onClick={() =>
-                                    addBasketItem({
-                                        itemID: item.id,
-                                        variationID: selectedVariation,
-                                        size: selectedSize,
-                                        quantity: 1,
-                                    })
-                                }
-                            />
-                            <Icon
-                                icon="remove"
-                                className="scale-75"
-                                onClick={() =>
-                                    removeBasketItem({
-                                        itemID: item.id,
-                                        variationID: selectedVariation,
-                                        size: selectedSize,
-                                        quantity: 1,
-                                    })
-                                }
-                            />
-                        </span>
-                    </span>
                 )}
             </span>
         </div>
