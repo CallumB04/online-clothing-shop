@@ -87,7 +87,7 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                             addBasketItem({
                                 itemID: item.id,
                                 variationID: selectedVariation,
-                                size: "M",
+                                size: selectedSize,
                                 quantity: 1,
                             })
                         }
