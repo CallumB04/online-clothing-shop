@@ -11,7 +11,7 @@ const ShopItemVariation: React.FC<ShopItemVariationProps> = ({ variation }) => {
             className="bg-background border-charcoal rounded-full border-1 p-0.5"
         >
             <div
-                className="size-4 rounded-full"
+                className="size-3 rounded-full sm:size-4 lg:size-3 xl:size-4"
                 style={{ backgroundColor: variation.previewColor }}
             ></div>
         </div>
