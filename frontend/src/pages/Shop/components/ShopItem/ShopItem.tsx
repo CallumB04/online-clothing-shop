@@ -8,6 +8,7 @@ import LightClickableText from "../../../../components/Text/LightClickableText";
 import UIButton from "../../../../components/Button/UIButton";
 import { useBasket } from "../../../../context/BasketContext";
 import ShopItemSize from "./ShopItemSize";
+import Icon from "../../../../components/Icon/Icon";
 
 interface ShopItemProps {
     item: Item;
@@ -21,7 +22,7 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
         item.variations[0].sizes.find((v) => v.stock > 0)?.size || ""
     );
 
-    const { basket, addBasketItem } = useBasket();
+    const { basket, addBasketItem, removeBasketItem } = useBasket();
 
     // update selectedSize when variation changes, incase new variation doesnt have current selected variation
     useEffect(() => {
@@ -101,7 +102,7 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                     </UIButton>
                 ) : (
                     // Quantity text with + and -
-                    <span className="text-charcoal text-sm">
+                    <span className="text-charcoal flex h-max items-center gap-1 text-sm">
                         <p className="font-primary">
                             Quantity:{" "}
                             {
@@ -113,6 +114,32 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                                 )?.quantity
                             }
                         </p>
+                        <span className="flex items-center">
+                            <Icon
+                                icon="add"
+                                className="scale-75"
+                                onClick={() =>
+                                    addBasketItem({
+                                        itemID: item.id,
+                                        variationID: selectedVariation,
+                                        size: selectedSize,
+                                        quantity: 1,
+                                    })
+                                }
+                            />
+                            <Icon
+                                icon="remove"
+                                className="scale-75"
+                                onClick={() =>
+                                    removeBasketItem({
+                                        itemID: item.id,
+                                        variationID: selectedVariation,
+                                        size: selectedSize,
+                                        quantity: 1,
+                                    })
+                                }
+                            />
+                        </span>
                     </span>
                 )}
             </span>
