@@ -14,7 +14,7 @@ const ShopItemVariation: React.FC<ShopItemVariationProps> = ({
     return (
         <div
             title={variation.name}
-            className={`bg-background border-charcoal rounded-full ${selected ? "border-2 p-[1px]" : "border-1 p-0.5"} h-max`}
+            className={`bg-background border-charcoal rounded-full ${selected ? "border-2 p-[1px]" : "border-1 p-0.5"} h-max cursor-pointer`}
             onClick={() => setSelected(variation.id)}
         >
             <div
