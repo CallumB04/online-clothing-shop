@@ -32,6 +32,8 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                     item.variations.find((v) => v.id === selectedVariation)
                         ?.imageURL || item.variations[0].imageURL
                 }
+                itemID={item.id}
+                variationID={selectedVariation}
             />
             <span className="flex justify-between px-3 py-4 pt-0">
                 <div
