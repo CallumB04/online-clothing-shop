@@ -18,7 +18,7 @@ const ShopItemVariation: React.FC<ShopItemVariationProps> = ({
             onClick={() => setSelected(variation.id)}
         >
             <div
-                className="size-3 rounded-full sm:size-4 lg:size-3 xl:size-4"
+                className="size-5 rounded-full"
                 style={{ backgroundColor: variation.previewColor }}
             ></div>
         </div>
