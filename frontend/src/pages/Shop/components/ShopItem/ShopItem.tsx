@@ -26,7 +26,7 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
     };
 
     return (
-        <div className="group flex flex-col gap-2 rounded-md transition-all duration-300 sm:hover:shadow-2xl">
+        <div className="group flex flex-col gap-2 rounded-md transition-all duration-300 sm:hover:-translate-y-2 sm:hover:shadow-2xl">
             <ShopItemImage
                 imageURL={
                     item.variations.find((v) => v.id === selectedVariation)
