@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { type Item } from "../../../../api";
+import { type Item } from "@/api";
 import ShopItemImage from "./ShopItemImage";
 import ShopItemName from "./ShopItemName";
 import ShopItemPrice from "./ShopItemPrice";
 import ShopItemVariation from "./ShopItemVariation";
-import LightClickableText from "../../../../components/Text/LightClickableText";
-import { useBasket } from "../../../../context/BasketContext";
-import Icon from "../../../../components/Icon/Icon";
+import LightClickableText from "@/components/Text/LightClickableText";
+import { useBasket } from "@/context/BasketContext";
+import Icon from "@/components/Icon/Icon";
 
 interface ShopItemProps {
     item: Item;

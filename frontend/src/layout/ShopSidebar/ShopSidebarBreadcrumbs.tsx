@@ -1,6 +1,6 @@
 import ShopSidebarBreadcrumbItem from "./ShopSidebarBreadcrumbItem";
-import { capitalize } from "../../util/capitalize";
-import { addApostropheToGender } from "../../util/gender";
+import { capitalize } from "@/util/capitalize";
+import { addApostropheToGender } from "@/util/gender";
 
 interface ShopSidebarBreadcrumbsProps {
     gender: string | undefined;

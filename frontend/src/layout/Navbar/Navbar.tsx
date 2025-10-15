@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import Icon from "../../components/Icon/Icon";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import { useBasket } from "../../context/BasketContext";
+import Icon from "@/components/Icon/Icon";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import { useBasket } from "@/context/BasketContext";
 import NavbarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
-import Clickable from "../../components/Clickable/Clickable";
+import Clickable from "@/components/Clickable/Clickable";
 
 const Navbar = () => {
     const { basket, addBasketItem } = useBasket();

@@ -1,4 +1,4 @@
-import type { ItemVariation } from "../../../../api";
+import type { ItemVariation } from "@/api";
 
 interface ShopItemVariationProps {
     variation: ItemVariation;

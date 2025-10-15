@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import Icon from "../../components/Icon/Icon";
+import Icon from "@/components/Icon/Icon";
 
 interface ShopSidebarItemProps {
     label: string;

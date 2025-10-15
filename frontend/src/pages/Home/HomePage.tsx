@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import UIButton from "../../components/Button/UIButton";
-import PrimaryButton from "../../components/Button/PrimaryButton";
-import Clickable from "../../components/Clickable/Clickable";
+import UIButton from "@/components/Button/UIButton";
+import PrimaryButton from "@/components/Button/PrimaryButton";
+import Clickable from "@/components/Clickable/Clickable";
 
 const HomePage = () => {
     return (

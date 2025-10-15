@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { fetchItems, type Item } from "../../api";
-import ShopSidebar from "../../layout/ShopSidebar/ShopSidebar";
+import { fetchItems, type Item } from "@/api";
+import ShopSidebar from "@/layout/ShopSidebar/ShopSidebar";
 import { Navigate, useParams, useSearchParams } from "react-router-dom";
 import ShopItem from "./components/ShopItem/ShopItem";
-import PageHeader from "../../components/PageHeader/PageHeader";
-import { addApostropheToGender } from "../../util/gender";
-import { capitalize } from "../../util/capitalize";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import { addApostropheToGender } from "@/util/gender";
+import { capitalize } from "@/util/capitalize";
 
 const eligibleGenders: string[] = ["mens", "womens"];
 const eligibleCategories: string[] = [

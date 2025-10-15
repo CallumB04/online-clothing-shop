@@ -1,4 +1,4 @@
-import { capitalize } from "../../util/capitalize";
+import { capitalize } from "@/util/capitalize";
 import Sidebar from "../Sidebar/Sidebar";
 import ShopSidebarBreadcrumbs from "./ShopSidebarBreadcrumbs";
 import ShopSidebarItem from "./ShopSidebarItem";

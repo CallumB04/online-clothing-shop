@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import type { Basket, BasketItem } from "../api";
+import type { Basket, BasketItem } from "@/api";
 
 type BasketContextType = {
     basket: Basket;
