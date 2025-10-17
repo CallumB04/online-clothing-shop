@@ -16,7 +16,7 @@ const ShopSidebar: React.FC<ShopSidebarProps> = ({
     eligibleCategories,
 }) => {
     return (
-        <Sidebar>
+        <Sidebar visibleDesktop>
             <ShopSidebarBreadcrumbs gender={gender} category={category} />
             <ShopSidebarItems>
                 {eligibleCategories.map((c) => {
