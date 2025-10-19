@@ -16,7 +16,11 @@ const eligibleCategories: string[] = [
     "hoodies",
 ];
 
-const ShopPage = () => {
+interface ShopPageProps {
+    isMobileSidebarOpen: boolean;
+}
+
+const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
     const [items, setItems] = useState<Item[]>([]);
 
     // Get gender from URL: /shop/<"mens"/"womens">
@@ -49,6 +53,7 @@ const ShopPage = () => {
     return (
         <>
             <ShopSidebar
+                isMobileSidebarOpen={isMobileSidebarOpen}
                 gender={gender}
                 category={category}
                 eligibleCategories={eligibleCategories}

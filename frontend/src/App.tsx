@@ -27,7 +27,12 @@ function App() {
                         <HomePage isMobileSidebarOpen={isMobileSidebarOpen} />
                     }
                 />
-                <Route path="/shop/:gender?" element={<ShopPage />} />
+                <Route
+                    path="/shop/:gender?"
+                    element={
+                        <ShopPage isMobileSidebarOpen={isMobileSidebarOpen} />
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );

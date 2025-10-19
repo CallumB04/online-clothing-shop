@@ -5,18 +5,20 @@ import ShopSidebarItem from "./ShopSidebarItem";
 import ShopSidebarItems from "./ShopSidebarItems";
 
 interface ShopSidebarProps {
+    isMobileSidebarOpen: boolean;
     gender: string | undefined;
     category: string;
     eligibleCategories: string[];
 }
 
 const ShopSidebar: React.FC<ShopSidebarProps> = ({
+    isMobileSidebarOpen,
     gender,
     category,
     eligibleCategories,
 }) => {
     return (
-        <Sidebar visibleDesktop>
+        <Sidebar visibleDesktop visibleMobile={isMobileSidebarOpen}>
             <ShopSidebarBreadcrumbs gender={gender} category={category} />
             <ShopSidebarItems>
                 {eligibleCategories.map((c) => {
