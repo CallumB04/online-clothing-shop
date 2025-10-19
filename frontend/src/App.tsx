@@ -6,27 +6,25 @@ import Navbar from "./layout/Navbar/Navbar";
 import { useState } from "react";
 
 function App() {
-    // state for sidebar visibilities
-    const [homeMobileSidebarOpen, setHomeMobileSidebarOpen] =
+    // state for mobile sidebar visibility
+    const [isMobileSidebarOpen, setIsMobileSidebarOpen] =
         useState<boolean>(false);
 
-    // function to open/close mobile sidebar for different pages
-    const handleToggleMobileSidebar = (page: string) => {
-        switch (page) {
-            case "home":
-                setHomeMobileSidebarOpen(!homeMobileSidebarOpen);
-                break;
-        }
+    const toggleMobileSidebar = () => {
+        setIsMobileSidebarOpen(!isMobileSidebarOpen);
     };
 
     return (
         <BrowserRouter>
-            <Navbar toggleMobileSidebar={handleToggleMobileSidebar} />
+            <Navbar
+                isMobileSidebarOpen={isMobileSidebarOpen}
+                toggleMobileSidebar={toggleMobileSidebar}
+            />
             <Routes>
                 <Route
                     path="/"
                     element={
-                        <HomePage mobileSidebarOpen={homeMobileSidebarOpen} />
+                        <HomePage isMobileSidebarOpen={isMobileSidebarOpen} />
                     }
                 />
                 <Route path="/shop/:gender?" element={<ShopPage />} />
