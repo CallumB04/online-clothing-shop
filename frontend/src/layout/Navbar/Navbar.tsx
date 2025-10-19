@@ -5,9 +5,16 @@ import { useBasket } from "@/context/BasketContext";
 import NavbarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
 import Clickable from "@/components/Clickable/Clickable";
+import { useLocation } from "react-router-dom";
 
-const Navbar = () => {
+interface NavbarProps {
+    toggleMobileSidebar: (page: string) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ toggleMobileSidebar }) => {
     const { basket, addBasketItem } = useBasket();
+
+    const location = useLocation();
 
     useEffect(() => {
         addBasketItem({
@@ -34,7 +41,9 @@ const Navbar = () => {
 
             {/* Left Side (Small screen) */}
             <Clickable
-                onClick={() => alert("Opening Phone Menu...")}
+                onClick={() =>
+                    toggleMobileSidebar(location.pathname === "/" ? "home" : "")
+                }
                 className="lg:hidden"
             >
                 <Icon icon="menu" />

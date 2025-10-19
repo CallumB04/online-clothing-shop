@@ -4,10 +4,14 @@ import PrimaryButton from "@/components/Button/PrimaryButton";
 import Clickable from "@/components/Clickable/Clickable";
 import HomeSidebarMobile from "@/layout/HomeSidebarMobile/HomeSidebarMobile";
 
-const HomePage = () => {
+interface HomePageProps {
+    mobileSidebarOpen?: boolean;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ mobileSidebarOpen }) => {
     return (
         <>
-            <HomeSidebarMobile />
+            <HomeSidebarMobile open={mobileSidebarOpen} />
             <main className="flex flex-col gap-4 px-2 py-4 sm:px-4 sm:py-6">
                 <h1 className="text-red-500">Home Page</h1>
                 <Link to="/shop">
