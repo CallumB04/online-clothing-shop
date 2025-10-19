@@ -8,10 +8,14 @@ import Clickable from "@/components/Clickable/Clickable";
 import { useLocation } from "react-router-dom";
 
 interface NavbarProps {
-    toggleMobileSidebar: (page: string) => void;
+    isMobileSidebarOpen: boolean;
+    toggleMobileSidebar: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ toggleMobileSidebar }) => {
+const Navbar: React.FC<NavbarProps> = ({
+    isMobileSidebarOpen,
+    toggleMobileSidebar,
+}) => {
     const { basket, addBasketItem } = useBasket();
 
     const location = useLocation();
@@ -24,6 +28,13 @@ const Navbar: React.FC<NavbarProps> = ({ toggleMobileSidebar }) => {
             quantity: 1,
         });
     }, []);
+
+    // close mobile sidebar when changing pages
+    useEffect(() => {
+        if (isMobileSidebarOpen) {
+            toggleMobileSidebar();
+        }
+    }, [location]);
 
     return (
         <nav className="h-navbar-height bg-background fixed top-0 left-0 z-20 flex w-screen items-center justify-between border-b-1 border-b-[#eaeaea] px-4 xl:px-16">
@@ -40,12 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleMobileSidebar }) => {
             </span>
 
             {/* Left Side (Small screen) */}
-            <Clickable
-                onClick={() =>
-                    toggleMobileSidebar(location.pathname === "/" ? "home" : "")
-                }
-                className="lg:hidden"
-            >
+            <Clickable onClick={toggleMobileSidebar} className="lg:hidden">
                 <Icon icon="menu" />
             </Clickable>
 
