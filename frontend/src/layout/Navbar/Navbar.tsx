@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
             {/* Left Side (Small screen) */}
             <Clickable onClick={toggleMobileSidebar} className="lg:hidden">
-                <Icon icon="menu" />
+                <Icon icon={isMobileSidebarOpen ? "close" : "menu"} />
             </Clickable>
 
             {/* Center (Small screen) */}
