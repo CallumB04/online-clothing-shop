@@ -2,7 +2,7 @@ import { capitalize } from "@/util/capitalize";
 import Sidebar from "../Sidebar/Sidebar";
 import ShopSidebarBreadcrumbs from "./ShopSidebarBreadcrumbs";
 import ShopSidebarItem from "./ShopSidebarItem";
-import ShopSidebarItems from "./ShopSidebarItems";
+import ShopSidebarItems from "../Sidebar/SidebarItems";
 
 interface ShopSidebarProps {
     isMobileSidebarOpen: boolean;
