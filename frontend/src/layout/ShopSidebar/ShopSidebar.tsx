@@ -1,8 +1,8 @@
 import { capitalize } from "@/util/capitalize";
 import Sidebar from "../Sidebar/Sidebar";
 import ShopSidebarBreadcrumbs from "./ShopSidebarBreadcrumbs";
-import ShopSidebarItem from "./ShopSidebarItem";
 import SidebarItems from "../Sidebar/SidebarItems";
+import SidebarItem from "../HomeSidebar/SidebarItem";
 
 interface ShopSidebarProps {
     isMobileSidebarOpen: boolean;
@@ -23,11 +23,16 @@ const ShopSidebar: React.FC<ShopSidebarProps> = ({
             <SidebarItems>
                 {eligibleCategories.map((c) => {
                     return (
-                        <ShopSidebarItem
+                        <SidebarItem
                             key={c}
                             label={capitalize(c)}
-                            category={c}
-                            gender={gender}
+                            icon="chevron_right"
+                            to={
+                                gender
+                                    ? `/shop/${gender}?category=${c}`
+                                    : `/shop?category=${c}`
+                            }
+                            selected={category === c}
                         />
                     );
                 })}
