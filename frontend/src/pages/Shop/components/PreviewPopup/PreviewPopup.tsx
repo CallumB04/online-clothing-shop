@@ -1,8 +1,9 @@
-import type { Item } from "@/api";
+import { eligibleSizes, type Item } from "@/api";
 import Popup from "@/components/Popup/Popup";
 import PopupHeader from "@/components/Popup/PopupHeader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShopItemVariation from "../ShopItem/ShopItemVariation";
+import ItemSize from "@/components/ItemSize/ItemSize";
 
 interface PreviewPopupProps {
     item: Item | null;
@@ -11,6 +12,12 @@ interface PreviewPopupProps {
 
 const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
     const [selectedVariation, setSelectedVariation] = useState<string>("0");
+    const [selectedSize, setSelectedSize] = useState<string>("XS");
+
+    // reset selectedSize when variation changes
+    useEffect(() => {
+        setSelectedSize("XS");
+    }, [selectedVariation]);
 
     return (
         <Popup closePopup={closePopup}>
@@ -37,6 +44,17 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                                 variation={variation}
                                 selected={selectedVariation === variation.id}
                                 setSelected={setSelectedVariation}
+                            />
+                        ))}
+                    </div>
+                    {/* Item Sizes */}
+
+                    <div className="flex max-w-[274px] flex-wrap items-center gap-2">
+                        {eligibleSizes.map((size) => (
+                            <ItemSize
+                                size={size}
+                                selected={selectedSize === size}
+                                setSelected={setSelectedSize}
                             />
                         ))}
                     </div>
