@@ -1,6 +1,6 @@
 import Sidebar from "../Sidebar/Sidebar";
 import SidebarItems from "../Sidebar/SidebarItems";
-import SidebarItem from "./SidebarItem";
+import SidebarItem from "../Sidebar/SidebarItem";
 
 interface HomeSidebarProps {
     open?: boolean;
