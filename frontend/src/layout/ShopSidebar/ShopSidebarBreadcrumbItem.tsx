@@ -18,7 +18,7 @@ const SidebarBreadcrumbItem: React.FC<SidebarBreadcrumbItemProps> = ({
                 <Icon
                     icon="chevron_right"
                     color="text-[#aaa]"
-                    className="h-5 scale-75"
+                    className="text-xs"
                 />
             )}
             <Link to={toLocation} className="font-light">
