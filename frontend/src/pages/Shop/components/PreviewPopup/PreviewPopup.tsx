@@ -10,11 +10,17 @@ interface PreviewPopupProps {
 const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
     return (
         <Popup closePopup={closePopup}>
-            <PopupHeader
-                title={item!.name}
-                description={`£${item!.priceGBP}`}
-                closePopup={closePopup}
-            />
+            <span className="flex gap-6">
+                <img
+                    className="aspect-[3/4] w-72 rounded"
+                    src={item?.variations[0].imageURL}
+                />
+                <PopupHeader
+                    title={item!.name}
+                    description={`£${item!.priceGBP}`}
+                    closePopup={closePopup}
+                />
+            </span>
         </Popup>
     );
 };
