@@ -87,7 +87,12 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
             </main>
 
             {/* Popups */}
-            {isPreviewPopupOpen && <PreviewPopup item={currentPreviewItem} />}
+            {isPreviewPopupOpen && (
+                <PreviewPopup
+                    item={currentPreviewItem}
+                    closePopup={() => setIsPreviewPopupOpen(false)}
+                />
+            )}
         </>
     );
 };
