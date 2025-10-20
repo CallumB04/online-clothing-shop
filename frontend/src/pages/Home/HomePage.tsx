@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import UIButton from "@/components/Button/UIButton";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import Clickable from "@/components/Clickable/Clickable";
-import HomeSidebarMobile from "@/layout/HomeSidebarMobile/HomeSidebarMobile";
+import HomeSidebar from "@/layout/HomeSidebar/HomeSidebar";
 
 interface HomePageProps {
     isMobileSidebarOpen?: boolean;
@@ -11,7 +11,7 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ isMobileSidebarOpen }) => {
     return (
         <>
-            <HomeSidebarMobile open={isMobileSidebarOpen} />
+            <HomeSidebar open={isMobileSidebarOpen} />
             <main className="flex flex-col gap-4 px-2 py-4 sm:px-4 sm:py-6">
                 <h1 className="text-red-500">Home Page</h1>
                 <Link to="/shop">
