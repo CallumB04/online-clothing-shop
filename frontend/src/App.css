@@ -22,6 +22,19 @@ main {
     @apply hover:bg-icon-hover cursor-pointer rounded-md transition-colors duration-150;
 }
 
+.material-symbols-outlined.text-xs {
+    font-size: 18px;
+}
+.material-symbols-outlined.text-sm {
+    font-size: 20px;
+}
+.material-symbols-outlined.text-lg {
+    font-size: 36px;
+}
+.material-symbols-outlined.text-xl {
+    font-size: 48px;
+}
+
 @theme {
     /* Colors */
     --color-charcoal: #333;
