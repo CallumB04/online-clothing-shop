@@ -10,7 +10,7 @@ const Popup: React.FC<PopupProps> = ({ children, closePopup }) => {
             onMouseDown={closePopup && closePopup}
         >
             <div
-                className="w-max rounded-lg bg-white p-4 shadow"
+                className="flex w-max flex-col gap-4 rounded-lg bg-white p-4 shadow"
                 onMouseDown={(e) => e.stopPropagation()}
             >
                 {children}
