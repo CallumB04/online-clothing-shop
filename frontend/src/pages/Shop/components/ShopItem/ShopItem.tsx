@@ -10,9 +10,15 @@ import Icon from "@/components/Icon/Icon";
 
 interface ShopItemProps {
     item: Item;
+    setCurrentPreviewItem: (item: Item) => void;
+    setIsPreviewPopupOpen: (isOpen: boolean) => void;
 }
 
-const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
+const ShopItem: React.FC<ShopItemProps> = ({
+    item,
+    setCurrentPreviewItem,
+    setIsPreviewPopupOpen,
+}) => {
     // state to manage current selected color variation of item, using variation ID
     const [selectedVariation, setSelectedVariation] = useState<string>("0");
 
@@ -34,6 +40,11 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
                 }
                 itemID={item.id}
                 variationID={selectedVariation}
+                openItemInPreview={(e) => {
+                    e.preventDefault(); // prevent navigating to item page
+                    setCurrentPreviewItem(item);
+                    setIsPreviewPopupOpen(true);
+                }}
             />
             <span className="flex justify-between px-3 py-4 pt-0">
                 <div

@@ -6,6 +6,7 @@ import ShopItem from "./components/ShopItem/ShopItem";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { addApostropheToGender } from "@/util/gender";
 import { capitalize } from "@/util/capitalize";
+import PreviewPopup from "./components/PreviewPopup/PreviewPopup";
 
 const eligibleGenders: string[] = ["mens", "womens"];
 const eligibleCategories: string[] = [
@@ -22,6 +23,13 @@ interface ShopPageProps {
 
 const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
     const [items, setItems] = useState<Item[]>([]);
+
+    // Popup visibility states
+    const [isPreviewPopupOpen, setIsPreviewPopupOpen] =
+        useState<boolean>(false);
+    const [currentPreviewItem, setCurrentPreviewItem] = useState<Item | null>(
+        null
+    );
 
     // Get gender from URL: /shop/<"mens"/"womens">
     const { gender } = useParams();
@@ -68,10 +76,18 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
                 />
                 <div className="grid w-full grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 2xl:grid-cols-3">
                     {items.map((item) => (
-                        <ShopItem item={item} key={item.id} />
+                        <ShopItem
+                            key={item.id}
+                            item={item}
+                            setCurrentPreviewItem={setCurrentPreviewItem}
+                            setIsPreviewPopupOpen={setIsPreviewPopupOpen}
+                        />
                     ))}
                 </div>
             </main>
+
+            {/* Popups */}
+            {isPreviewPopupOpen && <PreviewPopup item={currentPreviewItem} />}
         </>
     );
 };
