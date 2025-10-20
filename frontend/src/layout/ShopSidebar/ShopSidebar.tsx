@@ -2,7 +2,7 @@ import { capitalize } from "@/util/capitalize";
 import Sidebar from "../Sidebar/Sidebar";
 import ShopSidebarBreadcrumbs from "./ShopSidebarBreadcrumbs";
 import ShopSidebarItem from "./ShopSidebarItem";
-import ShopSidebarItems from "../Sidebar/SidebarItems";
+import SidebarItems from "../Sidebar/SidebarItems";
 
 interface ShopSidebarProps {
     isMobileSidebarOpen: boolean;
@@ -20,7 +20,7 @@ const ShopSidebar: React.FC<ShopSidebarProps> = ({
     return (
         <Sidebar visibleDesktop visibleMobile={isMobileSidebarOpen}>
             <ShopSidebarBreadcrumbs gender={gender} category={category} />
-            <ShopSidebarItems>
+            <SidebarItems>
                 {eligibleCategories.map((c) => {
                     return (
                         <ShopSidebarItem
@@ -31,7 +31,7 @@ const ShopSidebar: React.FC<ShopSidebarProps> = ({
                         />
                     );
                 })}
-            </ShopSidebarItems>
+            </SidebarItems>
         </Sidebar>
     );
 };
