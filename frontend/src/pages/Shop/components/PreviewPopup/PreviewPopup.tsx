@@ -4,6 +4,7 @@ import PopupHeader from "@/components/Popup/PopupHeader";
 import { useEffect, useState } from "react";
 import ShopItemVariation from "../ShopItem/ShopItemVariation";
 import ItemSize from "@/components/ItemSize/ItemSize";
+import ItemImage from "@/components/ItemImage/ItemImage";
 
 interface PreviewPopupProps {
     item: Item | null;
@@ -22,13 +23,13 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
     return (
         <Popup closePopup={closePopup}>
             <span className="flex gap-6">
-                <img
-                    className="aspect-[3/4] w-72 rounded"
+                <ItemImage
                     src={
                         item?.variations.find((v) => v.id === selectedVariation)
                             ?.imageURL
                     }
                     alt={"Picture of " + item?.name}
+                    className="w-72 rounded"
                 />
                 <div className="flex flex-col gap-4">
                     <PopupHeader

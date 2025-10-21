@@ -1,4 +1,5 @@
 import Icon from "@/components/Icon/Icon";
+import ItemImage from "@/components/ItemImage/ItemImage";
 import { Link } from "react-router-dom";
 
 interface ShopItemImageProps {
@@ -19,9 +20,9 @@ const ShopItemImage: React.FC<ShopItemImageProps> = ({
             className="relative"
             to={`/item/${itemID}${variationID !== "0" ? "?variation=" + variationID : ""}`}
         >
-            <img
+            <ItemImage
                 src={imageURL}
-                className="aspect-[3/4] w-full cursor-pointer rounded-md group-hover:rounded-b-none"
+                className="w-full cursor-pointer rounded-md group-hover:rounded-b-none"
             />
             {/* Preview button */}
             <div
