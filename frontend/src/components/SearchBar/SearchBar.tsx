@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Icon from "../Icon/Icon";
 
 interface SearchBarProps {
     fullWidth?: boolean;
@@ -35,12 +36,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
         <span
             className={`border-input-border text-charcoal flex h-10 items-center gap-2 rounded-full border-1 px-4 ${fullWidth && "w-full"} ${className}`}
         >
-            <i
-                className={`material-symbols-outlined ${onSearch && "cursor-pointer"}`}
+            <Icon
+                icon="search"
+                className="text-sm"
                 onClick={() => onSearch && onSearch(query)}
-            >
-                search
-            </i>
+            />
             <input
                 type="search"
                 placeholder={placeholder}
