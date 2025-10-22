@@ -23,7 +23,7 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
 
     return (
         <Popup closePopup={closePopup}>
-            <span className="flex gap-6">
+            <span className="flex flex-col gap-6 sm:flex-row">
                 {/* Left Side - Image of clothing item */}
                 <ItemImage
                     src={
@@ -31,10 +31,10 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                             ?.imageURL
                     }
                     alt={"Picture of " + item?.name}
-                    className="w-72 rounded"
+                    className="w-80 rounded sm:w-72"
                 />
                 {/* Right Side - Details */}
-                <div className="flex flex-col justify-between">
+                <div className="flex flex-col justify-between gap-6">
                     <div className="flex flex-col gap-4">
                         {/* Header -> Item Name and Price */}
                         <PopupHeader
@@ -43,7 +43,7 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                             closePopup={closePopup}
                         />
                         {/* Item Variation Preview Colors */}
-                        <div className="flex max-w-[274px] flex-wrap items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2 sm:max-w-[274px]">
                             {item!.variations.map((variation) => (
                                 <ShopItemVariation
                                     key={variation.id}
