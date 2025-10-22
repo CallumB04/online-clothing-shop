@@ -26,7 +26,7 @@ const ShopItemImage: React.FC<ShopItemImageProps> = ({
             />
             {/* Preview button */}
             <div
-                className="bg-background/75 hover:bg-background absolute bottom-6 left-1/2 hidden w-11/12 -translate-x-1/2 items-center justify-center gap-2 rounded-full py-2 shadow transition-colors duration-300 group-hover:flex"
+                className="bg-background/75 hover:bg-background absolute bottom-6 left-1/2 hidden w-11/12 -translate-x-1/2 items-center justify-center gap-2 rounded-full py-2 shadow transition-all duration-300 group-hover:flex hover:shadow-lg"
                 onClick={(e) => openItemInPreview(e)}
             >
                 <p className="font-primary text-charcoal text-sm font-semibold">
