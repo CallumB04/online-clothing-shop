@@ -6,6 +6,7 @@ import ShopItemVariation from "../ShopItem/ShopItemVariation";
 import ItemSize from "@/components/ItemSize/ItemSize";
 import ItemImage from "@/components/ItemImage/ItemImage";
 import UIButton from "@/components/Button/UIButton";
+import { useBasket } from "@/context/BasketContext";
 
 interface PreviewPopupProps {
     item: Item | null;
@@ -16,10 +17,32 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
     const [selectedVariation, setSelectedVariation] = useState<string>("0");
     const [selectedSize, setSelectedSize] = useState<string>("XS");
 
+    const { basket } = useBasket();
+
     // reset selectedSize when variation changes
     useEffect(() => {
         setSelectedSize("XS");
     }, [selectedVariation]);
+
+    // helper function to check if current item, including variation and size, is in basket
+    const isItemInBasket = () => {
+        return basket.some(
+            (bi) =>
+                bi.itemID === item?.id &&
+                bi.variationID === selectedVariation &&
+                bi.size === selectedSize
+        );
+    };
+
+    // helper function to check if current item, including variation and size, has stock
+    const itemHasStock = () => {
+        return (
+            (item?.variations
+                .find((v) => v.id === selectedVariation)
+                ?.sizes.find((s) => s.size === selectedSize)?.stock ?? 0) > 0 ||
+            false
+        );
+    };
 
     return (
         <Popup closePopup={closePopup}>
@@ -66,8 +89,10 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                             ))}
                         </div>
                     </div>
-                    {/* Add to Basket Button */}
-                    <UIButton fullWidth>Add to Basket</UIButton>
+                    {/* Add to Basket OR Not in Stock (disabled) Button */}
+                    <UIButton fullWidth disabled={!itemHasStock()}>
+                        {itemHasStock() ? "Add to Basket" : "Not in Stock"}
+                    </UIButton>
                 </div>
             </span>
         </Popup>
