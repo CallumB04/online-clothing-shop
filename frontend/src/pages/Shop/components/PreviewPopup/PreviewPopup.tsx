@@ -90,8 +90,16 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                         </div>
                     </div>
                     {/* Add to Basket OR Not in Stock (disabled) Button */}
-                    <UIButton fullWidth disabled={!itemHasStock()}>
-                        {itemHasStock() ? "Add to Basket" : "Not in Stock"}
+                    <UIButton
+                        fullWidth
+                        disabled={!itemHasStock()}
+                        danger={isItemInBasket()}
+                    >
+                        {itemHasStock()
+                            ? isItemInBasket()
+                                ? "Remove from Basket"
+                                : "Add to Basket"
+                            : "Not in Stock"}
                     </UIButton>
                 </div>
             </span>
