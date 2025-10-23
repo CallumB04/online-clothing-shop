@@ -17,7 +17,7 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
     const [selectedVariation, setSelectedVariation] = useState<string>("0");
     const [selectedSize, setSelectedSize] = useState<string>("XS");
 
-    const { basket } = useBasket();
+    const { basket, addBasketItem, removeBasketItem } = useBasket();
 
     // reset selectedSize when variation changes
     useEffect(() => {
@@ -94,6 +94,23 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                         fullWidth
                         disabled={!itemHasStock()}
                         danger={isItemInBasket()}
+                        onClick={
+                            itemHasStock() && isItemInBasket()
+                                ? () =>
+                                      removeBasketItem({
+                                          itemID: item!.id,
+                                          variationID: selectedVariation,
+                                          size: selectedSize,
+                                          quantity: 1,
+                                      })
+                                : () =>
+                                      addBasketItem({
+                                          itemID: item!.id,
+                                          variationID: selectedVariation,
+                                          size: selectedSize,
+                                          quantity: 1,
+                                      })
+                        }
                     >
                         {itemHasStock()
                             ? isItemInBasket()
