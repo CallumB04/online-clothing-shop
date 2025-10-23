@@ -46,6 +46,7 @@ main {
     --color-icon-hover: #e9e9e9;
     --color-ui-button-hover: #2f5fc3;
     --color-ui-button-disabled: #999;
+    --color-danger: #dc2626;
 
     /* Fonts */
     --font-primary: "Alan Sans", sans-serif;
