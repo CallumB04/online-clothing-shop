@@ -28,7 +28,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({ open }) => {
     return (
         <div
             className={`top-navbar-height font-primary fixed right-6 z-50 h-0 w-72 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-300 ${
-                open ? "bg-background border-layout-border h-96" : ""
+                open && "bg-background border-layout-border h-96"
             }`}
         >
             {/* Basket Content - Fades in when dropdown is opened */}
