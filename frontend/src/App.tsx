@@ -4,10 +4,12 @@ import HomePage from "./pages/Home/HomePage";
 import ShopPage from "./pages/Shop/ShopPage";
 import Navbar from "./layout/Navbar/Navbar";
 import { useState } from "react";
+import BasketDropdown from "./layout/BasketDropdown/BasketDropdown";
 
 function App() {
-    // state for mobile sidebar visibility
     const [isMobileSidebarOpen, setIsMobileSidebarOpen] =
+        useState<boolean>(false);
+    const [isBasketDropdownOpen, setIsBasketDropdownOpen] =
         useState<boolean>(false);
 
     const toggleMobileSidebar = () => {
@@ -19,7 +21,13 @@ function App() {
             <Navbar
                 isMobileSidebarOpen={isMobileSidebarOpen}
                 toggleMobileSidebar={toggleMobileSidebar}
+                toggleBasketDropdown={() =>
+                    setIsBasketDropdownOpen(!isBasketDropdownOpen)
+                }
             />
+
+            <BasketDropdown open={isBasketDropdownOpen} />
+
             <Routes>
                 <Route
                     path="/"
