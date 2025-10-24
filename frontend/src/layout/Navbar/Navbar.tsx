@@ -10,11 +10,13 @@ import { useLocation } from "react-router-dom";
 interface NavbarProps {
     isMobileSidebarOpen: boolean;
     toggleMobileSidebar: () => void;
+    toggleBasketDropdown: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
     isMobileSidebarOpen,
     toggleMobileSidebar,
+    toggleBasketDropdown,
 }) => {
     const { basket, addBasketItem } = useBasket();
 
@@ -37,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({
     }, [location]);
 
     return (
-        <nav className="h-navbar-height bg-background fixed top-0 left-0 z-20 flex w-screen items-center justify-between border-b-1 border-b-[#eaeaea] px-4 xl:px-16">
+        <nav className="h-navbar-height bg-background border-b-layout-border fixed top-0 left-0 z-20 flex w-screen items-center justify-between border-b-1 px-4 xl:px-16">
             {/* Left side (Big screen): Logo and Navigation */}
             <span className="hidden items-center gap-12 lg:flex">
                 <NavbarLogo />
@@ -68,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({
                     className="hidden lg:flex"
                 />
                 <Clickable
-                    onClick={() => alert("Opening basket...")}
+                    onClick={() => toggleBasketDropdown()}
                     className="px-2"
                 >
                     <Icon icon="shopping_bag" />
