@@ -1,16 +1,42 @@
+import { useEffect, useState } from "react";
+
 interface BasketDropdownProps {
     open: boolean;
 }
 
 const BasketDropdown: React.FC<BasketDropdownProps> = ({ open }) => {
+    const [isContentVisible, setIsContentVisible] = useState(false);
+
+    useEffect(() => {
+        let timer: number;
+
+        if (open) {
+            // if dropdown open, fade in content
+            setIsContentVisible(false);
+            timer = window.setTimeout(() => setIsContentVisible(true), 300);
+        } else {
+            // if dropdown closed, hide content
+            setIsContentVisible(false);
+        }
+
+        return () => {
+            // before each time this useEffect runs, if a timer exists, clear it
+            if (timer) clearTimeout(timer);
+        };
+    }, [open]);
+
     return (
         <div
-            className={`top-navbar-height font-primary fixed right-6 z-99 h-0 w-72 rounded-b-md border-1 border-t-0 border-transparent shadow-md transition-all duration-300 ${open && "bg-background border-layout-border h-96"}`}
+            className={`top-navbar-height font-primary fixed right-6 z-50 h-0 w-72 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-300 ${
+                open ? "bg-background border-layout-border h-96" : ""
+            }`}
         >
-            {/* Content of basket, only visible when open */}
+            {/* Basket Content - Fades in when dropdown is opened */}
             {open && (
                 <div
-                    className={`p-4 opacity-0 transition-opacity duration-300 ${open && "opacity-100"}`}
+                    className={`p-4 transition-opacity duration-200 ${
+                        isContentVisible ? "opacity-100" : "opacity-0"
+                    }`}
                 >
                     Basket Content
                 </div>
