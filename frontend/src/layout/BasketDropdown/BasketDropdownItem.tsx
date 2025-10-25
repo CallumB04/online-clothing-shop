@@ -1,5 +1,7 @@
 import { fetchItemById, type BasketItem, type Item } from "@/api";
+import Icon from "@/components/Icon/Icon";
 import ItemImage from "@/components/ItemImage/ItemImage";
+import { useBasket } from "@/context/BasketContext";
 import { useEffect, useState } from "react";
 
 interface BasketDropdownItemProps {
@@ -10,6 +12,8 @@ const BasketDropdownItem: React.FC<BasketDropdownItemProps> = ({
     basketItem,
 }) => {
     const [item, setItem] = useState<Item | undefined>(undefined);
+
+    const { removeBasketItem } = useBasket();
 
     // fetch item from api using id in basket item
     useEffect(() => {
@@ -34,8 +38,16 @@ const BasketDropdownItem: React.FC<BasketDropdownItemProps> = ({
                 }
                 className="w-16 rounded-xs"
             />
-            <div className="flex flex-col gap-1">
-                <p className="text-sm">{item?.name}</p>
+            <div className="flex flex-1 flex-col gap-1">
+                <span className="flex w-full justify-between">
+                    <p className="text-sm">{item?.name}</p>
+                    <Icon
+                        icon="close"
+                        className="text-danger text-xs"
+                        title="Remove from Basket"
+                        onClick={() => removeBasketItem(basketItem)}
+                    />
+                </span>
                 <span className="flex gap-1 text-xs">
                     <p>Color:</p>
                     <p className="font-light">
