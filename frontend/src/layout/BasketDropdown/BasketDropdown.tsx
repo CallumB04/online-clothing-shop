@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import BasketDropdownItems from "./BasketDropdownItems";
+import PrimaryButton from "@/components/Button/PrimaryButton";
 
 interface BasketDropdownProps {
     open: boolean;
@@ -41,18 +42,21 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
 
     return (
         <div
-            className={`top-navbar-height font-primary fixed right-6 z-50 h-0 w-72 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-500 ${
+            className={`top-navbar-height font-primary fixed right-6 z-50 h-0 w-80 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-500 ${
                 open && "bg-background border-layout-border h-96"
             }`}
         >
             {/* Basket Content - Fades in when dropdown is opened */}
             {open && (
                 <div
-                    className={`flex flex-col p-4 transition-opacity duration-300 ${
+                    className={`flex h-full flex-col justify-between p-4 transition-opacity duration-300 ${
                         isContentVisible ? "opacity-100" : "opacity-0"
                     }`}
                 >
                     <BasketDropdownItems />
+                    <PrimaryButton className="text-sm">
+                        Go to Checkout
+                    </PrimaryButton>
                 </div>
             )}
         </div>
