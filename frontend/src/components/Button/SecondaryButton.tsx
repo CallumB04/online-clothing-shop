@@ -17,11 +17,7 @@ const SecondaryButton: React.FC<SecondaryButtonProps> = ({
         <Button
             onClick={onClick}
             disabled={disabled}
-            className={
-                "bg-button-secondary font-secondary hover:bg-button-secondary-hover text-charcoal gap-2 rounded-full px-8 py-3 font-semibold" +
-                " " +
-                (className ? className : "")
-            }
+            className={`font-secondary text-charcoal gap-2 rounded-full px-8 py-3 font-semibold ${className} ${disabled ? "bg-button-secondary-disabled" : "bg-button-secondary hover:bg-button-secondary-hover"}`}
         >
             {children}
         </Button>

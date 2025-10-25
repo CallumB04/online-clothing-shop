@@ -17,11 +17,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
         <Button
             onClick={onClick}
             disabled={disabled}
-            className={
-                "bg-button-primary font-primary hover:bg-button-primary-hover gap-2 rounded-full px-8 py-3 font-semibold text-white" +
-                " " +
-                (className ? className : "")
-            }
+            className={`font-primary gap-2 rounded-full px-8 py-3 font-semibold text-white ${className} ${disabled ? "bg-button-primary-disabled" : "bg-button-primary hover:bg-button-primary-hover"}`}
         >
             {children}
         </Button>
