@@ -43,7 +43,7 @@ const BasketDropdownItem: React.FC<BasketDropdownItemProps> = ({
                     <p className="text-sm">{item?.name}</p>
                     <Icon
                         icon="close"
-                        className="text-danger text-xs"
+                        className="text-light-text hover:text-charcoal text-xs transition-colors duration-150"
                         title="Remove from Basket"
                         onClick={() => removeBasketItem(basketItem)}
                     />
