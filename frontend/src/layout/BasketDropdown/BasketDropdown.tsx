@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import BasketDropdownItems from "./BasketDropdownItems";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import SecondaryButton from "@/components/Button/SecondaryButton";
 import { useBasket } from "@/context/BasketContext";
+import Icon from "@/components/Icon/Icon";
 
 interface BasketDropdownProps {
     open: boolean;
@@ -66,6 +67,10 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
                             onClick={() => navigate("/checkout")}
                         >
                             Go to Checkout
+                            <Icon
+                                icon="arrow_right_alt"
+                                className="text-sm text-white"
+                            />
                         </PrimaryButton>
                         <SecondaryButton
                             className="text-sm"
