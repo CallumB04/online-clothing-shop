@@ -5,15 +5,17 @@ const BasketDropdownItems = () => {
     const { basket } = useBasket();
 
     return (
-        <div className="flex max-h-[280px] flex-col gap-3 overflow-y-scroll">
-            {basket.map((bi) => {
-                return (
-                    <BasketDropdownItem
-                        key={bi.itemID + bi.variationID + bi.size}
-                        basketItem={bi}
-                    />
-                );
-            })}
+        <div className="border-b-layout-border border-b-1 pb-4">
+            <div className="flex max-h-[280px] flex-col gap-3 overflow-y-scroll">
+                {basket.map((bi) => {
+                    return (
+                        <BasketDropdownItem
+                            key={bi.itemID + bi.variationID + bi.size}
+                            basketItem={bi}
+                        />
+                    );
+                })}
+            </div>
         </div>
     );
 };
