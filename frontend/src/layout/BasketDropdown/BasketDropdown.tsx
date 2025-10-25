@@ -5,6 +5,7 @@ import PrimaryButton from "@/components/Button/PrimaryButton";
 import SecondaryButton from "@/components/Button/SecondaryButton";
 import { useBasket } from "@/context/BasketContext";
 import Icon from "@/components/Icon/Icon";
+import BasketDropdownEmpty from "./BasketDropdownEmpty";
 
 interface BasketDropdownProps {
     open: boolean;
@@ -59,7 +60,11 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
                         isContentVisible ? "opacity-100" : "opacity-0"
                     }`}
                 >
-                    <BasketDropdownItems />
+                    {basket.length > 0 ? (
+                        <BasketDropdownItems />
+                    ) : (
+                        <BasketDropdownEmpty />
+                    )}
                     <div className="flex flex-col gap-2">
                         <PrimaryButton
                             className="text-sm"
