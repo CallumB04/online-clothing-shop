@@ -16,7 +16,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
 }) => {
     const [isContentVisible, setIsContentVisible] = useState(false);
 
-    const { clearBasket } = useBasket();
+    const { basket, clearBasket } = useBasket();
 
     const location = useLocation();
 
@@ -59,7 +59,10 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
                 >
                     <BasketDropdownItems />
                     <div className="flex flex-col gap-2">
-                        <PrimaryButton className="text-sm">
+                        <PrimaryButton
+                            className="text-sm"
+                            disabled={basket.length === 0}
+                        >
                             Go to Checkout
                         </PrimaryButton>
                         <SecondaryButton
