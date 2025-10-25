@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import BasketDropdownItems from "./BasketDropdownItems";
 import PrimaryButton from "@/components/Button/PrimaryButton";
+import SecondaryButton from "@/components/Button/SecondaryButton";
+import { useBasket } from "@/context/BasketContext";
 
 interface BasketDropdownProps {
     open: boolean;
@@ -13,6 +15,8 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
     closeBasketDropdown,
 }) => {
     const [isContentVisible, setIsContentVisible] = useState(false);
+
+    const { clearBasket } = useBasket();
 
     const location = useLocation();
 
@@ -43,7 +47,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
     return (
         <div
             className={`top-navbar-height font-primary fixed right-6 z-50 h-0 w-80 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-500 ${
-                open && "bg-background border-layout-border h-96"
+                open && "bg-background border-layout-border h-[436px]"
             }`}
         >
             {/* Basket Content - Fades in when dropdown is opened */}
@@ -54,9 +58,17 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
                     }`}
                 >
                     <BasketDropdownItems />
-                    <PrimaryButton className="text-sm">
-                        Go to Checkout
-                    </PrimaryButton>
+                    <div className="flex flex-col gap-2">
+                        <PrimaryButton className="text-sm">
+                            Go to Checkout
+                        </PrimaryButton>
+                        <SecondaryButton
+                            className="text-sm"
+                            onClick={clearBasket}
+                        >
+                            Clear Basket
+                        </SecondaryButton>
+                    </div>
                 </div>
             )}
         </div>
