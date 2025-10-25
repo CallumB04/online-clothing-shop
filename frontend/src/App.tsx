@@ -5,11 +5,17 @@ import ShopPage from "./pages/Shop/ShopPage";
 import Navbar from "./layout/Navbar/Navbar";
 import { useState } from "react";
 import BasketDropdown from "./layout/BasketDropdown/BasketDropdown";
+import ClearBasketPopup from "./components/ClearBasketPopup/ClearBasketPopup";
 
 function App() {
+    // Layout Visibilities
     const [isMobileSidebarOpen, setIsMobileSidebarOpen] =
         useState<boolean>(false);
     const [isBasketDropdownOpen, setIsBasketDropdownOpen] =
+        useState<boolean>(false);
+
+    // Popup Visibilities
+    const [isClearBasketPopupOpen, setIsClearBasketPopupOpen] =
         useState<boolean>(false);
 
     const toggleMobileSidebar = () => {
@@ -18,6 +24,7 @@ function App() {
 
     return (
         <BrowserRouter>
+            {/* Layout Elements */}
             <Navbar
                 isMobileSidebarOpen={isMobileSidebarOpen}
                 toggleMobileSidebar={toggleMobileSidebar}
@@ -25,12 +32,18 @@ function App() {
                     setIsBasketDropdownOpen(!isBasketDropdownOpen)
                 }
             />
-
             <BasketDropdown
                 open={isBasketDropdownOpen}
                 closeBasketDropdown={() => setIsBasketDropdownOpen(false)}
+                openClearBasketPopup={() => setIsClearBasketPopupOpen(true)}
             />
-
+            {/* Popups */}
+            {isClearBasketPopupOpen && (
+                <ClearBasketPopup
+                    closePopup={() => setIsClearBasketPopupOpen(false)}
+                />
+            )}
+            {/* Router */}
             <Routes>
                 <Route
                     path="/"

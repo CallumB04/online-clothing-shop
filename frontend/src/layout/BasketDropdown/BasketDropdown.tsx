@@ -10,11 +10,13 @@ import BasketDropdownEmpty from "./BasketDropdownEmpty";
 interface BasketDropdownProps {
     open: boolean;
     closeBasketDropdown: () => void;
+    openClearBasketPopup: () => void;
 }
 
 const BasketDropdown: React.FC<BasketDropdownProps> = ({
     open,
     closeBasketDropdown,
+    openClearBasketPopup,
 }) => {
     const [isContentVisible, setIsContentVisible] = useState(false);
 
@@ -79,7 +81,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
                         </PrimaryButton>
                         <SecondaryButton
                             className="text-sm"
-                            onClick={clearBasket}
+                            onClick={openClearBasketPopup}
                         >
                             Clear Basket
                         </SecondaryButton>
