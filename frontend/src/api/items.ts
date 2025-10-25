@@ -38,7 +38,7 @@ export const fetchItems = async (): Promise<Item[]> => {
     }
 };
 
-export const fetchItemById = async (id: number): Promise<Item | null> => {
+export const fetchItemById = async (id: string): Promise<Item | null> => {
     try {
         const resp = await axios.get<Item>(`/items/${id}`);
         return resp.data;
