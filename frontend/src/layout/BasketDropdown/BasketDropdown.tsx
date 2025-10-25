@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import BasketDropdownItems from "./BasketDropdownItems";
 
 interface BasketDropdownProps {
     open: boolean;
@@ -51,7 +52,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
                         isContentVisible ? "opacity-100" : "opacity-0"
                     }`}
                 >
-                    Basket Content
+                    <BasketDropdownItems />
                 </div>
             )}
         </div>
