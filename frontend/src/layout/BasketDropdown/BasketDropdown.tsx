@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import BasketDropdownItems from "./BasketDropdownItems";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import SecondaryButton from "@/components/Button/SecondaryButton";
@@ -19,6 +19,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
     const { basket, clearBasket } = useBasket();
 
     const location = useLocation();
+    const navigate = useNavigate();
 
     // managing fade in and out animations for dropdown content
     useEffect(() => {
@@ -46,7 +47,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
 
     return (
         <div
-            className={`top-navbar-height font-primary fixed right-6 z-50 h-0 w-80 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-500 ${
+            className={`top-navbar-height font-primary fixed top-[var(--navbar-height)] right-6 z-50 h-0 w-80 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-500 ${
                 open && "bg-background border-layout-border h-[436px]"
             }`}
         >
@@ -62,6 +63,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
                         <PrimaryButton
                             className="text-sm"
                             disabled={basket.length === 0}
+                            onClick={() => navigate("/checkout")}
                         >
                             Go to Checkout
                         </PrimaryButton>
