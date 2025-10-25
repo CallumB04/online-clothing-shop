@@ -26,7 +26,10 @@ function App() {
                 }
             />
 
-            <BasketDropdown open={isBasketDropdownOpen} />
+            <BasketDropdown
+                open={isBasketDropdownOpen}
+                closeBasketDropdown={() => setIsBasketDropdownOpen(false)}
+            />
 
             <Routes>
                 <Route
