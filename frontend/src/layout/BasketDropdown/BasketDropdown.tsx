@@ -51,7 +51,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
 
     return (
         <div
-            className={`top-navbar-height font-primary fixed top-[var(--navbar-height)] right-6 z-50 h-0 w-80 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-500 ${
+            className={`top-navbar-height font-primary fixed top-[var(--navbar-height)] right-0 z-50 h-0 w-80 rounded-b-md border-t-0 border-transparent shadow-md transition-all duration-500 lg:right-6 ${
                 open && "bg-background border-layout-border h-[436px]"
             }`}
         >
