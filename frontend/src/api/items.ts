@@ -31,7 +31,7 @@ export const eligibleSizes = ["XS", "S", "M", "L", "XL", "2XL"];
 export const fetchItems = async (gender?: string): Promise<Item[]> => {
     try {
         const resp = await axios.get<Item[]>("/items", {
-            params: gender ? { gender } : undefined,
+            params: { gender: gender ?? "" },
         });
         return resp.data;
     } catch (err) {
