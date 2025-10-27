@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { fetchItems, type Item } from "@/api";
 import ShopSidebar from "@/layout/ShopSidebar/ShopSidebar";
-import { Navigate, useParams, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
 import ShopItem from "./components/ShopItem/ShopItem";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { addApostropheToGender } from "@/util/gender";
 import { capitalize } from "@/util/capitalize";
 import PreviewPopup from "./components/PreviewPopup/PreviewPopup";
 import NotFoundText from "@/components/NotFoundText/NotFoundText";
+import PrimaryButton from "@/components/Button/PrimaryButton";
 
 const eligibleGenders: string[] = ["mens", "womens"];
 const eligibleCategories: string[] = [
@@ -88,7 +89,16 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
                         ))}
                     </div>
                 ) : (
-                    <NotFoundText>No items could be found...</NotFoundText>
+                    <div className="flex flex-col items-center gap-4">
+                        <NotFoundText>
+                            No items could be found for your filters.
+                        </NotFoundText>
+                        <Link to="/shop">
+                            <PrimaryButton className="text-sm">
+                                Show all items
+                            </PrimaryButton>
+                        </Link>
+                    </div>
                 )}
             </main>
 
