@@ -7,7 +7,7 @@ axios.defaults.baseURL = API_URL;
 export interface Item {
     id: string;
     name: string;
-    gender: string; // "M" / "F"
+    gender: string; // "M" / "W"
     priceGBP: number;
     variations: ItemVariation[];
 }
@@ -28,9 +28,11 @@ export interface ItemVariationSize {
 export const eligibleSizes = ["XS", "S", "M", "L", "XL", "2XL"];
 
 // API Calls
-export const fetchItems = async (): Promise<Item[]> => {
+export const fetchItems = async (gender?: string): Promise<Item[]> => {
     try {
-        const resp = await axios.get<Item[]>("/items");
+        const resp = await axios.get<Item[]>("/items", {
+            params: gender ? { gender } : undefined,
+        });
         return resp.data;
     } catch (err) {
         console.error("Error fetching items: ", err);

@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/callumb04/online-clothing-shop/backend/internal/data"
+	"github.com/callumb04/online-clothing-shop/backend/internal/models"
 	"github.com/callumb04/online-clothing-shop/backend/internal/util"
 )
 
@@ -18,6 +19,22 @@ func handleGetItems() http.HandlerFunc {
 			return
 		}
 
+		gender := r.URL.Query().Get("gender") // "M" / "W"
+
+		if gender != "" {
+			var filteredItems []models.Item
+
+			for _, item := range items {
+				if item.Gender == gender {
+					filteredItems = append(filteredItems, item)
+				}
+			}
+			// Return filtered items
+			util.JSONResponse(w, http.StatusOK, filteredItems)
+			return
+		}
+
+		// Return all items if no filters are passed in request
 		util.JSONResponse(w, http.StatusOK, items)
 	}
 }

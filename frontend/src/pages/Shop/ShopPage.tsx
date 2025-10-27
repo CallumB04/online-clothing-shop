@@ -7,6 +7,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import { addApostropheToGender } from "@/util/gender";
 import { capitalize } from "@/util/capitalize";
 import PreviewPopup from "./components/PreviewPopup/PreviewPopup";
+import NotFoundText from "@/components/NotFoundText/NotFoundText";
 
 const eligibleGenders: string[] = ["mens", "womens"];
 const eligibleCategories: string[] = [
@@ -39,14 +40,15 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
     const category = searchParams.get("category") || ""; // default to empty string if no category
 
     // Fetch all items from API
+    // Filters based on gender, if selected
     useEffect(() => {
         const fetchData = async (): Promise<void> => {
-            let data = await fetchItems();
+            let data = await fetchItems(gender && gender[0].toUpperCase());
             setItems(data);
         };
 
         fetchData();
-    }, []);
+    }, [gender]);
 
     // If user attempts to manually alter url, redirected back to root shop page
     if (gender && !eligibleGenders.includes(gender)) {
@@ -74,16 +76,20 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
                         (category ? capitalize(category) : "Clothing")
                     }
                 />
-                <div className="grid w-full grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 2xl:grid-cols-3">
-                    {items.map((item) => (
-                        <ShopItem
-                            key={item.id}
-                            item={item}
-                            setCurrentPreviewItem={setCurrentPreviewItem}
-                            setIsPreviewPopupOpen={setIsPreviewPopupOpen}
-                        />
-                    ))}
-                </div>
+                {items && items.length > 0 ? (
+                    <div className="grid w-full grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 2xl:grid-cols-3">
+                        {items.map((item) => (
+                            <ShopItem
+                                key={item.id}
+                                item={item}
+                                setCurrentPreviewItem={setCurrentPreviewItem}
+                                setIsPreviewPopupOpen={setIsPreviewPopupOpen}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <NotFoundText>No items could be found...</NotFoundText>
+                )}
             </main>
 
             {/* Popups */}
