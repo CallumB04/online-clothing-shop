@@ -91,7 +91,7 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
                 ) : (
                     <div className="flex flex-col items-center gap-4">
                         <NotFoundText>
-                            No items could be found for your filters.
+                            Sorry! We couldn't find any items.
                         </NotFoundText>
                         <Link to="/shop">
                             <PrimaryButton className="text-sm">
