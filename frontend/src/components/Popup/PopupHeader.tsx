@@ -6,15 +6,19 @@ interface PopupHeaderProps {
     title?: string;
     description?: string;
     closePopup?: () => void; // if doesnt exist, X icon to close wont be rendered
+    className?: string;
 }
 
 const PopupHeader: React.FC<PopupHeaderProps> = ({
     title,
     description,
     closePopup,
+    className,
 }) => {
     return (
-        <span className="flex w-full min-w-64 justify-between gap-12">
+        <span
+            className={`flex w-full min-w-64 justify-between gap-12 ${className}`}
+        >
             <div className="flex flex-col gap-0.5">
                 {title && <PopupTitle title={title} />}
                 {description && <PopupDescription description={description} />}
