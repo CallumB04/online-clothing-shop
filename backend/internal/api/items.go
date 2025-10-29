@@ -24,26 +24,25 @@ func handleGetItems() http.HandlerFunc {
 
 		// Filtering items based on optional gender or category parameters
 		// If both are empty, all items will be returned
-		if gender != "" || category != "" {
-			var filteredItems []models.Item
+		var filteredItems []models.Item
 
-			for _, item := range items {
-				if item.Gender == gender || gender == "" {
-					if category == "" {
-						filteredItems = append(filteredItems, item)
-					} else {
-						for _, c := range item.Categories {
-							if c == category {
-								filteredItems = append(filteredItems, item)
-							}
+		for _, item := range items {
+			if item.Gender == gender || gender == "" {
+				if category == "" {
+					filteredItems = append(filteredItems, item)
+				} else {
+					for _, c := range item.Categories {
+						if c == category {
+							filteredItems = append(filteredItems, item)
 						}
 					}
 				}
 			}
-			// Return filtered items
-			util.JSONResponse(w, http.StatusOK, filteredItems)
 		}
+		// Return filtered items
+		util.JSONResponse(w, http.StatusOK, filteredItems)
 	}
+
 }
 
 func handleGetItemByID() http.HandlerFunc {
