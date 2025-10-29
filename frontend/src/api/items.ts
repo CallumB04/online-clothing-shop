@@ -26,6 +26,14 @@ export interface ItemVariationSize {
 }
 
 export const eligibleSizes = ["XS", "S", "M", "L", "XL", "2XL"];
+export const eligibleGenders: string[] = ["mens", "womens"];
+export const eligibleCategories: string[] = [
+    "new",
+    "offers",
+    "tops",
+    "bottoms",
+    "hoodies",
+];
 
 // API Calls
 export const fetchItems = async (gender?: string): Promise<Item[]> => {

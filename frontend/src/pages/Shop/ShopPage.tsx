@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { fetchItems, type Item } from "@/api";
+import {
+    eligibleCategories,
+    eligibleGenders,
+    fetchItems,
+    type Item,
+} from "@/api";
 import ShopSidebar from "@/layout/ShopSidebar/ShopSidebar";
 import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
 import ShopItem from "./components/ShopItem/ShopItem";
@@ -9,15 +14,6 @@ import { capitalize } from "@/util/capitalize";
 import PreviewPopup from "./components/PreviewPopup/PreviewPopup";
 import NotFoundText from "@/components/NotFoundText/NotFoundText";
 import PrimaryButton from "@/components/Button/PrimaryButton";
-
-const eligibleGenders: string[] = ["mens", "womens"];
-const eligibleCategories: string[] = [
-    "new",
-    "offers",
-    "tops",
-    "bottoms",
-    "hoodies",
-];
 
 interface ShopPageProps {
     isMobileSidebarOpen: boolean;
