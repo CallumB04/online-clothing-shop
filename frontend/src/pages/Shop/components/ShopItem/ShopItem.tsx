@@ -69,6 +69,10 @@ const ShopItem: React.FC<ShopItemProps> = ({
                             {item.variations.length > 4 && (
                                 <LightClickableText
                                     text={`+ ${item.variations.length - 4}`}
+                                    onClick={() => {
+                                        setCurrentPreviewItem(item);
+                                        setIsPreviewPopupOpen(true);
+                                    }}
                                 />
                             )}
                         </div>
