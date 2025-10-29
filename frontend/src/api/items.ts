@@ -34,6 +34,7 @@ export const eligibleCategories: string[] = [
     "tops",
     "bottoms",
     "hoodies",
+    "sweaters",
 ];
 
 // API Calls
