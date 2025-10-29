@@ -114,6 +114,174 @@
                         "stock": 4
                     }
                 ]
+            },
+            {
+                "id": "2",
+                "name": "Medium Wash",
+                "previewColor": "#698194",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-5149-00171-278_prod1",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 1
+                    },
+                    {
+                        "size": "M",
+                        "stock": 1
+                    },
+                    {
+                        "size": "L",
+                        "stock": 1
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            },
+            {
+                "id": "3",
+                "name": "Light Tan Painter",
+                "previewColor": "#d1cbc2",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-4171-00103-178_model4",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 1
+                    },
+                    {
+                        "size": "M",
+                        "stock": 1
+                    },
+                    {
+                        "size": "L",
+                        "stock": 1
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            },
+            {
+                "id": "4",
+                "name": "Light Brown",
+                "previewColor": "#9a8572",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-4162-00122-475_prod1",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 1
+                    },
+                    {
+                        "size": "M",
+                        "stock": 1
+                    },
+                    {
+                        "size": "L",
+                        "stock": 1
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            },
+            {
+                "id": "5",
+                "name": "Washed Black",
+                "previewColor": "#756858",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-5024-00234-977_prod1",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 1
+                    },
+                    {
+                        "size": "M",
+                        "stock": 1
+                    },
+                    {
+                        "size": "L",
+                        "stock": 1
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            },
+            {
+                "id": "6",
+                "name": "Cream Camo",
+                "previewColor": "#a2a19c",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-5189-00214-180_prod1",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 1
+                    },
+                    {
+                        "size": "M",
+                        "stock": 1
+                    },
+                    {
+                        "size": "L",
+                        "stock": 1
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            },
+            {
+                "id": "7",
+                "name": "Light With Tint",
+                "previewColor": "#8a8f89",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-5190-00296-280_prod1",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 1
+                    },
+                    {
+                        "size": "M",
+                        "stock": 1
+                    },
+                    {
+                        "size": "L",
+                        "stock": 1
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            },
+            {
+                "id": "8",
+                "name": "Tinted Light",
+                "previewColor": "#9e9f91",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_331-5328-00413-280_prod1",
+                "sizes": [
+                    {
+                        "size": "S",
+                        "stock": 1
+                    },
+                    {
+                        "size": "M",
+                        "stock": 1
+                    },
+                    {
+                        "size": "L",
+                        "stock": 1
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
             }
         ]
     },
@@ -234,6 +402,145 @@
                     {
                         "size": "L",
                         "stock": 2
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Icon Henley",
+        "gender": "W",
+        "categories": ["tops", "new"],
+        "priceGBP": 22.95,
+        "variations": [
+            {
+                "id": "0",
+                "name": "Mulberry",
+                "previewColor": "#5b2835",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_339-5296-00190-520_prod1",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "stock": 7
+                    },
+                    {
+                        "size": "S",
+                        "stock": 4
+                    },
+                    {
+                        "size": "M",
+                        "stock": 2
+                    },
+                    {
+                        "size": "L",
+                        "stock": 0
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "name": "Button-Through Poplin Shirt",
+        "gender": "W",
+        "categories": ["tops", "offers"],
+        "priceGBP": 29.95,
+        "variations": [
+            {
+                "id": "0",
+                "name": "White",
+                "previewColor": "#e1e1e1",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_340-5442-00071-100_prod1",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "stock": 7
+                    },
+                    {
+                        "size": "S",
+                        "stock": 4
+                    },
+                    {
+                        "size": "M",
+                        "stock": 2
+                    },
+                    {
+                        "size": "L",
+                        "stock": 0
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "name": "Hollister Comfy Cloud Foldover Off-the-Shoulder Sweater",
+        "gender": "W",
+        "categories": ["sweaters", "offers"],
+        "priceGBP": 29.95,
+        "variations": [
+            {
+                "id": "0",
+                "name": "Light Lilac",
+                "previewColor": "#f7e9ed",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_350-5246-00331-601_prod1",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "stock": 7
+                    },
+                    {
+                        "size": "S",
+                        "stock": 4
+                    },
+                    {
+                        "size": "M",
+                        "stock": 2
+                    },
+                    {
+                        "size": "L",
+                        "stock": 0
+                    },
+                    {
+                        "size": "XL",
+                        "stock": 1
+                    }
+                ]
+            },
+            {
+                "id": "1",
+                "name": "Blue Grey",
+                "previewColor": "#8797b0",
+                "imageURL": "https://img.hollisterco.com/is/image/anf/KIC_350-5246-00331-211_prod1",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "stock": 7
+                    },
+                    {
+                        "size": "S",
+                        "stock": 4
+                    },
+                    {
+                        "size": "M",
+                        "stock": 2
+                    },
+                    {
+                        "size": "L",
+                        "stock": 0
                     },
                     {
                         "size": "XL",
