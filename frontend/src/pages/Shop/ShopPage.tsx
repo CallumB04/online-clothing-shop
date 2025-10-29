@@ -40,12 +40,15 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
     // Filters based on gender, if selected
     useEffect(() => {
         const fetchData = async (): Promise<void> => {
-            let data = await fetchItems(gender && gender[0].toUpperCase());
+            let data = await fetchItems(
+                gender && gender[0].toUpperCase(),
+                category && category
+            );
             setItems(data);
         };
 
         fetchData();
-    }, [gender]);
+    }, [gender, category]);
 
     // If user attempts to manually alter url, redirected back to root shop page
     if (gender && !eligibleGenders.includes(gender)) {

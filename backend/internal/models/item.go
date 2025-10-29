@@ -4,6 +4,7 @@ type Item struct {
 	ID         string          `json:"id"`
 	Name       string          `json:"name"`
 	Gender     string          `json:"gender"` // "M" / "W"
+	Categories []string        `json:"categories"`
 	PriceGBP   float64         `json:"priceGBP"`
 	Variations []ItemVariation `json:"variations"`
 }

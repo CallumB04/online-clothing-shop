@@ -8,6 +8,7 @@ export interface Item {
     id: string;
     name: string;
     gender: string; // "M" / "W"
+    categories: string[];
     priceGBP: number;
     variations: ItemVariation[];
 }
@@ -36,10 +37,13 @@ export const eligibleCategories: string[] = [
 ];
 
 // API Calls
-export const fetchItems = async (gender?: string): Promise<Item[]> => {
+export const fetchItems = async (
+    gender?: string,
+    category?: string
+): Promise<Item[]> => {
     try {
         const resp = await axios.get<Item[]>("/items", {
-            params: { gender: gender ?? "" },
+            params: { gender: gender ?? "", category: category ?? "" },
         });
         return resp.data;
     } catch (err) {

@@ -20,22 +20,29 @@ func handleGetItems() http.HandlerFunc {
 		}
 
 		gender := r.URL.Query().Get("gender") // "M" / "W"
+		category := r.URL.Query().Get("category")
 
-		if gender != "" {
+		// Filtering items based on optional gender or category parameters
+		// If both are empty, all items will be returned
+		if gender != "" || category != "" {
 			var filteredItems []models.Item
 
 			for _, item := range items {
-				if item.Gender == gender {
-					filteredItems = append(filteredItems, item)
+				if item.Gender == gender || gender == "" {
+					if category == "" {
+						filteredItems = append(filteredItems, item)
+					} else {
+						for _, c := range item.Categories {
+							if c == category {
+								filteredItems = append(filteredItems, item)
+							}
+						}
+					}
 				}
 			}
 			// Return filtered items
 			util.JSONResponse(w, http.StatusOK, filteredItems)
-			return
 		}
-
-		// Return all items if no filters are passed in request
-		util.JSONResponse(w, http.StatusOK, items)
 	}
 }
 
