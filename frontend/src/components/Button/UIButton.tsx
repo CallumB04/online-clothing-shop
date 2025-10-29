@@ -21,7 +21,7 @@ const UIButton: React.FC<UIButtonProps> = ({
         <Button
             onClick={onClick}
             disabled={disabled}
-            className={`${disabled ? "border-ui-button-disabled text-ui-button-disabled" : "border-charcoal text-charcoal"} ${!disabled && (danger ? "hover:border-danger hover:text-danger" : "hover:border-ui-button-hover hover:text-ui-button-hover")} font-primary gap-2 rounded-md border-[1px] px-2 py-1.5 transition-colors duration-150 ${fullWidth ? "w-full" : "w-max"} ${className}`}
+            className={`${disabled ? "border-ui-button-disabled text-ui-button-disabled" : "border-charcoal text-charcoal"} ${!disabled && (danger ? "hover:border-danger hover:text-danger" : "hover:border-ui-button-hover hover:text-ui-button-hover")} font-primary gap-2 rounded-md border-[1px] px-3 py-2 text-sm transition-colors duration-150 ${fullWidth ? "w-full" : "w-max"} ${className}`}
         >
             {children}
         </Button>
