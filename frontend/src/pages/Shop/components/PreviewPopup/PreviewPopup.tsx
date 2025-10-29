@@ -82,6 +82,7 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                         <div className="flex max-w-[274px] flex-wrap items-center gap-2">
                             {eligibleSizes.map((size) => (
                                 <ItemSize
+                                    key={size}
                                     size={size}
                                     selected={selectedSize === size}
                                     setSelected={setSelectedSize}
