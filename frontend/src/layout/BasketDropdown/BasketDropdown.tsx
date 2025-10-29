@@ -20,7 +20,7 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
 }) => {
     const [isContentVisible, setIsContentVisible] = useState(false);
 
-    const { basket, clearBasket } = useBasket();
+    const { basket } = useBasket();
 
     const location = useLocation();
     const navigate = useNavigate();
