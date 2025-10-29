@@ -66,7 +66,7 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                             closePopup={closePopup}
                         />
                         {/* Item Variation Preview Colors */}
-                        <div className="flex flex-wrap items-center gap-2 sm:max-w-[274px]">
+                        <div className="flex flex-wrap items-center gap-2 sm:max-w-[230px]">
                             {item!.variations.map((variation) => (
                                 <ShopItemVariation
                                     key={variation.id}
