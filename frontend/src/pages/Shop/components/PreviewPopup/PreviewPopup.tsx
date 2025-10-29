@@ -64,9 +64,10 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                             title={item!.name}
                             description={`£${item!.priceGBP}`}
                             closePopup={closePopup}
+                            className="max-w-80 sm:max-w-96"
                         />
                         {/* Item Variation Preview Colors */}
-                        <div className="flex flex-wrap items-center gap-2 sm:max-w-[230px]">
+                        <div className="flex max-w-[308px] flex-wrap items-center gap-2 sm:max-w-[274px]">
                             {item!.variations.map((variation) => (
                                 <ShopItemVariation
                                     key={variation.id}
