@@ -1,12 +1,13 @@
 package models
 
 type Item struct {
-	ID         string          `json:"id"`
-	Name       string          `json:"name"`
-	Gender     string          `json:"gender"` // "M" / "W"
-	Categories []string        `json:"categories"`
-	PriceGBP   float64         `json:"priceGBP"`
-	Variations []ItemVariation `json:"variations"`
+	ID               string          `json:"id"`
+	Name             string          `json:"name"`
+	Gender           string          `json:"gender"` // "M" / "W"
+	Categories       []string        `json:"categories"`
+	PriceGBP         float64         `json:"priceGBP"`
+	DiscountPriceGBP *float64        `json:"discountPriceGBP"` // pointer since optional field
+	Variations       []ItemVariation `json:"variations"`
 }
 
 type ItemVariation struct {

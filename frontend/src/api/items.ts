@@ -10,6 +10,7 @@ export interface Item {
     gender: string; // "M" / "W"
     categories: string[];
     priceGBP: number;
+    discountPriceGBP?: number;
     variations: ItemVariation[];
 }
 
