@@ -89,7 +89,20 @@ const ShopItem: React.FC<ShopItemProps> = ({
                     </span>
                     <div className="flex flex-col gap-1">
                         <ShopItemName name={item.name} />
-                        <ShopItemPrice price={item.priceGBP} />
+                        <span className="flex gap-1.5">
+                            <ShopItemPrice
+                                price={item.priceGBP}
+                                className={
+                                    item.discountPriceGBP ? "line-through" : ""
+                                }
+                            />
+                            {item.discountPriceGBP && (
+                                <ShopItemPrice
+                                    price={item.discountPriceGBP}
+                                    className="text-discount-text!"
+                                />
+                            )}
+                        </span>
                     </div>
                 </div>
             </span>
