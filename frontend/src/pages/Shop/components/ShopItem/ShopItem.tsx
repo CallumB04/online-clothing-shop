@@ -82,7 +82,7 @@ const ShopItem: React.FC<ShopItemProps> = ({
                                 <p className="font-primary w-max">In Basket</p>
                                 <Icon
                                     icon="shopping_basket"
-                                    className="text-light-text text-sm"
+                                    className="text-light-text text-xs"
                                 />
                             </span>
                         )}
