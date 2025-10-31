@@ -5,6 +5,7 @@ import PopupTitle from "./PopupTitle";
 interface PopupHeaderProps {
     title?: string;
     description?: string;
+    replacedDescription?: string; // crosses out description, and sits on the side (like discounted price, etc)
     closePopup?: () => void; // if doesnt exist, X icon to close wont be rendered
     className?: string;
 }
@@ -12,6 +13,7 @@ interface PopupHeaderProps {
 const PopupHeader: React.FC<PopupHeaderProps> = ({
     title,
     description,
+    replacedDescription,
     closePopup,
     className,
 }) => {
@@ -21,7 +23,20 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
         >
             <div className="flex flex-col gap-0.5">
                 {title && <PopupTitle title={title} />}
-                {description && <PopupDescription description={description} />}
+                <span className="flex gap-1.5">
+                    {description && (
+                        <PopupDescription
+                            description={description}
+                            className={replacedDescription && "line-through"}
+                        />
+                    )}
+                    {replacedDescription && (
+                        <PopupDescription
+                            description={replacedDescription}
+                            className="text-discount-text!"
+                        />
+                    )}
+                </span>
             </div>
             {closePopup && (
                 <Icon

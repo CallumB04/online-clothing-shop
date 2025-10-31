@@ -63,6 +63,11 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                         <PopupHeader
                             title={item!.name}
                             description={`£${item!.priceGBP}`}
+                            replacedDescription={
+                                item?.discountPriceGBP
+                                    ? `£${item!.discountPriceGBP.toString()}`
+                                    : ""
+                            }
                             closePopup={closePopup}
                             className="max-w-80 sm:max-w-96"
                         />
