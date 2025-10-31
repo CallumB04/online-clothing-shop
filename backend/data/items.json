@@ -291,6 +291,7 @@
         "gender": "M",
         "categories": ["offers", "bottoms"],
         "priceGBP": 29.95,
+        "discountPriceGBP": 20.95,
         "variations": [
             {
                 "id": "0",
@@ -454,6 +455,7 @@
         "gender": "W",
         "categories": ["tops", "offers"],
         "priceGBP": 29.95,
+        "discountPriceGBP": 20.95,
         "variations": [
             {
                 "id": "0",
@@ -491,6 +493,7 @@
         "gender": "W",
         "categories": ["sweaters", "offers"],
         "priceGBP": 29.95,
+        "discountPriceGBP": 22.95,
         "variations": [
             {
                 "id": "0",
