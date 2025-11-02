@@ -95,7 +95,22 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                             <DarkText className="text-2xl font-semibold">
                                 {item?.name}
                             </DarkText>
-                            <LightText>£{item?.priceGBP}</LightText>
+                            <span className="flex gap-2">
+                                <LightText
+                                    className={
+                                        item?.discountPriceGBP
+                                            ? "line-through"
+                                            : ""
+                                    }
+                                >
+                                    £{item?.priceGBP}
+                                </LightText>
+                                {item?.discountPriceGBP && (
+                                    <LightText className="text-discount-text!">
+                                        £{item.discountPriceGBP}
+                                    </LightText>
+                                )}
+                            </span>
                         </div>
                         {/* Variations label and selections */}
                         <div className="flex flex-col gap-4">
