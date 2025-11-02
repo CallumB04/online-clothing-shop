@@ -67,8 +67,12 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                         </LightText>
                     </div>
                     <ItemImage
-                        src={item?.variations[0].imageURL}
-                        className="w-full lg:w-1/2 2xl:w-2/3"
+                        src={
+                            item?.variations.find(
+                                (v) => v.id === selectedVariation
+                            )?.imageURL
+                        }
+                        className="w-full rounded-md lg:w-1/2 2xl:w-2/3"
                     />
                     <div className="flex w-full flex-col gap-8 lg:w-1/2 2xl:w-1/3">
                         {/* Item name and price - Large screens */}
