@@ -6,6 +6,7 @@ import NavbarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
 import Clickable from "@/components/Clickable/Clickable";
 import { useLocation } from "react-router-dom";
+import { DarkText } from "@/components/Text/DarkText";
 
 interface NavbarProps {
     isMobileSidebarOpen: boolean;
@@ -74,9 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({
                     className="px-2"
                 >
                     <Icon icon="shopping_bag" />
-                    <p className="text-charcoal font-primary">
-                        {basket.length}
-                    </p>
+                    <DarkText>{basket.length}</DarkText>
                 </Clickable>
             </span>
         </nav>

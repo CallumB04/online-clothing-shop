@@ -1,3 +1,5 @@
+import { LightText } from "../Text/LightText";
+
 interface PopupDescriptionProps {
     description: string;
     className?: string;
@@ -8,11 +10,9 @@ const PopupDescription: React.FC<PopupDescriptionProps> = ({
     className,
 }) => {
     return (
-        <p
-            className={`font-primary text-light-text text-left text-sm ${className}`}
-        >
+        <LightText className={`text-left text-sm ${className}`}>
             {description}
-        </p>
+        </LightText>
     );
 };
 

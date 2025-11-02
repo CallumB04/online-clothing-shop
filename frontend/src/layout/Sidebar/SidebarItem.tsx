@@ -1,4 +1,5 @@
 import Icon from "@/components/Icon/Icon";
+import { DarkText } from "@/components/Text/DarkText";
 import { Link } from "react-router-dom";
 
 interface SidebarItemProps {
@@ -17,13 +18,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     return (
         <Link
             to={to}
-            className={`font-primary text-charcoal flex w-full items-center justify-between rounded-md px-3 py-2 transition-shadow duration-150 hover:shadow-sm ${selected && "bg-[#f3f3f3] shadow-xs"}`}
+            className={`flex w-full items-center justify-between rounded-md px-3 py-2 transition-shadow duration-150 hover:shadow-sm ${selected && "bg-[#f3f3f3] shadow-xs"}`}
         >
-            <p
-                className={`font-primary text-charcoal ${selected && "font-semibold"}`}
-            >
+            <DarkText className={selected ? "font-semibold" : ""}>
                 {label}
-            </p>
+            </DarkText>
             {icon && <Icon icon={icon} />}
         </Link>
     );

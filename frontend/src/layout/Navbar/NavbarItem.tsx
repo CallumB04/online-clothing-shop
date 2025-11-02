@@ -1,3 +1,4 @@
+import { DarkText } from "@/components/Text/DarkText";
 import { Link } from "react-router-dom";
 
 interface NavbarItemProps {
@@ -8,7 +9,7 @@ interface NavbarItemProps {
 const NavbarItem: React.FC<NavbarItemProps> = ({ label, toLocation }) => {
     return (
         <Link to={toLocation}>
-            <p className="text-charcoal font-primary font-bold">{label}</p>
+            <DarkText className="font-bold">{label}</DarkText>
         </Link>
     );
 };

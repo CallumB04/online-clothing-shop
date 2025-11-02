@@ -1,13 +1,11 @@
+import { DarkText } from "../Text/DarkText";
+
 interface PopupTitleProps {
     title: string;
 }
 
 const PopupTitle: React.FC<PopupTitleProps> = ({ title }) => {
-    return (
-        <h2 className="font-primary text-charcoal text-left text-xl font-bold">
-            {title}
-        </h2>
-    );
+    return <DarkText className="text-left text-xl font-bold">{title}</DarkText>;
 };
 
 export default PopupTitle;

@@ -1,9 +1,11 @@
+import { DarkText } from "@/components/Text/DarkText";
+
 interface ShopItemNameProps {
     name: string;
 }
 
 const ShopItemName: React.FC<ShopItemNameProps> = ({ name }) => {
-    return <p className="font-primary text-charcoal sm:text-sm">{name}</p>;
+    return <DarkText className="sm:text-sm">{name}</DarkText>;
 };
 
 export default ShopItemName;

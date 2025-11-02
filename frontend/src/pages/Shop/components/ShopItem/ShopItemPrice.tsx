@@ -1,3 +1,5 @@
+import { DarkText } from "@/components/Text/DarkText";
+
 interface ShopItemPriceProps {
     price: number;
     className?: string;
@@ -5,11 +7,9 @@ interface ShopItemPriceProps {
 
 const ShopItemPrice: React.FC<ShopItemPriceProps> = ({ price, className }) => {
     return (
-        <p
-            className={`font-primary text-charcoal text-sm font-semibold ${className}`}
-        >
+        <DarkText className={`text-sm font-semibold ${className}`}>
             £{price}
-        </p>
+        </DarkText>
     );
 };
 

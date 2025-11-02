@@ -7,6 +7,7 @@ import ShopItemVariation from "./ShopItemVariation";
 import LightClickableText from "@/components/Text/LightClickableText";
 import { useBasket } from "@/context/BasketContext";
 import Icon from "@/components/Icon/Icon";
+import { LightText } from "@/components/Text/LightText";
 
 interface ShopItemProps {
     item: Item;
@@ -78,8 +79,10 @@ const ShopItem: React.FC<ShopItemProps> = ({
                         </div>
                         {/* In basket text */}
                         {checkItemInBasket() && (
-                            <span className="text-light-text flex h-max w-max items-center gap-1 text-sm">
-                                <p className="font-primary w-max">In Basket</p>
+                            <span className="flex h-max w-max items-center gap-1.5 text-sm">
+                                <LightText className="w-max">
+                                    In Basket
+                                </LightText>
                                 <Icon
                                     icon="shopping_basket"
                                     className="text-light-text text-xs"
