@@ -74,10 +74,10 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                 <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-8 lg:flex-row lg:items-start">
                     {/* Item name and price - Small screens - Above item image */}
                     <div className="flex flex-col gap-1 lg:hidden">
-                        <DarkText className="text-center text-xl font-semibold">
+                        <DarkText className="text-center text-xl font-semibold sm:text-2xl">
                             {item?.name}
                         </DarkText>
-                        <LightText className="text-center text-sm">
+                        <LightText className="text-center text-sm sm:text-base">
                             £{item?.priceGBP}
                         </LightText>
                     </div>
