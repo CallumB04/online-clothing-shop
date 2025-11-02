@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import BasketDropdownItems from "./BasketDropdownItems";
-import PrimaryButton from "@/components/Button/PrimaryButton";
 import SecondaryButton from "@/components/Button/SecondaryButton";
 import { useBasket } from "@/context/BasketContext";
 import Icon from "@/components/Icon/Icon";
 import BasketDropdownEmpty from "./BasketDropdownEmpty";
+import RedirectButton from "@/components/Button/RedirectButton";
 
 interface BasketDropdownProps {
     open: boolean;
@@ -23,7 +23,6 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
     const { basket } = useBasket();
 
     const location = useLocation();
-    const navigate = useNavigate();
 
     // managing fade in and out animations for dropdown content
     useEffect(() => {
@@ -68,17 +67,17 @@ const BasketDropdown: React.FC<BasketDropdownProps> = ({
                         <BasketDropdownEmpty />
                     )}
                     <div className="flex flex-col gap-2">
-                        <PrimaryButton
-                            className="text-sm"
+                        <RedirectButton
+                            className="w-full text-sm"
                             disabled={basket.length === 0}
-                            onClick={() => navigate("/checkout")}
+                            to="/checkout"
                         >
                             Go to Checkout
                             <Icon
                                 icon="arrow_right_alt"
                                 className="text-sm text-white"
                             />
-                        </PrimaryButton>
+                        </RedirectButton>
                         <SecondaryButton
                             className="text-sm"
                             onClick={openClearBasketPopup}

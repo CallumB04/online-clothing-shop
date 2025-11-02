@@ -14,6 +14,7 @@ import { capitalize } from "@/util/capitalize";
 import PreviewPopup from "./components/PreviewPopup/PreviewPopup";
 import NotFoundText from "@/components/NotFoundText/NotFoundText";
 import PrimaryButton from "@/components/Button/PrimaryButton";
+import RedirectButton from "@/components/Button/RedirectButton";
 
 interface ShopPageProps {
     isMobileSidebarOpen: boolean;
@@ -92,11 +93,9 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
                         <NotFoundText>
                             Sorry! We couldn't find any items.
                         </NotFoundText>
-                        <Link to="/shop">
-                            <PrimaryButton className="text-sm">
-                                Show all items
-                            </PrimaryButton>
-                        </Link>
+                        <RedirectButton to="/shop" className="text-sm">
+                            Show all items
+                        </RedirectButton>
                     </div>
                 )}
             </main>
