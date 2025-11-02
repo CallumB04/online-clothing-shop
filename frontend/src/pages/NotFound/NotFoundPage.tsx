@@ -1,0 +1,31 @@
+import RedirectButton from "@/components/Button/RedirectButton";
+import { DarkText } from "@/components/Text/DarkText";
+import { LightText } from "@/components/Text/LightText";
+import HomeSidebar from "@/layout/HomeSidebar/HomeSidebar";
+
+interface NotFoundPageProps {
+    isMobileSidebarOpen?: boolean;
+}
+
+const NotFoundPage: React.FC<NotFoundPageProps> = ({ isMobileSidebarOpen }) => {
+    return (
+        <>
+            <HomeSidebar open={isMobileSidebarOpen} />
+            <main className="mt-0! flex h-screen flex-col items-center justify-center gap-6">
+                <div className="flex flex-col gap-1">
+                    <DarkText className="text-center text-9xl">404</DarkText>
+                    <DarkText className="text-center text-4xl">
+                        PAGE NOT FOUND
+                    </DarkText>
+                </div>
+                <LightText>
+                    The page you are looking for does not exist or is
+                    temporarily unavailable.
+                </LightText>
+                <RedirectButton to="/">Return to Home Page</RedirectButton>
+            </main>
+        </>
+    );
+};
+
+export default NotFoundPage;
