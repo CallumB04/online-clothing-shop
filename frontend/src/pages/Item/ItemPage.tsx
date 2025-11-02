@@ -8,6 +8,10 @@ import { DarkText } from "@/components/Text/DarkText";
 import { LightText } from "@/components/Text/LightText";
 import ItemPageVariation from "./components/ItemPageVariation";
 import ItemPageSize from "./components/ItemPageSize";
+import PrimaryButton from "@/components/Button/PrimaryButton";
+import { useBasket } from "@/context/BasketContext";
+import SecondaryButton from "@/components/Button/SecondaryButton";
+import DangerButton from "@/components/Button/DangerButton";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -19,6 +23,8 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
 
     const [selectedVariation, setSelectedVariation] = useState<string>(""); // selected variation id
     const [selectedSize, setSelectedSize] = useState<string>("XS");
+
+    const { basket, addBasketItem, removeBasketItem } = useBasket();
 
     const { id } = useParams(); // get item id from url
 
@@ -47,6 +53,16 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
         }
     }, [item]);
 
+    // function to check if current item, variation and size exists in basket
+    const checkItemInBasket = () => {
+        return basket.some(
+            (i) =>
+                i.itemID === item?.id &&
+                i.variationID === selectedVariation &&
+                i.size === selectedSize
+        );
+    };
+
     // if tried to fetch item and doesnt exist, show not found page
     if (!isLoading && !item) {
         return <NotFoundPage isMobileSidebarOpen={isMobileSidebarOpen} />;
@@ -74,7 +90,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                         }
                         className="w-full rounded-md lg:w-1/2 2xl:w-2/3"
                     />
-                    <div className="flex w-full flex-col gap-8 lg:w-1/2 2xl:w-1/3">
+                    <div className="flex w-full flex-col gap-10 lg:w-1/2 2xl:w-1/3">
                         {/* Item name and price - Large screens */}
                         <div className="hidden flex-col gap-1 lg:flex">
                             <DarkText className="text-2xl font-semibold">
@@ -124,6 +140,33 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                 ))}
                             </div>
                         </div>
+                        {checkItemInBasket() ? (
+                            <DangerButton
+                                onClick={() =>
+                                    removeBasketItem({
+                                        itemID: item!.id,
+                                        variationID: selectedVariation,
+                                        size: selectedSize,
+                                        quantity: 1,
+                                    })
+                                }
+                            >
+                                Remove from Basket
+                            </DangerButton>
+                        ) : (
+                            <PrimaryButton
+                                onClick={() =>
+                                    addBasketItem({
+                                        itemID: item!.id,
+                                        variationID: selectedVariation,
+                                        size: selectedSize,
+                                        quantity: 1,
+                                    })
+                                }
+                            >
+                                Add to Basket
+                            </PrimaryButton>
+                        )}
                     </div>
                 </div>
             </main>
