@@ -11,7 +11,6 @@ import ItemPageSize from "./components/ItemPageSize";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import { useBasket } from "@/context/BasketContext";
 import SecondaryButton from "@/components/Button/SecondaryButton";
-import DangerButton from "@/components/Button/DangerButton";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -141,7 +140,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                             </div>
                         </div>
                         {checkItemInBasket() ? (
-                            <DangerButton
+                            <SecondaryButton
                                 onClick={() =>
                                     removeBasketItem({
                                         itemID: item!.id,
@@ -152,7 +151,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                 }
                             >
                                 Remove from Basket
-                            </DangerButton>
+                            </SecondaryButton>
                         ) : (
                             <PrimaryButton
                                 onClick={() =>
