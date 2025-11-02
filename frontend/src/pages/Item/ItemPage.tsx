@@ -1,4 +1,4 @@
-import { fetchItemById, type Item } from "@/api";
+import { eligibleSizes, fetchItemById, type Item } from "@/api";
 import DefaultSidebar from "@/layout/DefaultSidebar/DefaultSidebar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -6,8 +6,8 @@ import NotFoundPage from "../NotFound/NotFoundPage";
 import ItemImage from "@/components/ItemImage/ItemImage";
 import { DarkText } from "@/components/Text/DarkText";
 import { LightText } from "@/components/Text/LightText";
-import ShopItemVariation from "../Shop/components/ShopItem/ShopItemVariation";
 import ItemPageVariation from "./components/ItemPageVariation";
+import ItemPageSize from "./components/ItemPageSize";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -82,6 +82,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                             </DarkText>
                             <LightText>£{item?.priceGBP}</LightText>
                         </div>
+                        {/* Variations label and selections */}
                         <div className="flex flex-col gap-4">
                             {/* Selected variation label */}
                             <span className="flex gap-1">
@@ -105,6 +106,20 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                         setSelected={() =>
                                             setSelectedVariation(v.id)
                                         }
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                        {/* Item Sizes */}
+                        <div className="flex flex-col gap-4">
+                            <DarkText className="font-semibold">Size:</DarkText>
+
+                            <div className="flex max-w-96 flex-wrap justify-between gap-2">
+                                {eligibleSizes.map((s) => (
+                                    <ItemPageSize
+                                        size={s}
+                                        selected={s === selectedSize}
+                                        setSelected={() => setSelectedSize(s)}
                                     />
                                 ))}
                             </div>
