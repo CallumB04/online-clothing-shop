@@ -7,6 +7,7 @@ import { useState } from "react";
 import BasketDropdown from "./layout/BasketDropdown/BasketDropdown";
 import ClearBasketPopup from "./components/ClearBasketPopup/ClearBasketPopup";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import ItemPage from "./pages/Item/ItemPage";
 
 function App() {
     // Layout Visibilities
@@ -56,6 +57,12 @@ function App() {
                     path="/shop/:gender?"
                     element={
                         <ShopPage isMobileSidebarOpen={isMobileSidebarOpen} />
+                    }
+                />
+                <Route
+                    path="/item/:id"
+                    element={
+                        <ItemPage isMobileSidebarOpen={isMobileSidebarOpen} />
                     }
                 />
                 {/* If no existing route matches the URL, show 404 Not Found */}
