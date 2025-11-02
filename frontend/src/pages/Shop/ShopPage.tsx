@@ -6,14 +6,13 @@ import {
     type Item,
 } from "@/api";
 import ShopSidebar from "@/layout/ShopSidebar/ShopSidebar";
-import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
+import { Navigate, useParams, useSearchParams } from "react-router-dom";
 import ShopItem from "./components/ShopItem/ShopItem";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import { addApostropheToGender } from "@/util/gender";
 import { capitalize } from "@/util/capitalize";
 import PreviewPopup from "./components/PreviewPopup/PreviewPopup";
 import NotFoundText from "@/components/NotFoundText/NotFoundText";
-import PrimaryButton from "@/components/Button/PrimaryButton";
 import RedirectButton from "@/components/Button/RedirectButton";
 
 interface ShopPageProps {
