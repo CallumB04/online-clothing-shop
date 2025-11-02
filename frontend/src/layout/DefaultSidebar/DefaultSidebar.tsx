@@ -2,11 +2,11 @@ import Sidebar from "../Sidebar/Sidebar";
 import SidebarItems from "../Sidebar/SidebarItems";
 import SidebarItem from "../Sidebar/SidebarItem";
 
-interface HomeSidebarProps {
+interface DefaultSidebarProps {
     open?: boolean;
 }
 
-const HomeSidebar: React.FC<HomeSidebarProps> = ({ open }) => {
+const DefaultSidebar: React.FC<DefaultSidebarProps> = ({ open }) => {
     return (
         <Sidebar visibleMobile={open}>
             <SidebarItems>
@@ -31,4 +31,4 @@ const HomeSidebar: React.FC<HomeSidebarProps> = ({ open }) => {
     );
 };
 
-export default HomeSidebar;
+export default DefaultSidebar;

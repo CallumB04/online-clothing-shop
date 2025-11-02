@@ -1,5 +1,5 @@
 import { fetchItemById, type Item } from "@/api";
-import HomeSidebar from "@/layout/HomeSidebar/HomeSidebar";
+import DefaultSidebar from "@/layout/DefaultSidebar/DefaultSidebar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -28,7 +28,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
 
     return (
         <>
-            <HomeSidebar open={isMobileSidebarOpen} />
+            <DefaultSidebar open={isMobileSidebarOpen} />
             <main>
                 <p>{item ? item.name : "no item found"}</p>
             </main>
