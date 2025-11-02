@@ -11,7 +11,7 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ isMobileSidebarOpen }) => {
     return (
         <>
             <HomeSidebar open={isMobileSidebarOpen} />
-            <main className="mt-0! flex h-screen flex-col items-center justify-center gap-6">
+            <main className="mt-0! flex h-screen flex-col items-center justify-center gap-6 px-2 text-center sm:px-4">
                 <div className="flex flex-col gap-1">
                     <DarkText className="text-center text-9xl">404</DarkText>
                     <DarkText className="text-center text-4xl">
