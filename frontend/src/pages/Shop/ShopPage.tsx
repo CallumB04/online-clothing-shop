@@ -68,7 +68,7 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
                 category={category}
                 eligibleCategories={eligibleCategories}
             />
-            <main className="lg:ml-sidebar-width gap flex flex-col gap-8 px-4 py-6 sm:py-10 lg:px-8">
+            <main className="lg:ml-sidebar-width flex flex-col gap-8 px-4 py-6 sm:py-10 lg:px-8">
                 <PageHeader
                     text={
                         (gender ? addApostropheToGender(gender) : "All") +
