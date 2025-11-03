@@ -69,12 +69,11 @@ const ShopItem: React.FC<ShopItemProps> = ({
                             {/* Label for additional variations -> "+2" */}
                             {item.variations.length > 4 && (
                                 <LightClickableText
-                                    text={`+ ${item.variations.length - 4}`}
                                     onClick={() => {
                                         setCurrentPreviewItem(item);
                                         setIsPreviewPopupOpen(true);
                                     }}
-                                />
+                                >{`+ ${item.variations.length - 4}`}</LightClickableText>
                             )}
                         </div>
                         {/* In basket text */}

@@ -1,18 +1,18 @@
 interface LightClickableTextProps {
-    text: string;
+    children: React.ReactNode;
     onClick?: () => void;
 }
 
 const LightClickableText: React.FC<LightClickableTextProps> = ({
-    text,
+    children,
     onClick,
 }) => {
     return (
         <p
-            className={`text-light-text font-primary border-b-light-text hover:text-charcoal hover:border-b-charcoal border-b-1 text-sm leading-4 transition-colors duration-200 ${onClick && "cursor-pointer"}`}
+            className={`text-light-text font-primary border-b-light-text hover:text-charcoal hover:border-b-charcoal h-max border-b-1 text-sm leading-4 transition-colors duration-200 ${onClick && "cursor-pointer"}`}
             onClick={onClick}
         >
-            {text}
+            {children}
         </p>
     );
 };
