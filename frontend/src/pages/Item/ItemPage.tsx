@@ -19,6 +19,7 @@ import SecondaryButton from "@/components/Button/SecondaryButton";
 import Clickable from "@/components/Clickable/Clickable";
 import Icon from "@/components/Icon/Icon";
 import QuantitySelector from "@/components/QuantitySelector/QuantitySelector";
+import LightClickableText from "@/components/Text/LightClickableText";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -158,7 +159,14 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                         </div>
                         {/* Item Sizes */}
                         <div className="flex flex-col gap-4">
-                            <DarkText className="font-semibold">Size:</DarkText>
+                            <span className="flex w-full justify-between">
+                                <DarkText className="font-semibold">
+                                    Size:
+                                </DarkText>
+                                <LightClickableText>
+                                    Size Guide
+                                </LightClickableText>
+                            </span>
 
                             <div className="flex max-w-96 flex-wrap justify-between gap-2">
                                 {eligibleSizes.map((s) => (
