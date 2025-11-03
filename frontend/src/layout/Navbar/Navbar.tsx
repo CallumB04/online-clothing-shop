@@ -19,18 +19,9 @@ const Navbar: React.FC<NavbarProps> = ({
     toggleMobileSidebar,
     toggleBasketDropdown,
 }) => {
-    const { basket, addBasketItem } = useBasket();
+    const { basket } = useBasket();
 
     const location = useLocation();
-
-    useEffect(() => {
-        addBasketItem({
-            itemID: "0",
-            variationID: "0",
-            size: "M",
-            quantity: 1,
-        });
-    }, []);
 
     // close mobile sidebar when changing pages
     useEffect(() => {
