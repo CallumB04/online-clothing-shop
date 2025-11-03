@@ -42,7 +42,15 @@ const BasketDropdownItem: React.FC<BasketDropdownItemProps> = ({
             />
             <div className="flex flex-1 flex-col gap-1">
                 <span className="flex w-full justify-between">
-                    <DarkText className="text-sm">{item?.name}</DarkText>
+                    <span className="flex items-center gap-1">
+                        <DarkText className="text-sm">{item?.name} </DarkText>
+                        {/* Quantity text, only when greater than 1 -> "(X2)" */}
+                        {basketItem.quantity > 1 && (
+                            <DarkText className="text-xs">
+                                {`(X${basketItem.quantity})`}
+                            </DarkText>
+                        )}
+                    </span>
                     <Icon
                         icon="close"
                         className="text-light-text hover:text-charcoal text-xs transition-colors duration-150"
