@@ -18,6 +18,7 @@ import { useBasket } from "@/context/BasketContext";
 import SecondaryButton from "@/components/Button/SecondaryButton";
 import Clickable from "@/components/Clickable/Clickable";
 import Icon from "@/components/Icon/Icon";
+import QuantitySelector from "@/components/QuantitySelector/QuantitySelector";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -199,44 +200,29 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                     Add to Basket
                                 </PrimaryButton>
                             )}
-                            {/* Quanity text, when item in basket */}
+                            {/* Quanity selector, when item in basket */}
                             {basketItem && (
-                                <span className="flex items-center gap-3 rounded-full bg-white p-1 shadow">
-                                    <Clickable
-                                        onClick={() =>
-                                            removeBasketItem({
-                                                itemID: item!.id,
-                                                variationID: selectedVariation,
-                                                size: selectedSize,
-                                                quantity: 1,
-                                            })
-                                        }
-                                        className="rounded-full!"
-                                    >
-                                        <Icon
-                                            icon="remove"
-                                            className="text-sm"
-                                        />
-                                    </Clickable>
-                                    <span className="flex items-center gap-1">
-                                        <DarkText className="font-semibold">
-                                            {basketItem.quantity}
-                                        </DarkText>
-                                    </span>
-                                    <Clickable
-                                        onClick={() =>
-                                            addBasketItem({
-                                                itemID: item!.id,
-                                                variationID: selectedVariation,
-                                                size: selectedSize,
-                                                quantity: 1,
-                                            })
-                                        }
-                                        className="rounded-full!"
-                                    >
-                                        <Icon icon="add" className="text-sm" />
-                                    </Clickable>
-                                </span>
+                                <QuantitySelector
+                                    onIncrement={() =>
+                                        addBasketItem({
+                                            itemID: item!.id,
+                                            variationID: selectedVariation,
+                                            size: selectedSize,
+                                            quantity: 1,
+                                        })
+                                    }
+                                    onDecrement={() =>
+                                        removeBasketItem({
+                                            itemID: item!.id,
+                                            variationID: selectedVariation,
+                                            size: selectedSize,
+                                            quantity: 1,
+                                        })
+                                    }
+                                    quantity={basketItem.quantity}
+                                    className="text-sm"
+                                    iconClassName="text-sm"
+                                />
                             )}
                         </div>
                     </div>
