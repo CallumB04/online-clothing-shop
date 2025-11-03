@@ -1,4 +1,9 @@
-import { eligibleSizes, fetchItemById, type Item } from "@/api";
+import {
+    type BasketItem,
+    eligibleSizes,
+    fetchItemById,
+    type Item,
+} from "@/api";
 import DefaultSidebar from "@/layout/DefaultSidebar/DefaultSidebar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -11,6 +16,8 @@ import ItemPageSize from "./components/ItemPageSize";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import { useBasket } from "@/context/BasketContext";
 import SecondaryButton from "@/components/Button/SecondaryButton";
+import Clickable from "@/components/Clickable/Clickable";
+import Icon from "@/components/Icon/Icon";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -22,6 +29,11 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
 
     const [selectedVariation, setSelectedVariation] = useState<string>(""); // selected variation id
     const [selectedSize, setSelectedSize] = useState<string>("XS");
+
+    // basket item corresponding to current item, variation and size, if exists
+    const [basketItem, setBasketItem] = useState<BasketItem | undefined>(
+        undefined
+    );
 
     const { basket, addBasketItem, removeBasketItem } = useBasket();
 
@@ -52,15 +64,18 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
         }
     }, [item]);
 
-    // function to check if current item, variation and size exists in basket
-    const checkItemInBasket = () => {
-        return basket.some(
+    // search for item in basket whenever item, variation or size changes
+    // if not found, set state to undefined
+    useEffect(() => {
+        const bi = basket.find(
             (i) =>
                 i.itemID === item?.id &&
                 i.variationID === selectedVariation &&
                 i.size === selectedSize
         );
-    };
+
+        setBasketItem(bi);
+    });
 
     // if tried to fetch item and doesnt exist, show not found page
     if (!isLoading && !item) {
@@ -154,33 +169,76 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                 ))}
                             </div>
                         </div>
-                        {checkItemInBasket() ? (
-                            <SecondaryButton
-                                onClick={() =>
-                                    removeBasketItem({
-                                        itemID: item!.id,
-                                        variationID: selectedVariation,
-                                        size: selectedSize,
-                                        quantity: 1,
-                                    })
-                                }
-                            >
-                                Remove from Basket
-                            </SecondaryButton>
-                        ) : (
-                            <PrimaryButton
-                                onClick={() =>
-                                    addBasketItem({
-                                        itemID: item!.id,
-                                        variationID: selectedVariation,
-                                        size: selectedSize,
-                                        quantity: 1,
-                                    })
-                                }
-                            >
-                                Add to Basket
-                            </PrimaryButton>
-                        )}
+                        <div className="flex w-full flex-col items-end gap-2">
+                            {basketItem ? (
+                                <SecondaryButton
+                                    onClick={() =>
+                                        removeBasketItem({
+                                            itemID: item!.id,
+                                            variationID: selectedVariation,
+                                            size: selectedSize,
+                                            quantity: basketItem?.quantity || 1,
+                                        })
+                                    }
+                                    className="w-full"
+                                >
+                                    Remove from Basket
+                                </SecondaryButton>
+                            ) : (
+                                <PrimaryButton
+                                    onClick={() =>
+                                        addBasketItem({
+                                            itemID: item!.id,
+                                            variationID: selectedVariation,
+                                            size: selectedSize,
+                                            quantity: 1,
+                                        })
+                                    }
+                                    className="w-full"
+                                >
+                                    Add to Basket
+                                </PrimaryButton>
+                            )}
+                            {/* Quanity text, when item in basket */}
+                            {basketItem && (
+                                <span className="flex items-center gap-3 rounded-full bg-white p-1 shadow">
+                                    <Clickable
+                                        onClick={() =>
+                                            removeBasketItem({
+                                                itemID: item!.id,
+                                                variationID: selectedVariation,
+                                                size: selectedSize,
+                                                quantity: 1,
+                                            })
+                                        }
+                                        className="rounded-full!"
+                                    >
+                                        <Icon
+                                            icon="remove"
+                                            className="text-sm"
+                                        />
+                                    </Clickable>
+                                    <span className="flex items-center gap-1">
+                                        <DarkText className="font-semibold">
+                                            {basketItem.quantity}
+                                        </DarkText>
+                                    </span>
+                                    <Clickable
+                                        onClick={() =>
+                                            addBasketItem({
+                                                itemID: item!.id,
+                                                variationID: selectedVariation,
+                                                size: selectedSize,
+                                                quantity: 1,
+                                            })
+                                        }
+                                        className="rounded-full!"
+                                    >
+                                        <Icon icon="add" className="text-sm" />
+                                    </Clickable>
+                                </span>
+                            )}
+                        </div>
                     </div>
                 </div>
             </main>
