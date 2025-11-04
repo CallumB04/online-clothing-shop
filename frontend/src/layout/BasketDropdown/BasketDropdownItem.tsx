@@ -5,6 +5,7 @@ import { DarkText } from "@/components/Text/DarkText";
 import { LightText } from "@/components/Text/LightText";
 import { useBasket } from "@/context/BasketContext";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface BasketDropdownItemProps {
     basketItem: BasketItem;
@@ -43,7 +44,12 @@ const BasketDropdownItem: React.FC<BasketDropdownItemProps> = ({
             <div className="flex flex-1 flex-col gap-1">
                 <span className="flex w-full justify-between">
                     <span className="flex items-center gap-1">
-                        <DarkText className="text-sm">{item?.name} </DarkText>
+                        {/* Item name */}
+                        <Link to={"/item/" + item?.id}>
+                            <DarkText className="text-sm">
+                                {item?.name}
+                            </DarkText>
+                        </Link>
                         {/* Quantity text, only when greater than 1 -> "(X2)" */}
                         {basketItem.quantity > 1 && (
                             <DarkText className="text-xs">
