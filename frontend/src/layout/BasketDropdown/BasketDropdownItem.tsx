@@ -47,7 +47,7 @@ const BasketDropdownItem: React.FC<BasketDropdownItemProps> = ({
                         {/* Quantity text, only when greater than 1 -> "(X2)" */}
                         {basketItem.quantity > 1 && (
                             <DarkText className="text-xs">
-                                {`(X${basketItem.quantity})`}
+                                ({basketItem.quantity})
                             </DarkText>
                         )}
                     </span>
