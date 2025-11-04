@@ -1,14 +1,11 @@
-import { DarkText } from "../Text/DarkText";
-
 interface SummaryContentProps {
-    text: string;
-    open?: boolean;
+    children: React.ReactNode;
 }
 
-const SummaryContent: React.FC<SummaryContentProps> = ({ text, open }) => {
+const SummaryContent: React.FC<SummaryContentProps> = ({ children }) => {
     return (
         <div className="border-input-border rounded-b border-1 p-3">
-            <DarkText className="text-sm">{text}</DarkText>
+            {children}
         </div>
     );
 };

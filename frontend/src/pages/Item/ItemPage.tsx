@@ -19,6 +19,7 @@ import SecondaryButton from "@/components/Button/SecondaryButton";
 import QuantitySelector from "@/components/QuantitySelector/QuantitySelector";
 import LightClickableText from "@/components/Text/LightClickableText";
 import SizeGuidePopup from "@/components/SizeGuidePopup/SizeGuidePopup";
+import Summary from "@/components/Summary/Summary";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -239,6 +240,25 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                     iconClassName="text-sm"
                                 />
                             )}
+                        </div>
+                        {/* Summary Components (extra info) */}
+                        <div className="flex flex-col gap-2">
+                            <Summary
+                                header="Shipping options"
+                                className="w-full"
+                            >
+                                Example
+                            </Summary>
+                            <Summary header="Returns" className="w-full">
+                                You have a 30 day return period from the day the
+                                product was ordered
+                            </Summary>
+                            <Summary
+                                header="In-store availability"
+                                className="w-full"
+                            >
+                                Example
+                            </Summary>
                         </div>
                     </div>
                 </div>

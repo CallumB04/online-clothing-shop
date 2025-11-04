@@ -6,11 +6,11 @@ import SummaryContent from "./SummaryContent";
 
 interface SummaryProps {
     header: string; // visible when summary is closed
-    content: string; // visible underneath when summary is expanded after being clicked on
+    children: React.ReactNode; // content - visible underneath when summary is expanded after being clicked on
     className?: string;
 }
 
-const Summary: React.FC<SummaryProps> = ({ header, content, className }) => {
+const Summary: React.FC<SummaryProps> = ({ header, children, className }) => {
     // state if summary is open (expanded, content visible)
     const [open, setOpen] = useState<boolean>(false);
 
@@ -21,7 +21,7 @@ const Summary: React.FC<SummaryProps> = ({ header, content, className }) => {
                 open={open}
                 onClick={() => setOpen(!open)}
             />
-            {open && <SummaryContent text={content} open={open} />}
+            {open && <SummaryContent>{children}</SummaryContent>}
         </div>
     );
 };
