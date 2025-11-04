@@ -4,6 +4,7 @@ import PopupHeader from "../Popup/PopupHeader";
 import PopupButtons from "../Popup/PopupButtons";
 import PrimaryButton from "../Button/PrimaryButton";
 import { useEffect, useState } from "react";
+import SizeGuidePopupTable from "./SizeGuidePopupTable";
 
 // function for find size guide values based off item categories
 const findSizeGuideValues = (categories: string[] | undefined) => {
@@ -60,11 +61,11 @@ const SizeGuidePopup: React.FC<SideGuidePopupProps> = ({
     closePopup,
 }) => {
     // holds current items size guide values
-    const [sizeGuide, setSizeGuide] = useState<string[][]>([]);
+    const [sizeGuideValues, setSizeGuideValues] = useState<string[][]>([]);
 
     useEffect(() => {
         const values = findSizeGuideValues(item?.categories);
-        setSizeGuide(values);
+        setSizeGuideValues(values);
     }, [item]);
 
     return (
@@ -75,7 +76,7 @@ const SizeGuidePopup: React.FC<SideGuidePopupProps> = ({
                 closePopup={closePopup}
             />
             {/* Table of sizes */}
-            <div>{sizeGuide.map((s) => s.map((g) => <p>{g}</p>))}</div>
+            <SizeGuidePopupTable values={sizeGuideValues} />
             <PopupButtons>
                 <PrimaryButton className="w-full" onClick={closePopup}>
                     Close
