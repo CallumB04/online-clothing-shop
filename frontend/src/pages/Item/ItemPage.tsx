@@ -243,16 +243,66 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                         </div>
                         {/* Summary Components (extra info) */}
                         <div className="flex flex-col gap-2">
+                            {/* Shipping */}
                             <Summary
                                 header="Shipping options"
                                 className="w-full"
                             >
                                 Example
                             </Summary>
+                            {/* Returns */}
                             <Summary header="Returns" className="w-full">
-                                You have a 30 day return period from the day the
-                                product was ordered
+                                <DarkText className="font-semibold">
+                                    You have a 28 day return period from the day
+                                    the product was shipped to you.
+                                </DarkText>
+                                <span className="flex justify-between gap-2">
+                                    <div className="flex flex-col gap-0.5">
+                                        <DarkText className="font-medium">
+                                            In-Store Return
+                                        </DarkText>
+                                        <LightText>
+                                            Items are free to return to any
+                                            store within the country the
+                                            purchase was made
+                                        </LightText>
+                                    </div>
+                                    <DarkText className="text-discount-text font-medium">
+                                        Free
+                                    </DarkText>
+                                </span>
+                                <span className="flex justify-between gap-2">
+                                    <div className="flex flex-col gap-0.5">
+                                        <DarkText className="font-medium">
+                                            Mail Return
+                                        </DarkText>
+                                        <LightText>
+                                            You can mail your item to one of our
+                                            pickup points. You must pay the full
+                                            shipping costs
+                                        </LightText>
+                                    </div>
+                                    <DarkText className="font-medium">
+                                        £???
+                                    </DarkText>
+                                </span>
+                                <span className="flex justify-between gap-2">
+                                    <div className="flex flex-col gap-0.5">
+                                        <DarkText className="font-medium">
+                                            Courier Pickup
+                                        </DarkText>
+                                        <LightText>
+                                            You can request one of our trusted
+                                            couriers to pick up your item, to
+                                            complete your return
+                                        </LightText>
+                                    </div>
+                                    <DarkText className="font-medium">
+                                        £5.99
+                                    </DarkText>
+                                </span>
                             </Summary>
+                            {/* Availability */}
                             <Summary
                                 header="In-store availability"
                                 className="w-full"

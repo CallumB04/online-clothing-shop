@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { DarkText } from "../Text/DarkText";
-import Icon from "../Icon/Icon";
 import SummaryHeader from "./SummaryHeader";
 import SummaryContent from "./SummaryContent";
 
@@ -15,7 +13,7 @@ const Summary: React.FC<SummaryProps> = ({ header, children, className }) => {
     const [open, setOpen] = useState<boolean>(false);
 
     return (
-        <div className="flex flex-col">
+        <div className={`flex flex-col ${className}`}>
             <SummaryHeader
                 text={header}
                 open={open}
