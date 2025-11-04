@@ -16,8 +16,6 @@ import ItemPageSize from "./components/ItemPageSize";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import { useBasket } from "@/context/BasketContext";
 import SecondaryButton from "@/components/Button/SecondaryButton";
-import Clickable from "@/components/Clickable/Clickable";
-import Icon from "@/components/Icon/Icon";
 import QuantitySelector from "@/components/QuantitySelector/QuantitySelector";
 import LightClickableText from "@/components/Text/LightClickableText";
 
