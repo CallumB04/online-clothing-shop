@@ -18,6 +18,7 @@ import { useBasket } from "@/context/BasketContext";
 import SecondaryButton from "@/components/Button/SecondaryButton";
 import QuantitySelector from "@/components/QuantitySelector/QuantitySelector";
 import LightClickableText from "@/components/Text/LightClickableText";
+import SizeGuidePopup from "@/components/SizeGuidePopup/SizeGuidePopup";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -34,6 +35,10 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
     const [basketItem, setBasketItem] = useState<BasketItem | undefined>(
         undefined
     );
+
+    // Popup Visibilities
+    const [sizeGuidePopupVisible, setSizeGuidePopupVisible] =
+        useState<boolean>(false);
 
     const { basket, addBasketItem, removeBasketItem } = useBasket();
 
@@ -161,7 +166,11 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                 <DarkText className="font-semibold">
                                     Size:
                                 </DarkText>
-                                <LightClickableText>
+                                <LightClickableText
+                                    onClick={() =>
+                                        setSizeGuidePopupVisible(true)
+                                    }
+                                >
                                     Size Guide
                                 </LightClickableText>
                             </span>
@@ -234,6 +243,14 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                     </div>
                 </div>
             </main>
+
+            {/* Popups */}
+            {sizeGuidePopupVisible && (
+                <SizeGuidePopup
+                    item={item}
+                    closePopup={() => setSizeGuidePopupVisible(false)}
+                />
+            )}
         </>
     );
 };
