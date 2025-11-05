@@ -15,7 +15,7 @@ body {
 }
 
 main {
-    @apply mt-navbar-height;
+    @apply mt-navbar-height min-h-[calc(100vh-var(--navbar-height))];
 }
 
 .clickable-hovered {
