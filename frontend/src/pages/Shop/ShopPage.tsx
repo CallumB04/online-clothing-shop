@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
     eligibleCategories,
     eligibleGenders,
@@ -14,7 +14,6 @@ import { capitalize } from "@/util/capitalize";
 import PreviewPopup from "./components/PreviewPopup/PreviewPopup";
 import NotFoundText from "@/components/NotFoundText/NotFoundText";
 import RedirectButton from "@/components/Button/RedirectButton";
-import { DarkText } from "@/components/Text/DarkText";
 import Dropdown from "@/components/Dropdown/Dropdown";
 
 interface ShopPageProps {
@@ -23,6 +22,8 @@ interface ShopPageProps {
 
 const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
     const [items, setItems] = useState<Item[]>([]);
+
+    const [currentSort, setCurrentSort] = useState<string>("relevance");
 
     // Popup visibility states
     const [isPreviewPopupOpen, setIsPreviewPopupOpen] =
@@ -52,7 +53,29 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
         fetchData();
     }, [gender, category]);
 
-    // If user attempts to manually alter url, redirected back to root shop page
+    // Sort items when sort dropdown value changes
+    // ... or when category/gender and therefore items changes
+    const sortedItems = useMemo(() => {
+        const arr = [...items]; // copy of items to retain the original state
+        switch (currentSort) {
+            case "price-lh":
+                return arr.sort(
+                    (a, b) =>
+                        (a.discountPriceGBP ?? a.priceGBP) -
+                        (b.discountPriceGBP ?? b.priceGBP)
+                );
+            case "price-hl":
+                return arr.sort(
+                    (a, b) =>
+                        (b.discountPriceGBP ?? b.priceGBP) -
+                        (a.discountPriceGBP ?? a.priceGBP)
+                );
+            default:
+                return arr;
+        }
+    }, [items, currentSort]);
+
+    // If user bttempts to manually alter url, redirected back to root shop page
     if (gender && !eligibleGenders.includes(gender)) {
         return <Navigate to="/shop" replace />; // replace - removes from history in browser
     }
@@ -93,13 +116,15 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
                                 display: "Price (High - Low)",
                             },
                         ]}
+                        defaultValue={currentSort}
+                        onChange={(value) => setCurrentSort(value)}
                         className="pr-16"
                         mobileFullWidth
                     />
                 </span>
-                {items && items.length > 0 ? (
+                {sortedItems && sortedItems.length > 0 ? (
                     <div className="grid w-full grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 2xl:grid-cols-3">
-                        {items.map((item) => (
+                        {sortedItems.map((item) => (
                             <ShopItem
                                 key={item.id}
                                 item={item}
