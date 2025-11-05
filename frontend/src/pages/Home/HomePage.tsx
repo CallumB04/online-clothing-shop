@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
-import UIButton from "@/components/Button/UIButton";
-import PrimaryButton from "@/components/Button/PrimaryButton";
-import Clickable from "@/components/Clickable/Clickable";
 import DefaultSidebar from "@/layout/DefaultSidebar/DefaultSidebar";
+import { DarkText } from "@/components/Text/DarkText";
+import HomePageNavigator from "./components/HomePageNavigator";
 
 interface HomePageProps {
     isMobileSidebarOpen?: boolean;
@@ -12,15 +10,22 @@ const HomePage: React.FC<HomePageProps> = ({ isMobileSidebarOpen }) => {
     return (
         <>
             <DefaultSidebar open={isMobileSidebarOpen} />
-            <main className="flex flex-col gap-4 px-2 py-4 sm:px-4 sm:py-6">
-                <h1 className="text-red-500">Home Page</h1>
-                <Link to="/shop">
-                    <PrimaryButton>Go to Shop</PrimaryButton>
-                </Link>
-                <UIButton onClick={() => alert("Hello")}>Buy Now</UIButton>
-                <Clickable onClick={() => alert("Click")}>
-                    This is a clickable
-                </Clickable>
+            <main className="flex flex-col gap-8 px-2 py-4 sm:px-4 sm:py-6">
+                <DarkText className="text-center text-4xl font-semibold uppercase">
+                    Clothing Shop
+                </DarkText>
+                <span className="mx-auto flex max-w-260 flex-col justify-center gap-4 md:flex-row">
+                    <HomePageNavigator
+                        to="/shop/mens"
+                        src="https://img.hollisterco.com/is/image/anf/KIC_325-5161-00128-904_life1"
+                        text="Men's"
+                    />
+                    <HomePageNavigator
+                        to="/shop/womens"
+                        src="https://img.hollisterco.com/is/image/anf/KIC_347-5080-00255-131_life1"
+                        text="Women's"
+                    />
+                </span>
             </main>
         </>
     );
