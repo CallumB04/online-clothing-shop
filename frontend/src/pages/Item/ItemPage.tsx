@@ -22,6 +22,7 @@ import SizeGuidePopup from "@/components/SizeGuidePopup/SizeGuidePopup";
 import Summary from "@/components/Summary/Summary";
 import TextInput from "@/components/TextInput/TextInput";
 import UIButton from "@/components/Button/UIButton";
+import Icon from "@/components/Icon/Icon";
 
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
@@ -371,7 +372,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                     </DarkText>
                                     <LightText>
                                         We will check this item's availability
-                                        in the your closest store
+                                        at your closest store
                                     </LightText>
                                 </div>
                                 <span className="flex gap-2">
