@@ -12,7 +12,7 @@ interface DropdownProps {
     className?: string;
     fullWidth?: boolean;
     mobileFullWidth?: boolean;
-    onChange?: () => void;
+    onChange?: (value: string) => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -35,7 +35,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             )}
             <select
                 className={`border-input-border text-charcoal font-primary flex h-10 rounded-md border-1 pr-8 pl-4 text-sm outline-none ${className} ${fullWidth && "w-full"} ${mobileFullWidth && "w-full sm:w-max"}`}
-                onChange={onChange}
+                onChange={(e) => onChange && onChange(e.target.value)}
                 defaultValue={defaultValue}
             >
                 {options.map((o) => (
