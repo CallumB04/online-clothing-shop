@@ -25,13 +25,10 @@ const ClearBasketPopup: React.FC<ClearBasketPopupProps> = ({ closePopup }) => {
                 closePopup={closePopup}
             />
             <PopupButtons>
-                <SecondaryButton
-                    className="w-full text-sm"
-                    onClick={closePopup}
-                >
+                <SecondaryButton className="w-full" onClick={closePopup}>
                     Cancel
                 </SecondaryButton>
-                <PrimaryButton className="w-full text-sm" onClick={handleClear}>
+                <PrimaryButton className="w-full" onClick={handleClear}>
                     Clear
                 </PrimaryButton>
             </PopupButtons>

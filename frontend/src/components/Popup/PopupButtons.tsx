@@ -5,7 +5,7 @@ interface PopupButtonsProps {
 
 const PopupButtons: React.FC<PopupButtonsProps> = ({ children, className }) => {
     return (
-        <span className={`flex w-full flex-1 gap-2 ${className}`}>
+        <span className={`flex w-full flex-1 gap-2 text-sm ${className}`}>
             {children}
         </span>
     );
