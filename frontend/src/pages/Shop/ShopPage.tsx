@@ -14,6 +14,8 @@ import { capitalize } from "@/util/capitalize";
 import PreviewPopup from "./components/PreviewPopup/PreviewPopup";
 import NotFoundText from "@/components/NotFoundText/NotFoundText";
 import RedirectButton from "@/components/Button/RedirectButton";
+import { DarkText } from "@/components/Text/DarkText";
+import Dropdown from "@/components/Dropdown/Dropdown";
 
 interface ShopPageProps {
     isMobileSidebarOpen: boolean;
@@ -68,14 +70,33 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
                 category={category}
                 eligibleCategories={eligibleCategories}
             />
-            <main className="lg:ml-sidebar-width flex flex-col gap-8 px-4 py-6 sm:py-10 lg:px-8">
-                <PageHeader
-                    text={
-                        (gender ? addApostropheToGender(gender) : "All") +
-                        " " +
-                        (category ? capitalize(category) : "Clothing")
-                    }
-                />
+            <main className="lg:ml-sidebar-width flex flex-col gap-8 px-4 py-6 sm:py-12 lg:px-8">
+                <span className="flex w-full flex-col items-center justify-between gap-6 sm:flex-row">
+                    <PageHeader
+                        text={
+                            (gender ? addApostropheToGender(gender) : "All") +
+                            " " +
+                            (category ? capitalize(category) : "Clothing")
+                        }
+                    />
+                    <Dropdown
+                        label="Sort By"
+                        options={[
+                            { value: "relevance", display: "Relevance" },
+                            { value: "newest", display: "Newest First" },
+                            {
+                                value: "price-lh",
+                                display: "Price (Low - High)",
+                            },
+                            {
+                                value: "price-hl",
+                                display: "Price (High - Low)",
+                            },
+                        ]}
+                        className="pr-16"
+                        mobileFullWidth
+                    />
+                </span>
                 {items && items.length > 0 ? (
                     <div className="grid w-full grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 2xl:grid-cols-3">
                         {items.map((item) => (
