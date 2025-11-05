@@ -22,8 +22,6 @@ import SizeGuidePopup from "@/components/SizeGuidePopup/SizeGuidePopup";
 import Summary from "@/components/Summary/Summary";
 import TextInput from "@/components/TextInput/TextInput";
 import UIButton from "@/components/Button/UIButton";
-import Icon from "@/components/Icon/Icon";
-
 interface ItemPageProps {
     isMobileSidebarOpen?: boolean;
 }
