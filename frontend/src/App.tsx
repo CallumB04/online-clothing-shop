@@ -8,6 +8,7 @@ import BasketDropdown from "./layout/BasketDropdown/BasketDropdown";
 import ClearBasketPopup from "./components/ClearBasketPopup/ClearBasketPopup";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import ItemPage from "./pages/Item/ItemPage";
+import Toaster from "./layout/Toaster/Toaster";
 
 function App() {
     // Layout Visibilities
@@ -39,6 +40,7 @@ function App() {
                 closeBasketDropdown={() => setIsBasketDropdownOpen(false)}
                 openClearBasketPopup={() => setIsClearBasketPopupOpen(true)}
             />
+            <Toaster />
             {/* Popups */}
             {isClearBasketPopupOpen && (
                 <ClearBasketPopup
