@@ -1,6 +1,6 @@
-# online-clothing-shop
+# clothing-shop
 
-This is an e-commerce website I am building using React (frontend) and Go (backend). This is my first project using the Go programming language, and I am learning as I work on the project.
+This is an e-commerce clothing website I am building using React (frontend) and Go (backend). This is my first project using the Go programming language, and I am learning as I work on the project.
 
 ## Installation and Setup
 
@@ -13,10 +13,10 @@ This is an e-commerce website I am building using React (frontend) and Go (backe
 
 ```bash
 ## Clone the repository
-git clone https://github.com/CallumB04/online-clothing-shop.git
+git clone https://github.com/CallumB04/clothing-shop.git
 
 ## Navigate to the project directory
-cd online-clothing-shop
+cd clothing-shop
 
 ## Install dependencies
 make setup
