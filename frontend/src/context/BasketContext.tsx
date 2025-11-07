@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import type { Basket, BasketItem } from "@/api";
+import { ToastType, useToaster } from "./ToasterContext";
 
 type BasketContextType = {
     basket: Basket;
@@ -30,6 +31,7 @@ const checkBasketItemMatch = (a: BasketItem, b: BasketItem): boolean => {
 
 export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
     const [basket, setBasket] = useState<Basket>([]);
+    const { addToast } = useToaster();
 
     const addBasketItem = (item: BasketItem) => {
         setBasket((currentBasket) => {
@@ -53,6 +55,14 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
             // if new item, add to basket
             return [...currentBasket, item];
         });
+
+        // add success toast
+        addToast(
+            "Item Added",
+            "This item has been successfully added to your basket",
+            ToastType.Success,
+            5000
+        );
     };
 
     const removeBasketItem = (item: BasketItem) => {
@@ -73,6 +83,14 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
                     .filter((basketItem) => basketItem.quantity > 0)
             );
         });
+
+        // add success toast
+        addToast(
+            "Item Removed",
+            "This item has been successfully removed from your basket",
+            ToastType.Success,
+            5000
+        );
     };
 
     const clearBasket = () => {
