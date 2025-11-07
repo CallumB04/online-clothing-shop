@@ -52,7 +52,7 @@ export const ToasterProvider = ({
         description: string,
         type: ToastType,
         closeable: boolean,
-        timeout: number
+        timeout?: number
     ) => {
         // create toast and assign id from lifetime counter
         const toast: Toast = {
@@ -67,34 +67,31 @@ export const ToasterProvider = ({
         setToastsCounter((prev) => prev + 1); // increment overall lifetime toasts
 
         // remove toast after timeout, unless permanent
-        if (timeout > 0) {
+        if (!closeable) {
             setTimeout(
                 () => {
                     removeToast(toast.id, true);
                 },
-                Math.max(timeout - 500, 0)
+                timeout ? timeout - 500 : 0
             ); // schedule 500ms before timeout, will fadeout first before deleting
         }
     };
 
     const removeToast = (id: number, auto?: boolean) => {
-        // set removing of toast to true, and fade out
-        setToasts((previousToasts) =>
-            previousToasts.map((t) =>
-                t.id === id ? { ...t, removing: true } : t
-            )
-        );
-
-        const newToasts = toasts.filter((t) => t.id !== id);
-
         if (auto) {
+            // set removing of toast to true, and fade out
+            setToasts((previousToasts) =>
+                previousToasts.map((t) =>
+                    t.id === id ? { ...t, removing: true } : t
+                )
+            );
             // remove toast from toaster in 500ms after fadeout
             setTimeout(() => {
-                setToasts(newToasts);
+                setToasts((prev) => prev.filter((t) => t.id !== id));
             }, 500);
         } else {
             // remove instantly if manual
-            setToasts(newToasts);
+            setToasts((prev) => prev.filter((t) => t.id !== id));
         }
     };
 
