@@ -4,6 +4,7 @@ import SecondaryButton from "../Button/SecondaryButton";
 import PrimaryButton from "../Button/PrimaryButton";
 import { useBasket } from "@/context/BasketContext";
 import PopupButtons from "../Popup/PopupButtons";
+import { ToastType, useToaster } from "@/context/ToasterContext";
 
 interface ClearBasketPopupProps {
     closePopup: () => void;
@@ -11,10 +12,17 @@ interface ClearBasketPopupProps {
 
 const ClearBasketPopup: React.FC<ClearBasketPopupProps> = ({ closePopup }) => {
     const { clearBasket } = useBasket();
+    const { addToast } = useToaster();
 
     const handleClear = () => {
         clearBasket();
         closePopup();
+        addToast(
+            "Basket Cleared",
+            "Your basket is now empty",
+            ToastType.Info,
+            5000
+        );
     };
 
     return (
