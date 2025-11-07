@@ -11,7 +11,7 @@ export type Toast = {
     title: string;
     description: string;
     type: ToastType;
-    closeable: boolean;
+    timeout: number;
     removing?: boolean; // final 500ms of life, fading from toaster before removal
 };
 
@@ -21,7 +21,6 @@ type ToasterContextType = {
         title: string,
         description: string,
         type: ToastType,
-        closeable: boolean,
         timeout: number // time (in ms) until toast is removed automatically. 0 for permanent
     ) => void;
     removeToast: (id: number) => void;
@@ -51,8 +50,7 @@ export const ToasterProvider = ({
         title: string,
         description: string,
         type: ToastType,
-        closeable: boolean,
-        timeout?: number
+        timeout: number
     ) => {
         // create toast and assign id from lifetime counter
         const toast: Toast = {
@@ -60,14 +58,14 @@ export const ToasterProvider = ({
             title: title,
             description: description,
             type: type,
-            closeable: closeable,
+            timeout: timeout,
         };
 
         setToasts((currentToasts) => [...currentToasts, toast]); // add toast to state
         setToastsCounter((prev) => prev + 1); // increment overall lifetime toasts
 
         // remove toast after timeout, unless permanent
-        if (!closeable) {
+        if (timeout > 0) {
             setTimeout(
                 () => {
                     removeToast(toast.id, true);
