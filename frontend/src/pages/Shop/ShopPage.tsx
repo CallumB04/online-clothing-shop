@@ -56,6 +56,8 @@ const ShopPage: React.FC<ShopPageProps> = ({ isMobileSidebarOpen }) => {
     // Sort items when sort dropdown value changes
     // ... or when category/gender and therefore items changes
     const sortedItems = useMemo(() => {
+        if (!items) return;
+
         const arr = [...items]; // copy of items to retain the original state
         switch (currentSort) {
             case "price-lh":
