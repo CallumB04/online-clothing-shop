@@ -12,7 +12,7 @@ const ToasterToast: React.FC<ToasterToastProps> = ({ toast }) => {
 
     return (
         <span
-            className={`border-layout-border flex w-full justify-between gap-4 rounded-md border-1 bg-[#ffffffee] p-3 transition-opacity duration-500 sm:w-72 ${toast.removing ? "opacity-0" : "opacity-100"}`}
+            className={`border-layout-border toast-fade-in flex w-full justify-between gap-4 rounded-md border-1 bg-[#ffffffee] p-3 transition-opacity duration-500 sm:w-72 ${toast.removing ? "opacity-0" : "opacity-100"}`}
         >
             <span className="flex gap-3">
                 <Icon icon="info" className="mt-0.5 text-xs select-none" />
