@@ -5,6 +5,7 @@ start:
 	cd backend && go run ./cmd/server
 
 test:
+	cd frontend && npm.cmd run test
 	cd backend && go test ./...
 
 setup:
