@@ -21,7 +21,7 @@ export const useBasket = () => {
 };
 
 // function to check if two basket items are the same (item, variation and size)
-const checkBasketItemMatch = (a: BasketItem, b: BasketItem): boolean => {
+export const checkBasketItemMatch = (a: BasketItem, b: BasketItem): boolean => {
     return (
         a.itemID === b.itemID &&
         a.variationID === b.variationID &&
