@@ -3,6 +3,7 @@ package api
 import (
 	"fmt"
 	"net/http"
+	"slices"
 	"strings"
 
 	"github.com/callumb04/clothing-shop/backend/internal/data"
@@ -10,6 +11,9 @@ import (
 	"github.com/callumb04/clothing-shop/backend/internal/util"
 )
 
+// Handlers
+
+// Get all items, optional filtering for gender and category
 func handleGetItems() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		items, err := data.LoadItems()
@@ -22,20 +26,19 @@ func handleGetItems() http.HandlerFunc {
 		gender := r.URL.Query().Get("gender") // "M" / "W"
 		category := r.URL.Query().Get("category")
 
-		// Filtering items based on optional gender or category parameters
-		// If both are empty, all items will be returned
 		var filteredItems []models.Item
 
+		// Return all items if no filtering exists
+		if gender == "" && category == "" {
+			util.JSONResponse(w, http.StatusOK, items)
+			return
+		}
+
+		// Filter items if gender or category exists
 		for _, item := range items {
 			if item.Gender == gender || gender == "" {
-				if category == "" {
+				if slices.Contains(item.Categories, category) || category == "" {
 					filteredItems = append(filteredItems, item)
-				} else {
-					for _, c := range item.Categories {
-						if c == category {
-							filteredItems = append(filteredItems, item)
-						}
-					}
 				}
 			}
 		}
