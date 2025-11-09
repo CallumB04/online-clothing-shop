@@ -9,9 +9,8 @@ import (
 )
 
 func main() {
-	// Create new multiplexer and register handlers to routes.
-	mux := http.NewServeMux()
-	api.RegisterHandlers(mux)
+	// Create multiplexer and register handlers to routes.
+	mux := api.RegisterHandlers()
 
 	// Configure CORS
 	c := cors.New(cors.Options{
