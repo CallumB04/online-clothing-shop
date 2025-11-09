@@ -39,7 +39,9 @@ const Dropdown: React.FC<DropdownProps> = ({
                 defaultValue={defaultValue}
             >
                 {options.map((o) => (
-                    <option value={o.value}>{o.display}</option>
+                    <option key={o.value} value={o.value}>
+                        {o.display}
+                    </option>
                 ))}
             </select>
         </div>

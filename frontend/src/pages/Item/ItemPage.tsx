@@ -153,6 +153,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                             <div className="flex flex-wrap gap-2">
                                 {item?.variations.map((v) => (
                                     <ItemPageVariation
+                                        key={v.id}
                                         variation={v}
                                         selected={v.id === selectedVariation}
                                         setSelected={() =>
@@ -180,6 +181,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                             <div className="flex max-w-96 flex-wrap justify-between gap-2">
                                 {eligibleSizes.map((s) => (
                                     <ItemPageSize
+                                        key={s}
                                         size={s}
                                         selected={s === selectedSize}
                                         setSelected={() => setSelectedSize(s)}
