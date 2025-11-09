@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/callumb04/online-clothing-shop/backend/internal/api"
+	"github.com/callumb04/clothing-shop/backend/internal/api"
 	"github.com/rs/cors"
 )
 

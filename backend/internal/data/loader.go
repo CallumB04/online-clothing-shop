@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"os"
 
-	"github.com/callumb04/online-clothing-shop/backend/internal/models"
+	"github.com/callumb04/clothing-shop/backend/internal/models"
 )
 
 const itemsFilePath string = "data/items.json"

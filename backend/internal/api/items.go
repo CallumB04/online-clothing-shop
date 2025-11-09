@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/callumb04/online-clothing-shop/backend/internal/data"
-	"github.com/callumb04/online-clothing-shop/backend/internal/models"
-	"github.com/callumb04/online-clothing-shop/backend/internal/util"
+	"github.com/callumb04/clothing-shop/backend/internal/data"
+	"github.com/callumb04/clothing-shop/backend/internal/models"
+	"github.com/callumb04/clothing-shop/backend/internal/util"
 )
 
 func handleGetItems() http.HandlerFunc {
