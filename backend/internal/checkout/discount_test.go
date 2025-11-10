@@ -2,7 +2,7 @@ package checkout
 
 import "testing"
 
-func TestCalculateTotalAfterDiscount(t *testing.T) {
+func TestCalculateBasketTotalAfterDiscount(t *testing.T) {
 	tests := []struct {
 		name          string
 		price         float64
@@ -20,7 +20,7 @@ func TestCalculateTotalAfterDiscount(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if result := CalculateTotalAfterDiscount(tt.price, tt.discount); result != tt.expectedTotal {
+			if result := CalculateBasketTotalAfterDiscount(tt.price, tt.discount); result != tt.expectedTotal {
 				t.Errorf("Incorrect total. Expected %f, got %f", tt.expectedTotal, result)
 			}
 		})
