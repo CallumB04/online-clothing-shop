@@ -4,7 +4,6 @@ import SecondaryButton from "../Button/SecondaryButton";
 import PrimaryButton from "../Button/PrimaryButton";
 import { useBasket } from "@/context/BasketContext";
 import PopupButtons from "../Popup/PopupButtons";
-import { useToaster } from "@/context/ToasterContext";
 
 interface ClearBasketPopupProps {
     closePopup: () => void;
