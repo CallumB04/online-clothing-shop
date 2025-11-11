@@ -5,8 +5,8 @@ start:
 	cd backend && go run ./cmd/server
 
 test:
+	cd backend && gotest -tags=mockitems ./...
 	cd frontend && npm.cmd run test
-	cd backend && go test ./...
 
 setup:
 	cd frontend && npm.cmd install
