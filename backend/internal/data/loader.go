@@ -1,3 +1,5 @@
+//go:build !mockitems
+
 package data
 
 import (
