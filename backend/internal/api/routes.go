@@ -12,6 +12,8 @@ func RegisterHandlers() *http.ServeMux {
 	// Items
 	mux.Handle("GET /items", handleGetItems())
 	mux.Handle("GET /items/{id}", handleGetItemByID())
+	// Checkout
+	mux.Handle("POST /checkout", handleCheckout())
 
 	// Return multiplexer to main function for starting server.
 	return mux
