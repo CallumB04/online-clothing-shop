@@ -21,7 +21,7 @@ func TestCalculateBasketTotalAfterDiscount(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if result := CalculateBasketTotalAfterDiscount(tt.price, tt.discount); result != tt.expectedTotal {
-				t.Errorf("Incorrect total. Expected %f, got %f", tt.expectedTotal, result)
+				t.Errorf("incorrect total. expected %f, got %f", tt.expectedTotal, result)
 			}
 		})
 	}
