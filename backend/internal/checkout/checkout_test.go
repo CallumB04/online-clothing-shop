@@ -60,7 +60,7 @@ func TestCalculateBasketTotal(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result, err := CalculateBasketTotal(tt.basket, &tt.discount)
+			_, result, err := CalculateBasketTotal(tt.basket, &tt.discount)
 
 			// Handle errors
 			if tt.expectedErr != nil && !errors.Is(err, tt.expectedErr) {

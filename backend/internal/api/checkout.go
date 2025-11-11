@@ -14,6 +14,11 @@ type requestBody struct {
 	Discount *float64      `json:"discount"` // optional discount
 }
 
+type responseBody struct {
+	Total           float64 `json:"total"`
+	DiscountedTotal float64 `json:"discountedTotal"`
+}
+
 func handleCheckout() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Decode request body into variable
@@ -28,12 +33,14 @@ func handleCheckout() http.HandlerFunc {
 		discount := body.Discount
 
 		// Calculate basket price, optional discount
-		total, err := checkout.CalculateBasketTotal(basket, discount)
+		total, discountedTotal, err := checkout.CalculateBasketTotal(basket, discount)
 		if err != nil {
 			util.ErrorResponse(w, http.StatusInternalServerError, "Failed to calculate total")
 			return
 		}
 
-		util.JSONResponse(w, http.StatusOK, total)
+		response := responseBody{Total: total, DiscountedTotal: discountedTotal}
+
+		util.JSONResponse(w, http.StatusOK, response)
 	}
 }
