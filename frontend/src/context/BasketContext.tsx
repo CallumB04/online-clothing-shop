@@ -60,7 +60,7 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
         addToast(
             "Item Added",
             "This item has been successfully added to your basket",
-            ToastType.Success,
+            ToastType.Info,
             5000
         );
     };
@@ -88,13 +88,19 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
         addToast(
             "Item Removed",
             "This item has been successfully removed from your basket",
-            ToastType.Success,
+            ToastType.Info,
             5000
         );
     };
 
     const clearBasket = () => {
         setBasket([]);
+        addToast(
+            "Basket Cleared",
+            "Your basket is now empty",
+            ToastType.Info,
+            5000
+        );
     };
 
     return (
