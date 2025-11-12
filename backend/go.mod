@@ -1,4 +1,4 @@
-module github.com/callumb04/clothing-shop/backend
+module github.com/CallumB04/clothing-shop/backend
 
 go 1.25.1
 

@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/callumb04/clothing-shop/backend/internal/api"
+	"github.com/CallumB04/clothing-shop/backend/internal/api"
 	"github.com/rs/cors"
 	"go.uber.org/zap"
 )

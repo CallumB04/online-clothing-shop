@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/callumb04/clothing-shop/backend/internal/data"
-	"github.com/callumb04/clothing-shop/backend/internal/models"
-	"github.com/callumb04/clothing-shop/backend/internal/util"
+	"github.com/CallumB04/clothing-shop/backend/internal/data"
+	"github.com/CallumB04/clothing-shop/backend/internal/models"
+	"github.com/CallumB04/clothing-shop/backend/internal/util"
 	"go.uber.org/zap"
 )
 

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/callumb04/clothing-shop/backend/internal/models"
+	"github.com/CallumB04/clothing-shop/backend/internal/models"
 )
 
 func TestCalculateBasketTotal(t *testing.T) {

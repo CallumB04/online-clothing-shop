@@ -3,9 +3,9 @@ package checkout
 import (
 	"errors"
 
-	"github.com/callumb04/clothing-shop/backend/internal/data"
-	"github.com/callumb04/clothing-shop/backend/internal/models"
-	"github.com/callumb04/clothing-shop/backend/internal/util"
+	"github.com/CallumB04/clothing-shop/backend/internal/data"
+	"github.com/CallumB04/clothing-shop/backend/internal/models"
+	"github.com/CallumB04/clothing-shop/backend/internal/util"
 )
 
 var ErrEmptyBasket = errors.New("empty basket")

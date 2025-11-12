@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/callumb04/clothing-shop/backend/internal/util"
+	"github.com/CallumB04/clothing-shop/backend/internal/util"
 	"go.uber.org/zap"
 )
 

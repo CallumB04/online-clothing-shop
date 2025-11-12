@@ -2,7 +2,7 @@
 
 package data
 
-import "github.com/callumb04/clothing-shop/backend/internal/models"
+import "github.com/CallumB04/clothing-shop/backend/internal/models"
 
 func LoadItems() ([]models.Item, error) {
 
