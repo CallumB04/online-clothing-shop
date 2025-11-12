@@ -5,21 +5,24 @@ import (
 	"net/http"
 	"slices"
 	"strings"
+	"time"
 
 	"github.com/callumb04/clothing-shop/backend/internal/data"
 	"github.com/callumb04/clothing-shop/backend/internal/models"
 	"github.com/callumb04/clothing-shop/backend/internal/util"
+	"go.uber.org/zap"
 )
 
 // Handlers
 
 // Get all items, optional filtering for gender and category
-func handleGetItems() http.HandlerFunc {
+func handleGetItems(logger *zap.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		startTime := time.Now() // Record time http request was received for logging
 		items, err := data.LoadItems()
 
 		if err != nil {
-			util.ErrorResponse(w, http.StatusInternalServerError, "failed to load items")
+			util.ErrorResponse(w, http.StatusInternalServerError, "failed to load items", logger, r, startTime)
 			return
 		}
 
@@ -30,7 +33,7 @@ func handleGetItems() http.HandlerFunc {
 
 		// Return all items if no filtering exists
 		if gender == "" && category == "" {
-			util.JSONResponse(w, http.StatusOK, items)
+			util.JSONResponse(w, http.StatusOK, items, logger, r, startTime)
 			return
 		}
 
@@ -43,13 +46,14 @@ func handleGetItems() http.HandlerFunc {
 			}
 		}
 		// Return filtered items
-		util.JSONResponse(w, http.StatusOK, filteredItems)
+		util.JSONResponse(w, http.StatusOK, filteredItems, logger, r, startTime)
 	}
 
 }
 
-func handleGetItemByID() http.HandlerFunc {
+func handleGetItemByID(logger *zap.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		startTime := time.Now() // Record time http request was received for logging
 
 		// Retrive item ID from api endpoint and trim whitespace.
 		id := r.PathValue("id")
@@ -57,26 +61,26 @@ func handleGetItemByID() http.HandlerFunc {
 
 		// Return error if missing ID.
 		if id == "" {
-			util.ErrorResponse(w, http.StatusBadRequest, "missing item ID")
+			util.ErrorResponse(w, http.StatusBadRequest, "missing item ID", logger, r, startTime)
 			return
 		}
 
 		items, err := data.LoadItems()
 
 		if err != nil {
-			util.ErrorResponse(w, http.StatusInternalServerError, "failed to load items")
+			util.ErrorResponse(w, http.StatusInternalServerError, "failed to load items", logger, r, startTime)
 			return
 		}
 
 		// Find item with matching ID and send to client.
 		for _, item := range items {
 			if item.ID == id {
-				util.JSONResponse(w, http.StatusOK, item)
+				util.JSONResponse(w, http.StatusOK, item, logger, r, startTime)
 				return
 			}
 		}
 
 		// Return error if item with request ID was not found.
-		util.ErrorResponse(w, http.StatusNotFound, fmt.Sprintf("item (ID: %s) does not exist", id))
+		util.ErrorResponse(w, http.StatusNotFound, fmt.Sprintf("item (ID: %s) does not exist", id), logger, r, startTime)
 	}
 }

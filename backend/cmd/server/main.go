@@ -1,16 +1,20 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/callumb04/clothing-shop/backend/internal/api"
 	"github.com/rs/cors"
+	"go.uber.org/zap"
 )
 
 func main() {
+	// Create logger, will be passed to all handler functions for request Logging.
+	logger, _ := zap.NewDevelopment()
+	defer logger.Sync()
+
 	// Create multiplexer and register handlers to routes.
-	mux := api.RegisterHandlers()
+	mux := api.RegisterHandlers(logger)
 
 	// Configure CORS
 	c := cors.New(cors.Options{
@@ -21,7 +25,7 @@ func main() {
 	})
 
 	// Start server on port 8080.
-	fmt.Println("Server is online!")
+	logger.Info("Starting the application...", zap.Int("port", 8080))
 	handler := c.Handler(mux)
 	http.ListenAndServe(":8080", handler)
 }
