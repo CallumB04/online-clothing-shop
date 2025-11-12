@@ -24,7 +24,7 @@ func handleCheckout() http.HandlerFunc {
 		// Decode request body into variable
 		var body requestBody
 		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
-			util.ErrorResponse(w, http.StatusBadRequest, "Invalid Request")
+			util.ErrorResponse(w, http.StatusBadRequest, "invalid request")
 			return
 		}
 
@@ -35,7 +35,7 @@ func handleCheckout() http.HandlerFunc {
 		// Calculate basket price, optional discount
 		total, discountedTotal, err := checkout.CalculateBasketTotal(basket, discount)
 		if err != nil {
-			util.ErrorResponse(w, http.StatusInternalServerError, "Failed to calculate total")
+			util.ErrorResponse(w, http.StatusInternalServerError, "failed to calculate total")
 			return
 		}
 
