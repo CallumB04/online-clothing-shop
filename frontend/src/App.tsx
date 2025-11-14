@@ -9,6 +9,7 @@ import ClearBasketPopup from "./components/ClearBasketPopup/ClearBasketPopup";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import ItemPage from "./pages/Item/ItemPage";
 import Toaster from "./layout/Toaster/Toaster";
+import Footer from "./layout/Footer/Footer";
 
 function App() {
     // Layout Visibilities
@@ -41,7 +42,7 @@ function App() {
                 openClearBasketPopup={() => setIsClearBasketPopupOpen(true)}
             />
             <Toaster />
-            {/* Popups */}
+            {/* Global Popups */}
             {isClearBasketPopupOpen && (
                 <ClearBasketPopup
                     closePopup={() => setIsClearBasketPopupOpen(false)}
@@ -77,6 +78,7 @@ function App() {
                     }
                 />
             </Routes>
+            <Footer />
         </BrowserRouter>
     );
 }
