@@ -47,7 +47,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-charcoal relative z-20 flex w-full flex-col items-center gap-24 p-8 sm:p-12">
+        <footer className="bg-charcoal relative z-20 flex w-full flex-col items-center gap-20 p-8 sm:p-12">
             {/* Newsletter */}
             <div className="flex flex-col items-center gap-6">
                 <div className="flex flex-col items-center gap-2 text-center">
