@@ -8,6 +8,7 @@
     /* Variables */
     --navbar-height: 4.5rem;
     --sidebar-width: 18rem;
+    --footer-height: 8rem;
 }
 
 body {
@@ -78,4 +79,5 @@ main {
     --top-navbar-height: var(--height-navbar-height);
     --width-sidebar-width: var(--sidebar-width);
     --margin-sidebar-width: var(--sidebar-width);
+    --height-footer-height: var(--footer-height);
 }
