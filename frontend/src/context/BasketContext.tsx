@@ -96,8 +96,8 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
     const clearBasket = () => {
         setBasket([]);
         addToast(
-            "Basket Cleared",
-            "Your basket is now empty",
+            "Basket Empty",
+            "Your basket has now been cleared",
             ToastType.Info,
             5000
         );
