@@ -1,7 +1,75 @@
+import SecondaryButton from "@/components/Button/SecondaryButton";
+import { WhiteText } from "@/components/Text/WhiteText";
+import TextInput from "@/components/TextInput/TextInput";
+import { ToastType, useToaster } from "@/context/ToasterContext";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+// scroll to top of page
+const handleScrollToTop = () => {
+    document.body.scrollTop = 0; // mobile
+    document.documentElement.scrollTop = 0; // desktop
+};
+
 const Footer = () => {
+    const [email, setEmail] = useState<string>("");
+    const newsletterEmailInput = useRef<HTMLInputElement>(null);
+
+    const { addToast } = useToaster();
+
+    // scroll to top when page changes
+    const location = useLocation();
+    useEffect(handleScrollToTop, [location]);
+
+    const handleJoinNewsletter = () => {
+        if (!email || !email.includes("@")) {
+            addToast(
+                "Invalid email",
+                `Please enter a valid email into the box to join our newsletter`,
+                ToastType.Error,
+                5000
+            );
+        } else {
+            addToast(
+                "Welcome to our Newsletter",
+                `Added ${email.slice(0, 3)}...${email.slice(email.indexOf("@"))} to the newsletter`,
+                ToastType.Success,
+                5000
+            );
+        }
+        // reset email input
+        if (newsletterEmailInput.current) {
+            newsletterEmailInput.current.value = "";
+            setEmail("");
+        }
+    };
+
     return (
-        <footer className="h-footer-height bg-charcoal w-screen p-8">
-            Footer
+        <footer className="bg-charcoal relative z-20 flex w-full flex-col items-center gap-16 p-16">
+            {/* Newsletter */}
+            <div className="flex flex-col items-center gap-6">
+                <div className="flex flex-col items-center gap-2 text-center">
+                    <WhiteText className="text-3xl uppercase sm:text-4xl">
+                        Join our newsletter today
+                    </WhiteText>
+                    <WhiteText className="text-sm font-light">
+                        Be one of the first to hear about our promotions, sales
+                        and everything else!
+                    </WhiteText>
+                </div>
+                <TextInput
+                    placeholder="Enter your email here..."
+                    className="placeholder-light-text h-11 w-full text-white sm:w-80"
+                    ref={newsletterEmailInput}
+                    onChange={(e) => setEmail(e)}
+                />
+                <SecondaryButton
+                    onClick={handleJoinNewsletter}
+                    className="w-full sm:w-max"
+                >
+                    Join now
+                </SecondaryButton>
+            </div>
         </footer>
     );
 };
