@@ -5,6 +5,7 @@ import { ToastType, useToaster } from "@/context/ToasterContext";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import FooterNavigationList from "./FooterNavigationList";
+import { LightText } from "@/components/Text/LightText";
 
 // scroll to top of page
 const handleScrollToTop = () => {
@@ -46,7 +47,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-charcoal relative z-20 flex w-full flex-col items-center gap-24 p-8 sm:p-16">
+        <footer className="bg-charcoal relative z-20 flex w-full flex-col items-center gap-24 p-8 sm:p-12">
             {/* Newsletter */}
             <div className="flex flex-col items-center gap-6">
                 <div className="flex flex-col items-center gap-2 text-center">
@@ -71,98 +72,113 @@ const Footer = () => {
                     Join now
                 </SecondaryButton>
             </div>
-            {/* Navigation Options */}
-            <div className="flex w-full flex-wrap justify-between gap-6">
-                <FooterNavigationList
-                    header="Info"
-                    options={[
-                        {
-                            label: "Return policy",
-                            to: "/info?category=returns",
-                        },
-                        {
-                            label: "Privacy policy",
-                            to: "/info?category=privacy",
-                        },
-                        {
-                            label: "Deliveries",
-                            to: "/info?category=deliveries",
-                        },
-                        { label: "Payments", to: "/info?category=payments" },
-                    ]}
-                />
-                <FooterNavigationList
-                    header="About Us"
-                    options={[
-                        {
-                            label: "About Clothing Shop",
-                            to: "/about?category=us",
-                        },
-                        {
-                            label: "Our stores",
-                            to: "/about?category=stores",
-                        },
-                        {
-                            label: "Socials",
-                            to: "/about?category=socials",
-                        },
-                    ]}
-                />
-                <FooterNavigationList
-                    header="Need help?"
-                    options={[
-                        {
-                            label: "Contact us",
-                            to: "/contact",
-                        },
-                        { label: "Cancel my subscription", to: "/newsletter" },
-                        {
-                            label: "Missing refund",
-                            to: "/help?category=refunds",
-                        },
-                        {
-                            label: "Track order",
-                            to: "/help?category=orders",
-                        },
-                        {
-                            label: "Report lost order",
-                            to: "/help?category=orders",
-                        },
-                        {
-                            label: "Find lost receipt",
-                            to: "/help?category=receipts",
-                        },
-                    ]}
-                />
-                <FooterNavigationList
-                    header="You might like these"
-                    options={[
-                        {
-                            label: "New items",
-                            to: "/shop?category=new",
-                        },
-                        {
-                            label: "Current offers",
-                            to: "/shop?category=offers",
-                        },
-                        {
-                            label: "Men's Tops",
-                            to: "/shop/mens?category=tops",
-                        },
-                        {
-                            label: "Women's Tops",
-                            to: "/shop/womens?category=tops",
-                        },
-                        {
-                            label: "Men's Bottoms",
-                            to: "/shop/mens?category=bottoms",
-                        },
-                        {
-                            label: "Women's Bottoms",
-                            to: "/shop/womens?category=bottoms",
-                        },
-                    ]}
-                />
+            {/* Navigation and bottom footer */}
+            <div className="flex w-full flex-col gap-4">
+                {/* Navigation Options */}
+                <div className="border-b-light-text flex w-full flex-wrap justify-between gap-6 border-b-1 p-6 pt-0 sm:p-12">
+                    <FooterNavigationList
+                        header="Info"
+                        options={[
+                            {
+                                label: "Return policy",
+                                to: "/info?category=returns",
+                            },
+                            {
+                                label: "Privacy policy",
+                                to: "/info?category=privacy",
+                            },
+                            {
+                                label: "Deliveries",
+                                to: "/info?category=deliveries",
+                            },
+                            {
+                                label: "Payments",
+                                to: "/info?category=payments",
+                            },
+                        ]}
+                    />
+                    <FooterNavigationList
+                        header="About Us"
+                        options={[
+                            {
+                                label: "About Clothing Shop",
+                                to: "/about?category=us",
+                            },
+                            {
+                                label: "Our stores",
+                                to: "/about?category=stores",
+                            },
+                            {
+                                label: "Socials",
+                                to: "/about?category=socials",
+                            },
+                        ]}
+                    />
+                    <FooterNavigationList
+                        header="Need help?"
+                        options={[
+                            {
+                                label: "Contact us",
+                                to: "/contact",
+                            },
+                            {
+                                label: "Cancel my subscription",
+                                to: "/newsletter",
+                            },
+                            {
+                                label: "Missing refund",
+                                to: "/help?category=refunds",
+                            },
+                            {
+                                label: "Track order",
+                                to: "/help?category=orders",
+                            },
+                            {
+                                label: "Report lost order",
+                                to: "/help?category=orders",
+                            },
+                            {
+                                label: "Find lost receipt",
+                                to: "/help?category=receipts",
+                            },
+                        ]}
+                    />
+                    <FooterNavigationList
+                        header="You might like these"
+                        options={[
+                            {
+                                label: "New items",
+                                to: "/shop?category=new",
+                            },
+                            {
+                                label: "Current offers",
+                                to: "/shop?category=offers",
+                            },
+                            {
+                                label: "Men's tops",
+                                to: "/shop/mens?category=tops",
+                            },
+                            {
+                                label: "Women's tops",
+                                to: "/shop/womens?category=tops",
+                            },
+                            {
+                                label: "Men's bottoms",
+                                to: "/shop/mens?category=bottoms",
+                            },
+                            {
+                                label: "Women's bottoms",
+                                to: "/shop/womens?category=bottoms",
+                            },
+                        ]}
+                    />
+                </div>
+                {/* Copyright text */}
+                <span className="flex w-full justify-end">
+                    <LightText className="text-sm font-light uppercase">
+                        © 2025 Clothing Shop
+                    </LightText>
+                </span>
             </div>
         </footer>
     );
