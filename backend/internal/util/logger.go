@@ -14,7 +14,7 @@ func LogRequest(logger *zap.Logger, r *http.Request, startTime time.Time) {
 	duration := time.Since(startTime).Milliseconds()
 
 	// Logging basic request info
-	logger.Info("new request",
+	logger.Info("req",
 		zap.String("method", r.Method),
 		zap.String("path", r.URL.Path),
 		zap.String("duration", fmt.Sprintf("%dms", duration)),
