@@ -1,8 +1,11 @@
+import type { Ref } from "react";
+
 interface TextInputProps {
     fullWidth?: boolean;
     placeholder?: string;
     className?: string;
     onChange?: (input: string) => void;
+    ref?: Ref<HTMLInputElement>;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -10,6 +13,7 @@ const TextInput: React.FC<TextInputProps> = ({
     placeholder = "Type here...",
     className,
     onChange,
+    ref,
 }) => {
     const handleChange = (newInput: string) => {
         if (onChange) {
@@ -23,6 +27,7 @@ const TextInput: React.FC<TextInputProps> = ({
             placeholder={placeholder}
             className={`border-input-border text-charcoal font-primary flex h-10 rounded-md border-1 px-4 text-sm outline-none ${fullWidth ? "w-full" : "w-56"} ${className}`}
             onChange={(e) => handleChange(e.target.value)}
+            ref={ref}
         />
     );
 };
