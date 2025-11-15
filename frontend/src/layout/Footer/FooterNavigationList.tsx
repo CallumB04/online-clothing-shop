@@ -23,7 +23,7 @@ const FooterNavigationList: React.FC<FooterNavigationListProps> = ({
             {/* Section options */}
             <div className="flex flex-col gap-2">
                 {options.map((o) => (
-                    <Link to={o.to}>
+                    <Link key={o.label} to={o.to}>
                         <LightText className="text-sm font-light transition-colors duration-200 hover:text-white">
                             {o.label}
                         </LightText>
