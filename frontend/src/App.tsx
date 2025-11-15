@@ -10,6 +10,7 @@ import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import ItemPage from "./pages/Item/ItemPage";
 import Toaster from "./layout/Toaster/Toaster";
 import Footer from "./layout/Footer/Footer";
+import CheckoutPage from "./pages/Checkout/CheckoutPage";
 
 function App() {
     // Layout Visibilities
@@ -66,6 +67,14 @@ function App() {
                     path="/item/:id"
                     element={
                         <ItemPage isMobileSidebarOpen={isMobileSidebarOpen} />
+                    }
+                />
+                <Route
+                    path="/checkout"
+                    element={
+                        <CheckoutPage
+                            isMobileSidebarOpen={isMobileSidebarOpen}
+                        />
                     }
                 />
                 {/* If no existing route matches the URL, show 404 Not Found */}
