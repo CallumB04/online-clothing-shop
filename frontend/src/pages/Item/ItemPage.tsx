@@ -173,6 +173,7 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                                     onClick={() =>
                                         setSizeGuidePopupVisible(true)
                                     }
+                                    underlined
                                 >
                                     Size Guide
                                 </LightClickableText>

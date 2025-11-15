@@ -73,6 +73,7 @@ const ShopItem: React.FC<ShopItemProps> = ({
                                         setCurrentPreviewItem(item);
                                         setIsPreviewPopupOpen(true);
                                     }}
+                                    underlined
                                 >{`+ ${item.variations.length - 4}`}</LightClickableText>
                             )}
                         </div>
