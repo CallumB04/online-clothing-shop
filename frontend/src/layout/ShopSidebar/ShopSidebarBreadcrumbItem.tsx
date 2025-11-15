@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/Icon/Icon";
+import LightClickableText from "@/components/Text/LightClickableText";
 
 interface SidebarBreadcrumbItemProps {
     label: string;
@@ -21,8 +22,8 @@ const SidebarBreadcrumbItem: React.FC<SidebarBreadcrumbItemProps> = ({
                     className="text-xs"
                 />
             )}
-            <Link to={toLocation} className="font-light">
-                {label}
+            <Link to={toLocation} className="h-4.5 font-light">
+                <LightClickableText>{label}</LightClickableText>
             </Link>
         </span>
     );
