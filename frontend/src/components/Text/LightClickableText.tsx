@@ -11,7 +11,7 @@ const LightClickableText: React.FC<LightClickableTextProps> = ({
 }) => {
     return (
         <p
-            className={`text-light-text font-primary hover:text-charcoal h-max w-max text-sm leading-4 transition-colors duration-200 ${onClick && "cursor-pointer"} ${underlined && "border-b-light-text hover:border-b-charcoal border-b-1"}`}
+            className={`text-light-text font-primary hover:text-charcoal group-hover:text-charcoal h-max w-max text-sm leading-4 transition-colors duration-200 ${onClick && "cursor-pointer"} ${underlined && "border-b-light-text hover:border-b-charcoal border-b-1"}`}
             onClick={onClick}
         >
             {children}
