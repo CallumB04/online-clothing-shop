@@ -11,20 +11,26 @@ const CheckoutPageBasketTable = () => {
             {/* Table Header */}
             <span className="flex gap-4 pl-2 text-sm font-semibold">
                 <DarkText className="w-full">Item</DarkText>
-                <DarkText className="w-80">Size</DarkText>
-                <DarkText className="w-80">Quantity</DarkText>
-                <DarkText className="w-52 text-center">Total</DarkText>
+                <DarkText className="w-32 flex-none text-center">Size</DarkText>
+                <DarkText className="w-40 flex-none text-center">
+                    Quantity
+                </DarkText>
+                <DarkText className="w-32 flex-none text-center">
+                    Total
+                </DarkText>
                 {/* Empty span, column for item removal, but no header */}
-                <span className="w-24"></span>
+                <span className="w-12 flex-none"></span>
             </span>
             <Divider />
             {/* Table Rows */}
-            {basket.map((bi) => (
-                <CheckoutPageBasketTableRow
-                    key={bi.itemID + bi.variationID + bi.size}
-                    basketItem={bi}
-                />
-            ))}
+            <div className="mt-1 flex flex-col gap-4">
+                {basket.map((bi) => (
+                    <CheckoutPageBasketTableRow
+                        key={bi.itemID + bi.variationID + bi.size}
+                        basketItem={bi}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
