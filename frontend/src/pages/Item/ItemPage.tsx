@@ -194,12 +194,16 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                             {basketItem ? (
                                 <SecondaryButton
                                     onClick={() =>
-                                        removeBasketItem({
-                                            itemID: item!.id,
-                                            variationID: selectedVariation,
-                                            size: selectedSize,
-                                            quantity: basketItem?.quantity || 1,
-                                        })
+                                        removeBasketItem(
+                                            {
+                                                itemID: item!.id,
+                                                variationID: selectedVariation,
+                                                size: selectedSize,
+                                                quantity:
+                                                    basketItem?.quantity || 1,
+                                            },
+                                            true
+                                        )
                                     }
                                     className="w-full"
                                 >
@@ -208,12 +212,15 @@ const ItemPage: React.FC<ItemPageProps> = ({ isMobileSidebarOpen }) => {
                             ) : (
                                 <PrimaryButton
                                     onClick={() =>
-                                        addBasketItem({
-                                            itemID: item!.id,
-                                            variationID: selectedVariation,
-                                            size: selectedSize,
-                                            quantity: 1,
-                                        })
+                                        addBasketItem(
+                                            {
+                                                itemID: item!.id,
+                                                variationID: selectedVariation,
+                                                size: selectedSize,
+                                                quantity: 1,
+                                            },
+                                            true
+                                        )
                                     }
                                     className="w-full"
                                 >

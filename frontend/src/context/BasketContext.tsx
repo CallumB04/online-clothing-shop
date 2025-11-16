@@ -4,8 +4,8 @@ import { ToastType, useToaster } from "./ToasterContext";
 
 type BasketContextType = {
     basket: Basket;
-    addBasketItem: (item: BasketItem) => void;
-    removeBasketItem: (item: BasketItem) => void;
+    addBasketItem: (item: BasketItem, showToast?: boolean) => void;
+    removeBasketItem: (item: BasketItem, showToast?: boolean) => void;
     clearBasket: () => void;
 };
 
@@ -33,7 +33,7 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
     const [basket, setBasket] = useState<Basket>([]);
     const { addToast } = useToaster();
 
-    const addBasketItem = (item: BasketItem) => {
+    const addBasketItem = (item: BasketItem, showToast?: boolean) => {
         setBasket((currentBasket) => {
             // check if that item of that variation and size already exists in basket
             const existsInBasket = currentBasket.find((basketItem) =>
@@ -57,15 +57,17 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
         });
 
         // add success toast
-        addToast(
-            "Item Added",
-            "This item has been successfully added to your basket",
-            ToastType.Info,
-            5000
-        );
+        if (showToast) {
+            addToast(
+                "Item Added",
+                "This item has been successfully added to your basket",
+                ToastType.Info,
+                5000
+            );
+        }
     };
 
-    const removeBasketItem = (item: BasketItem) => {
+    const removeBasketItem = (item: BasketItem, showToast?: boolean) => {
         setBasket((currentBasket) => {
             return (
                 currentBasket
@@ -85,12 +87,14 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
         });
 
         // add success toast
-        addToast(
-            "Item Removed",
-            "This item has been successfully removed from your basket",
-            ToastType.Info,
-            5000
-        );
+        if (showToast) {
+            addToast(
+                "Item Removed",
+                "This item has been successfully removed from your basket",
+                ToastType.Info,
+                5000
+            );
+        }
     };
 
     const clearBasket = () => {

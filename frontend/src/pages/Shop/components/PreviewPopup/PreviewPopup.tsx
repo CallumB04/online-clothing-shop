@@ -104,19 +104,25 @@ const PreviewPopup: React.FC<PreviewPopupProps> = ({ item, closePopup }) => {
                         onClick={
                             itemHasStock() && isItemInBasket()
                                 ? () =>
-                                      removeBasketItem({
-                                          itemID: item!.id,
-                                          variationID: selectedVariation,
-                                          size: selectedSize,
-                                          quantity: 1,
-                                      })
+                                      removeBasketItem(
+                                          {
+                                              itemID: item!.id,
+                                              variationID: selectedVariation,
+                                              size: selectedSize,
+                                              quantity: 1,
+                                          },
+                                          true
+                                      )
                                 : () =>
-                                      addBasketItem({
-                                          itemID: item!.id,
-                                          variationID: selectedVariation,
-                                          size: selectedSize,
-                                          quantity: 1,
-                                      })
+                                      addBasketItem(
+                                          {
+                                              itemID: item!.id,
+                                              variationID: selectedVariation,
+                                              size: selectedSize,
+                                              quantity: 1,
+                                          },
+                                          true
+                                      )
                         }
                     >
                         {itemHasStock()
