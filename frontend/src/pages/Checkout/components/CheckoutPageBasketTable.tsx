@@ -15,8 +15,8 @@ const CheckoutPageBasketTable = () => {
                 <DarkText className="w-40 flex-none text-center">
                     Quantity
                 </DarkText>
-                <DarkText className="w-32 flex-none text-center">
-                    Total
+                <DarkText className="w-36 flex-none text-center">
+                    Approx. Total
                 </DarkText>
                 {/* Empty span, column for item removal, but no header */}
                 <span className="w-12 flex-none"></span>

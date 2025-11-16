@@ -1,6 +1,7 @@
 import { fetchItemById, type Item, type BasketItem } from "@/api";
 import Icon from "@/components/Icon/Icon";
 import ItemImage from "@/components/ItemImage/ItemImage";
+import QuantitySelector from "@/components/QuantitySelector/QuantitySelector";
 import { DarkText } from "@/components/Text/DarkText";
 import { LightText } from "@/components/Text/LightText";
 import { useBasket } from "@/context/BasketContext";
@@ -16,7 +17,7 @@ const CheckoutPageBasketTableRow: React.FC<CheckoutPageBasketTableRowProps> = ({
     const [item, setItem] = useState<Item | undefined>(undefined);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const { removeBasketItem } = useBasket();
+    const { addBasketItem, removeBasketItem } = useBasket();
 
     // fetching item from basket item
     useEffect(() => {
@@ -57,13 +58,40 @@ const CheckoutPageBasketTableRow: React.FC<CheckoutPageBasketTableRowProps> = ({
                 </div>
             </span>
             {/* Size */}
-            <span className="w-80"></span>
+            <span className="w-32 flex-none">
+                <DarkText className="text-center text-sm">
+                    {basketItem.size}
+                </DarkText>
+            </span>
             {/* Quantity */}
-            <span className="w-80"></span>
+            <span className="w-40 flex-none">
+                <QuantitySelector
+                    onIncrement={() =>
+                        addBasketItem({ ...basketItem, quantity: 1 })
+                    }
+                    onDecrement={() =>
+                        removeBasketItem({ ...basketItem, quantity: 1 })
+                    }
+                    quantity={basketItem.quantity}
+                    className="mx-auto w-max text-sm"
+                    iconClassName="text-sm"
+                />
+            </span>
             {/* Total */}
-            <span className="w-52"></span>
+            <span className="w-36 flex-none">
+                <DarkText className="text-center text-sm">
+                    £
+                    {item?.discountPriceGBP
+                        ? (item.discountPriceGBP * basketItem.quantity).toFixed(
+                              2
+                          )
+                        : item
+                          ? (item.priceGBP * basketItem.quantity).toFixed(2)
+                          : "..."}
+                </DarkText>
+            </span>
             {/* Item removal */}
-            <span className="w-24">
+            <span className="h-4.5 w-12 flex-none">
                 <Icon
                     icon="close"
                     className="text-light-text hover:text-charcoal mx-auto text-xs transition-colors duration-150"
