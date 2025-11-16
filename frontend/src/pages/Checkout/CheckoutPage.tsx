@@ -6,6 +6,7 @@ import LightClickableText from "@/components/Text/LightClickableText";
 import DefaultSidebar from "@/layout/DefaultSidebar/DefaultSidebar";
 import { Link } from "react-router-dom";
 import CheckoutPageBasketTable from "./components/CheckoutPageBasketTable";
+import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner";
 
 interface CheckoutPageProps {
     isMobileSidebarOpen?: boolean;

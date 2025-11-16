@@ -1,6 +1,7 @@
 import { fetchItemById, type Item, type BasketItem } from "@/api";
 import Icon from "@/components/Icon/Icon";
 import ItemImage from "@/components/ItemImage/ItemImage";
+import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner";
 import QuantitySelector from "@/components/QuantitySelector/QuantitySelector";
 import { DarkText } from "@/components/Text/DarkText";
 import { LightText } from "@/components/Text/LightText";
@@ -41,6 +42,15 @@ const CheckoutPageBasketTableRow: React.FC<CheckoutPageBasketTableRowProps> = ({
         () => item?.variations.find((v) => v.id),
         [item]
     );
+
+    // show loading spinner until item details are fetched from backend
+    if (!item) {
+        return (
+            <span className="mx-auto flex h-16 items-center">
+                <LoadingSpinner className="size-10" />
+            </span>
+        );
+    }
 
     return (
         <span className="flex items-center gap-4">
